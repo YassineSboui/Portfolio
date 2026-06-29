@@ -1,1048 +1,523 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
     <meta charset="utf-8" />
-    <title>Yassine Sboui Portfolio</title>
-    <base href="/Portfolio/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="assets/NoBackground.png" />
-
-    <style type="text/css">
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 100;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE0tDMPKhSkFEkm8.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 100;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE0tMMPKhSkFEkm8.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 100;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE0tCMPKhSkFE.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmv1pVFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmv1pVGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmv1pVF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrJJLucXtAOvWDSHFF.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrJJLufntAOvWDSHFF.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrJJLucHtAOvWDSA.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmg1hVFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmg1hVGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmg1hVF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 600;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmr19VFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 600;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmr19VGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 600;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmr19VF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmy15VFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmy15VGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmy15VF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 800;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm111VFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 800;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm111VGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 800;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm111VF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm81xVFteOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm81xVGdeOYktMqlap.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: italic;
-        font-weight: 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm81xVF9eOYktMqg.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 100;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTucXtAOvWDSHFF.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 100;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTufntAOvWDSHFF.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 100;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTucHtAOvWDSA.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 200;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 200;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 200;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJbecnFHGPezSQ.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJnecnFHGPezSQ.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDD4Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDD4Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDD4Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z11lFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
-          U+25CC, U+A830-A839, U+A8E0-A8FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z1JlFd2JQEl8qw.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z1xlFd2JQEk.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEoYNNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
-          U+A640-A69F, U+FE2E-FE2F;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEoadNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEoYdNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEobtNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEoYtNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
-          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
-          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEoY9NZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDpCEobdNZUSdy4Q.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLAgM9QPFUex17.woff2)
-          format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
-          U+A640-A69F, U+FE2E-FE2F;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLCwM9QPFUex17.woff2)
-          format('woff2');
-        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLAwM9QPFUex17.woff2)
-          format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLDAM9QPFUex17.woff2)
-          format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLAAM9QPFUex17.woff2)
-          format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
-          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
-          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLAQM9QPFUex17.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVj2ZhZI2eCN5jzbjEETS9weq8-19eLDwM9QPFUew.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYoYNNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
-          U+A640-A69F, U+FE2E-FE2F;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYoadNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYoYdNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYobtNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYoYtNZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
-          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
-          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYoY9NZUSdy4ehI.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: italic;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVg2ZhZI2eCN5jzbjEETS9weq8-19eDtCYobdNZUSdy4Q.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCkYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
-          U+A640-A69F, U+FE2E-FE2F;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCAYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCgYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCcYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCsYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
-          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
-          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCoYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYb9lecyU.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19-7DQk6YvNkeg.woff2)
-          format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
-          U+A640-A69F, U+FE2E-FE2F;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19a7DQk6YvNkeg.woff2)
-          format('woff2');
-        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-1967DQk6YvNkeg.woff2)
-          format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19G7DQk6YvNkeg.woff2)
-          format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-1927DQk6YvNkeg.woff2)
-          format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
-          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
-          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19y7DQk6YvNkeg.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQk6YvM.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCkYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
-          U+A640-A69F, U+FE2E-FE2F;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCAYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCgYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+1F00-1FFF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCcYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0370-03FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCsYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
-          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
-          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCoYb9lecyVC4A.woff2)
-          format('woff2');
-        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
-          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
-          U+A720-A7FF;
-      }
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCQYb9lecyU.woff2)
-          format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
-    </style>
-
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
+    <title>Yassine Sboui — Software Developer</title>
+    <meta
+      name="description"
+      content="Yassine Sboui — Full-stack software developer building enterprise web platforms with Vue, .NET, Angular, and Python. Creator of NeoForm V2."
     />
-    <style>
-      :root {
-        --green: #69f0ae;
-        --green-light: #b9f6ca;
-        --gray-light: #bdbdbd;
-        --dark-gray: #263238;
-        --black: #212121;
-      }
-      * {
-        margin: 0%;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: Roboto Condensed, sans-serif;
-        font-family: Poppins, sans-serif;
-      }
-    </style>
+    <meta name="author" content="Yassine Sboui" />
+    <meta name="theme-color" content="#0b0f1a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Yassine Sboui — Software Developer" />
+    <meta
+      property="og:description"
+      content="Full-stack software developer building enterprise web platforms with Vue, .NET, Angular, and Python."
+    />
+    <meta property="og:image" content="assets/img/me.webp" />
+
+    <link rel="icon" type="image/png" href="assets/img/favicon-64.png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="styles.da5bee0a13dd4c86.css"
-      media="print"
-      onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
     />
-    <noscript
-      ><link rel="stylesheet" href="styles.da5bee0a13dd4c86.css"
-    /></noscript>
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-
   <body>
-    <app-root></app-root>
-    <script src="runtime.bfffc5951bcf4bf4.js" type="module"></script>
-    <script src="polyfills.c64030c343971fa8.js" type="module"></script>
-    <script src="main.bb506760df4d245a.js" type="module"></script>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Decorative animated background -->
+    <div class="bg-aurora" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+      <nav class="nav__inner" aria-label="Primary">
+        <a href="#hero" class="nav__brand">
+          <span class="nav__logo">YS</span>
+          <span class="nav__name">Yassine&nbsp;Sboui</span>
+        </a>
+
+        <button
+          class="nav__toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="navMenu"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact" class="nav__cta">Contact</a></li>
+          <li>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme">
+              <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"
+                />
+              </svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="hero">
+        <div class="hero__content reveal">
+          <p class="hero__eyebrow">👋 Hi, I'm</p>
+          <h1 class="hero__title">Yassine&nbsp;Sboui</h1>
+          <p class="hero__role">
+            <span class="grad-text">Software Developer</span>
+            <span class="hero__sep">/</span> Full-Stack Engineer
+          </p>
+          <p class="hero__tagline">
+            I build enterprise-grade web platforms end to end — from dynamic
+            <strong>Vue&nbsp;3</strong> interfaces to modular <strong>.NET&nbsp;8</strong>
+            back ends. Currently crafting <strong>NeoForm&nbsp;V2</strong>, a multi-tenant
+            form &amp; workflow engine, at NeoLedge.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View my work</a>
+            <a href="#contact" class="btn btn--ghost">Get in touch</a>
+          </div>
+
+          <ul class="hero__socials" aria-label="Social links">
+            <li>
+              <a href="https://github.com/YassineSboui" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 5 18.3 5.3 18.3 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/yassine7sboui/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:sboui.ys7@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm10 7.5L22 6H2l10 5.5Zm0 2.3L2 8.2V18h20V8.2l-10 5.6Z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hero__photo-ring">
+            <picture>
+              <source srcset="assets/img/me.webp" type="image/webp" />
+              <img
+                src="assets/img/me.png"
+                alt="Portrait of Yassine Sboui"
+                width="320"
+                height="320"
+                fetchpriority="high"
+              />
+            </picture>
+          </div>
+          <div class="hero__badge hero__badge--1">
+            <span class="dot"></span> Open to opportunities
+          </div>
+          <div class="hero__badge hero__badge--2">⚡ Vue · .NET · Python</div>
+        </div>
+      </section>
+
+      <!-- ============ STATS ============ -->
+      <section class="stats reveal" aria-label="Highlights">
+        <div class="stat"><span class="stat__num">3+</span><span class="stat__label">Years coding</span></div>
+        <div class="stat"><span class="stat__num">15+</span><span class="stat__label">Projects shipped</span></div>
+        <div class="stat"><span class="stat__num">5</span><span class="stat__label">Core languages</span></div>
+        <div class="stat"><span class="stat__num">∞</span><span class="stat__label">Curiosity</span></div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section" id="about">
+        <div class="section__head reveal">
+          <span class="section__index">01</span>
+          <h2 class="section__title">About me</h2>
+        </div>
+        <div class="about reveal">
+          <div class="about__text">
+            <p>
+              I'm a Tunisia-based <strong>full-stack software developer</strong> and
+              software-engineering student at <strong>Esprit</strong>, currently on a
+              work-study program (alternance) with <strong>NeoLedge</strong>. I enjoy
+              turning complex business problems into clean, maintainable software — my
+              day-to-day spans the whole stack, from component architectures on the
+              front end to modular, multi-tenant services on the back end.
+            </p>
+            <p>
+              At <strong>NeoLedge</strong> I work on <strong>NeoForm&nbsp;V2</strong>, a
+              dynamic form &amp; table platform that lets businesses design workflows
+              visually, automate logic with Blockly, and integrate with external APIs,
+              databases, and document systems. Outside of work I explore AI/NLP,
+              data engineering, and the occasional low-level simulation in C.
+            </p>
+            <p>
+              I care about performance, accessibility, and code that the next
+              developer (often future me) can actually read.
+            </p>
+          </div>
+          <ul class="about__facts">
+            <li><span>📍</span> Tunis, Tunisia</li>
+            <li><span>💼</span> Software Developer @ NeoLedge (alternance)</li>
+            <li><span>🎓</span> Software Engineering @ Esprit</li>
+            <li><span>🗣️</span> Arabic · French · English</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="section" id="skills">
+        <div class="section__head reveal">
+          <span class="section__index">02</span>
+          <h2 class="section__title">Tech I work with</h2>
+        </div>
+        <div class="skills reveal">
+          <article class="skill-card">
+            <h3>Front-End</h3>
+            <ul>
+              <li>Vue 3 / Vite</li><li>Angular</li><li>React</li>
+              <li>TypeScript</li><li>JavaScript (ES2023)</li>
+              <li>HTML5 &amp; CSS3</li><li>PrimeVue · Bootstrap · Material</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Back-End</h3>
+            <ul>
+              <li>ASP.NET Core / .NET 8 · C#</li><li>Node.js · Express</li>
+              <li>Python · FastAPI</li><li>Spring Boot · Java</li>
+              <li>REST APIs · Multi-tenancy</li><li>JWT &amp; Auth</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Data &amp; AI</h3>
+            <ul>
+              <li>PostgreSQL · MySQL</li><li>MongoDB</li>
+              <li>NLP · Machine Learning</li><li>Document AI / OCR</li>
+              <li>BI &amp; Data pipelines</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Tooling &amp; More</h3>
+            <ul>
+              <li>Docker · .NET Aspire</li><li>Git · Azure DevOps</li>
+              <li>Blockly automation</li><li>Serilog · Grafana · Loki</li>
+              <li>Android Studio · Unity (AR)</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE ============ -->
+      <section class="section" id="experience">
+        <div class="section__head reveal">
+          <span class="section__index">03</span>
+          <h2 class="section__title">Experience</h2>
+        </div>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <h3>Software Developer — Work-Study</h3>
+                <span class="timeline__date">Present</span>
+              </div>
+              <p class="timeline__org">NeoLedge · Alternance</p>
+              <p>
+                Full-stack development of <strong>NeoForm&nbsp;V2</strong>, an
+                enterprise multi-tenant form &amp; workflow platform. Building Vue 3
+                designers and runtimes, modular ASP.NET Core services, Blockly-based
+                automation, and connectors to external APIs, databases, SMTP, and the
+                Elise document system.
+              </p>
+              <div class="tags">
+                <span>Vue 3</span><span>.NET 8</span><span>PostgreSQL</span><span>Blockly</span><span>Docker</span>
+              </div>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <h3>Software Developer — Web</h3>
+                <span class="timeline__date">2023</span>
+              </div>
+              <p class="timeline__org">Sofiatech</p>
+              <p>
+                Developed responsive front-end interfaces and reusable component
+                libraries, collaborating across the stack to deliver client-facing
+                web features.
+              </p>
+              <div class="tags"><span>Angular</span><span>React</span><span>Node.js</span></div>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <h3>Web Developer — Internship</h3>
+                <span class="timeline__date">2022</span>
+              </div>
+              <p class="timeline__org">Billboard Rental Platform</p>
+              <p>
+                Built the front end of a billboard-rental website in React, creating
+                reusable, modular components and a clean booking flow.
+              </p>
+              <div class="tags"><span>React</span><span>JavaScript</span></div>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <div class="timeline__top">
+                <h3>Mobile Developer — Internship</h3>
+                <span class="timeline__date">2021</span>
+              </div>
+              <p class="timeline__org">Farmer Guidance App (AR)</p>
+              <p>
+                Built a mobile augmented-reality application to guide farmers, using
+                Android Studio and Unity for the AR experience.
+              </p>
+              <div class="tags"><span>Android Studio</span><span>Unity</span><span>AR</span></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section class="section" id="projects">
+        <div class="section__head reveal">
+          <span class="section__index">04</span>
+          <h2 class="section__title">Featured projects</h2>
+        </div>
+
+        <div class="projects">
+          <!-- NeoForm V2 -->
+          <article class="project project--featured reveal">
+            <div class="project__glow"></div>
+            <div class="project__header">
+              <span class="project__kicker">Flagship · NeoLedge</span>
+              <h3 class="project__title">NeoForm V2</h3>
+            </div>
+            <p class="project__desc">
+              A multi-tenant platform for designing dynamic business forms, tables,
+              and workflows — then executing them at scale. Users build schemas
+              visually, wire up logic with <strong>Blockly</strong>, and connect to
+              external APIs, databases, SMTP, Automate/ECS, and the Elise document
+              engine. Generates Word/PDF documents on submission and ships with full
+              observability (Serilog · Loki · Grafana).
+            </p>
+            <ul class="project__highlights">
+              <li>Definition-driven engine — forms, tables, apps &amp; configs as versioned JSON</li>
+              <li>Visual form/table designers with drag-and-drop &amp; live runtime</li>
+              <li>Modular ASP.NET Core API with tenant resolution &amp; secret protection</li>
+              <li>Blockly automation injecting field / API / Elise / table utilities</li>
+            </ul>
+            <div class="carousel" id="neoformCarousel" aria-roledescription="carousel" aria-label="NeoForm V2 screenshots">
+              <div class="carousel__viewport">
+                <ul class="carousel__track">
+                  <li class="carousel__slide">
+                    <button class="carousel__img" data-full="assets/img/neoform/designer.webp"
+                      aria-label="Enlarge: visual form designer">
+                      <img src="assets/img/neoform/designer.webp" alt="NeoForm V2 visual form designer"
+                        width="1918" height="946" loading="lazy" />
+                    </button>
+                    <span class="carousel__cap">Visual form designer</span>
+                  </li>
+                  <li class="carousel__slide">
+                    <button class="carousel__img" data-full="assets/img/neoform/execution.webp"
+                      aria-label="Enlarge: form runtime">
+                      <img src="assets/img/neoform/execution.webp" alt="NeoForm V2 form execution runtime"
+                        width="1918" height="944" loading="lazy" />
+                    </button>
+                    <span class="carousel__cap">Form runtime</span>
+                  </li>
+                </ul>
+              </div>
+              <button class="carousel__nav carousel__nav--prev" aria-label="Previous screenshot">‹</button>
+              <button class="carousel__nav carousel__nav--next" aria-label="Next screenshot">›</button>
+              <div class="carousel__dots" role="tablist" aria-label="Choose screenshot"></div>
+            </div>
+
+            <div class="tags">
+              <span>Vue 3</span><span>Vite</span><span>TypeScript</span><span>ASP.NET Core</span>
+              <span>.NET 8</span><span>PostgreSQL</span><span>Blockly</span><span>Docker · Aspire</span>
+            </div>
+            <div class="project__links">
+              <span class="project__private">🔒 Private enterprise project</span>
+            </div>
+          </article>
+
+          <!-- Talent-Bridge -->
+          <article class="project project--wide reveal">
+            <div class="project__media">
+              <video
+                controls
+                preload="none"
+                playsinline
+                poster="assets/video/talent-bridge-poster.webp"
+              >
+                <source src="assets/video/talent-bridge.mp4" type="video/mp4" />
+                Your browser can't play this video.
+                <a href="assets/video/talent-bridge.mp4">Download the demo</a>.
+              </video>
+              <span class="project__media-badge">▶ Demo</span>
+            </div>
+            <div class="project__body">
+              <div class="project__header">
+                <span class="project__kicker">Data · AI · BI</span>
+                <h3 class="project__title">Talent&nbsp;Bridge</h3>
+              </div>
+              <p class="project__desc">
+                A modular platform combining data engineering, BI, NLP, ML, and
+                document-AI with role-based access to analyze the IT job market and
+                power smarter recruitment decisions. Watch the demo for a full
+                walkthrough of the pipeline and dashboards.
+              </p>
+              <div class="tags"><span>Python</span><span>NLP</span><span>Machine Learning</span><span>BI</span><span>Document AI</span></div>
+              <div class="project__links">
+                <a href="https://github.com/YassineSboui/Talent-Bridge" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- NLP Medical -->
+          <article class="project reveal">
+            <div class="project__header">
+              <span class="project__kicker">NLP · Healthcare</span>
+              <h3 class="project__title">Medical Prescription NLP</h3>
+            </div>
+            <p class="project__desc">
+              An NLP-based prescription management MVP that analyzes patient
+              symptoms, extracts medical entities, suggests likely conditions, and
+              returns relevant medication information.
+            </p>
+            <div class="tags"><span>Python</span><span>NLP</span><span>NER</span><span>Healthcare</span></div>
+            <div class="project__links">
+              <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- MRAYAQ -->
+          <article class="project reveal">
+            <div class="project__header">
+              <span class="project__kicker">Full-Stack · Brand</span>
+              <h3 class="project__title">MRAYAQ</h3>
+            </div>
+            <p class="project__desc">
+              A polished brand site for a Tunisian menswear label, built with a Vue 3
+              + Vite front end backed by a lightweight .NET 8 minimal API.
+            </p>
+            <div class="tags"><span>Vue 3</span><span>Vite</span><span>.NET 8</span><span>Minimal API</span></div>
+            <div class="project__links">
+              <a href="https://github.com/YassineSboui/MRAYAQ" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- Smart City Traffic Simulator -->
+          <article class="project reveal">
+            <div class="project__header">
+              <span class="project__kicker">Systems · Simulation</span>
+              <h3 class="project__title">Smart City Traffic Simulator</h3>
+            </div>
+            <p class="project__desc">
+              A low-level simulation of an intelligent road intersection in C —
+              modeling roads, cars, traffic lights, pedestrians, and priority
+              (emergency) vehicles in real time.
+            </p>
+            <div class="tags"><span>C</span><span>Simulation</span><span>Algorithms</span></div>
+            <div class="project__links">
+              <a href="https://github.com/YassineSboui/Smart-City-Traffic-Simulator" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="projects__more reveal">
+          More on my <a href="https://github.com/YassineSboui" target="_blank" rel="noopener">GitHub profile ↗</a>
+        </p>
+      </section>
+
+      <!-- ============ EDUCATION ============ -->
+      <section class="section" id="education">
+        <div class="section__head reveal">
+          <span class="section__index">05</span>
+          <h2 class="section__title">Education</h2>
+        </div>
+        <div class="edu reveal">
+          <article class="edu-card">
+            <span class="edu-card__year">Now</span>
+            <h3>Software Engineering — Engineer's Degree</h3>
+            <p>ESPRIT — École Supérieure Privée d'Ingénierie et de Technologies, Tunis</p>
+            <p class="edu-card__note">Work-study program (alternance) with NeoLedge</p>
+          </article>
+          <article class="edu-card">
+            <span class="edu-card__year">2023</span>
+            <h3>Bachelor's Degree (Licence)</h3>
+            <p>Higher Institute of Technological Studies of Charguia (ISET Charguia)</p>
+            <p class="edu-card__note">Computer Science &amp; Software Development</p>
+          </article>
+          <article class="edu-card">
+            <span class="edu-card__year"></span>
+            <h3>Baccalaureate</h3>
+            <p>Secondary education diploma</p>
+            <p class="edu-card__note">Foundation in sciences &amp; mathematics</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section section--contact" id="contact">
+        <div class="contact reveal">
+          <span class="section__index">06</span>
+          <h2 class="contact__title">Let's build something together</h2>
+          <p class="contact__sub">
+            I'm open to new opportunities and interesting collaborations. The fastest
+            way to reach me is email — I usually reply within a day.
+          </p>
+          <a href="mailto:sboui.ys7@gmail.com" class="btn btn--primary btn--lg">sboui.ys7@gmail.com</a>
+
+          <ul class="contact__links">
+            <li><a href="https://github.com/YassineSboui" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/yassine7sboui/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="tel:+21629469868">+216 29 469 868</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Yassine Sboui — Designed &amp; built from scratch.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close image">&times;</button>
+      <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
