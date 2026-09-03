@@ -154,23 +154,65 @@
     setTimeout(() => term.classList.remove('is-typing'), 260 + rows.length * 620 + 400);
   }
 
-  /* ---------- Pause offscreen project videos (saves battery/data) ---------- */
+  /* ---------- Project videos: play only the most-visible one at a time ----------
+     Decoding several 1080p videos at once (easy to hit on desktop's 2-column grid —
+     up to 4 cards can be simultaneously "in view" mid-scroll) is what made scrolling
+     feel like a 30fps game there while mobile's single column stayed smooth. Only
+     one project video ever plays now, picked by whichever is most visible; everyone
+     else stays paused regardless of their own intersection state. The hero backdrop
+     video is a separate element in its own section and keeps its own simple rule. */
   if ('IntersectionObserver' in window) {
-    const vio = new IntersectionObserver(
+    const cardVideos = $$('.project__media video');
+    const visibleRatio = new Map();
+
+    function playMostVisibleCardVideo() {
+      let best = null;
+      let bestRatio = 0;
+      visibleRatio.forEach((ratio, v) => {
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          best = v;
+        }
+      });
+      cardVideos.forEach((v) => {
+        if (v === best) {
+          const p = v.play();
+          if (p && p.catch) p.catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    }
+
+    const cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const v = entry.target;
-          if (entry.isIntersecting) {
-            const p = v.play();
-            if (p && p.catch) p.catch(() => {});
-          } else {
-            v.pause();
-          }
+          if (entry.isIntersecting) visibleRatio.set(entry.target, entry.intersectionRatio);
+          else visibleRatio.delete(entry.target);
         });
+        playMostVisibleCardVideo();
       },
-      { threshold: 0.25 }
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
     );
-    $$('.project__media video, .hero__video').forEach((v) => vio.observe(v));
+    cardVideos.forEach((v) => cardObserver.observe(v));
+
+    const heroVideo = $('.hero__video');
+    if (heroVideo) {
+      const heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const p = heroVideo.play();
+              if (p && p.catch) p.catch(() => {});
+            } else {
+              heroVideo.pause();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      heroObserver.observe(heroVideo);
+    }
   }
 
   /* ---------- Footer year ---------- */
