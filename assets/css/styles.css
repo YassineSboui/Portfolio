@@ -98,10 +98,13 @@ ul { list-style: none; }
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  filter: blur(70px);
   opacity: 0.55;
 }
-.blob { position: absolute; border-radius: 50%; will-change: transform; }
+/* Blur lives on each blob, not the fixed wrapper: blurring the wrapper forced the
+   browser to re-rasterize the whole viewport-sized blur every frame the animated
+   children moved inside it. Blurring each blob once lets the GPU move the already-
+   blurred texture on scroll/animation instead of recomputing the blur continuously. */
+.blob { position: absolute; border-radius: 50%; will-change: transform; filter: blur(70px); }
 .blob-1 { width: 46vw; height: 46vw; background: var(--accent); top: -10vw; left: -8vw; animation: float1 22s var(--ease) infinite; }
 .blob-2 { width: 38vw; height: 38vw; background: var(--accent-2); top: 30vh; right: -10vw; animation: float2 26s var(--ease) infinite; }
 .blob-3 { width: 32vw; height: 32vw; background: var(--accent-3); bottom: -12vw; left: 25vw; animation: float1 30s var(--ease) infinite reverse; }
