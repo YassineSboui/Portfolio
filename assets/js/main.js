@@ -13,12 +13,10 @@
   const themeToggle = $('#themeToggle');
   const STORAGE_KEY = 'ys-theme';
 
+  // Dark is the designed default (the hero is a code surface); a visitor who
+  // explicitly picks light via the toggle keeps that choice.
   const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    root.setAttribute('data-theme', stored);
-  } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-    root.setAttribute('data-theme', 'light');
-  }
+  if (stored) root.setAttribute('data-theme', stored);
 
   themeToggle?.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -143,6 +141,37 @@
 
     go(0);
   });
+
+  /* ---------- Terminal intro: reveal each command block in sequence ---------- */
+  const term = $('#termIntro');
+  if (term && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const rows = $$('.term__row', term);
+    term.classList.add('is-typing');
+    rows.forEach((row, i) => {
+      setTimeout(() => row.classList.add('is-shown'), 260 + i * 620);
+    });
+    // once the last row is out, drop the gate so nothing can stay hidden
+    setTimeout(() => term.classList.remove('is-typing'), 260 + rows.length * 620 + 400);
+  }
+
+  /* ---------- Pause offscreen project videos (saves battery/data) ---------- */
+  if ('IntersectionObserver' in window) {
+    const vio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const v = entry.target;
+          if (entry.isIntersecting) {
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {});
+          } else {
+            v.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    $$('.project__media video, .hero__video').forEach((v) => vio.observe(v));
+  }
 
   /* ---------- Footer year ---------- */
   const year = $('#year');

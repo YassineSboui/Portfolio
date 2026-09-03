@@ -9,7 +9,7 @@
       content="Yassine Sboui — Full-stack software developer building enterprise web platforms with Vue, .NET, Angular, and Python. Creator of NeoForm V2."
     />
     <meta name="author" content="Yassine Sboui" />
-    <meta name="theme-color" content="#0b0f1a" />
+    <meta name="theme-color" content="#05070b" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -86,19 +86,74 @@
     <main id="main">
       <!-- ============ HERO ============ -->
       <section class="hero" id="hero">
+        <!-- looping code backdrop (decorative, muted, no audio) -->
+        <div class="hero__bg" aria-hidden="true">
+          <video
+            class="hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/video/code-bg-poster.jpg"
+          >
+            <source src="assets/video/code-bg.mp4" type="video/mp4" />
+          </video>
+          <div class="hero__scrim"></div>
+        </div>
+
         <div class="hero__content reveal">
-          <p class="hero__eyebrow">👋 Hi, I'm</p>
-          <h1 class="hero__title">Yassine&nbsp;Sboui</h1>
-          <p class="hero__role">
-            <span class="grad-text">Software Developer</span>
-            <span class="hero__sep">/</span> Full-Stack Engineer
-          </p>
-          <p class="hero__tagline">
-            I build enterprise-grade web platforms end to end — from dynamic
-            <strong>Vue&nbsp;3</strong> interfaces to modular <strong>.NET&nbsp;8</strong>
-            back ends. Currently crafting <strong>NeoForm&nbsp;V2</strong>, a multi-tenant
-            form &amp; workflow engine, at NeoLedge.
-          </p>
+          <div class="term" id="termIntro">
+            <div class="term__bar" aria-hidden="true">
+              <span class="term__dot term__dot--r"></span>
+              <span class="term__dot term__dot--y"></span>
+              <span class="term__dot term__dot--g"></span>
+              <span class="term__file">yassine@portfolio: ~</span>
+            </div>
+            <div class="term__body">
+              <div class="term__row">
+                <p class="term__line"><span class="term__prompt">➜</span> <span class="term__cmd">whoami</span></p>
+                <h1 class="term__out term__out--name">Yassine&nbsp;Sboui</h1>
+                <p class="term__out term__out--role">
+                  <span class="grad-text">Software Developer</span>
+                  <span class="hero__sep">/</span> Full-Stack Engineer
+                </p>
+              </div>
+
+              <div class="term__blank"></div>
+
+              <div class="term__row">
+                <p class="term__line"><span class="term__prompt">➜</span> <span class="term__cmd">cat about.md</span></p>
+                <p class="term__out">
+                  I build enterprise-grade web platforms end to end — from dynamic
+                  <span class="term__kw">Vue&nbsp;3</span> interfaces to modular
+                  <span class="term__kw">.NET&nbsp;8</span> back ends. Currently crafting
+                  <span class="term__fn">NeoForm&nbsp;V2</span>, a multi-tenant form &amp;
+                  workflow engine, at NeoLedge.
+                </p>
+              </div>
+
+              <div class="term__blank"></div>
+
+              <div class="term__row">
+                <p class="term__line"><span class="term__prompt">➜</span> <span class="term__cmd">ls skills/</span></p>
+                <p class="term__tags">
+                  <span class="term__tag">vue3</span>
+                  <span class="term__tag">dotnet8</span>
+                  <span class="term__tag">python</span>
+                  <span class="term__tag">keycloak</span>
+                  <span class="term__tag">postgres</span>
+                  <span class="term__tag">docker</span>
+                </p>
+              </div>
+
+              <div class="term__blank"></div>
+
+              <p class="term__line term__row">
+                <span class="term__prompt">➜</span><span class="caret" aria-hidden="true"></span>
+              </p>
+            </div>
+          </div>
 
           <div class="hero__actions">
             <a href="#projects" class="btn btn--primary">View my work</a>
@@ -336,30 +391,20 @@
               <li>Modular ASP.NET Core API with tenant resolution &amp; secret protection</li>
               <li>Blockly automation injecting field / API / Elise / table utilities</li>
             </ul>
-            <div class="carousel" id="neoformCarousel" aria-roledescription="carousel" aria-label="NeoForm V2 screenshots">
-              <div class="carousel__viewport">
-                <ul class="carousel__track">
-                  <li class="carousel__slide">
-                    <button class="carousel__img" data-full="assets/img/neoform/designer.webp"
-                      aria-label="Enlarge: visual form designer">
-                      <img src="assets/img/neoform/designer.webp" alt="NeoForm V2 visual form designer"
-                        width="1918" height="946" loading="lazy" />
-                    </button>
-                    <span class="carousel__cap">Visual form designer</span>
-                  </li>
-                  <li class="carousel__slide">
-                    <button class="carousel__img" data-full="assets/img/neoform/execution.webp"
-                      aria-label="Enlarge: form runtime">
-                      <img src="assets/img/neoform/execution.webp" alt="NeoForm V2 form execution runtime"
-                        width="1918" height="944" loading="lazy" />
-                    </button>
-                    <span class="carousel__cap">Form runtime</span>
-                  </li>
-                </ul>
-              </div>
-              <button class="carousel__nav carousel__nav--prev" aria-label="Previous screenshot">‹</button>
-              <button class="carousel__nav carousel__nav--next" aria-label="Next screenshot">›</button>
-              <div class="carousel__dots" role="tablist" aria-label="Choose screenshot"></div>
+            <div class="project__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/video/neoform-v2-poster.jpg"
+              >
+                <source src="assets/video/neoform-v2.mp4" type="video/mp4" />
+                Your browser can't play this video.
+                <a href="assets/video/neoform-v2.mp4">Download the demo</a>.
+              </video>
+              <span class="project__media-badge">▶ Demo</span>
             </div>
 
             <div class="tags">
@@ -376,9 +421,11 @@
             <div class="project__media">
               <video
                 controls
-                preload="none"
+                muted
+                loop
                 playsinline
-                poster="assets/video/talent-bridge-poster.webp"
+                preload="none"
+                poster="assets/video/talent-bridge-poster.jpg"
               >
                 <source src="assets/video/talent-bridge.mp4" type="video/mp4" />
                 Your browser can't play this video.
@@ -394,8 +441,8 @@
               <p class="project__desc">
                 A modular platform combining data engineering, BI, NLP, ML, and
                 document-AI with role-based access to analyze the IT job market and
-                power smarter recruitment decisions. Watch the demo for a full
-                walkthrough of the pipeline and dashboards.
+                power smarter recruitment decisions. The demo walks through all three
+                workspaces — candidate, recruiter and admin.
               </p>
               <div class="tags"><span>Python</span><span>NLP</span><span>Machine Learning</span><span>BI</span><span>Document AI</span></div>
               <div class="project__links">
@@ -404,8 +451,59 @@
             </div>
           </article>
 
+          <!-- Clinic AI -->
+          <article class="project project--wide reveal">
+            <div class="project__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/video/clinic-ai-poster.jpg"
+              >
+                <source src="assets/video/clinic-ai.mp4" type="video/mp4" />
+                Your browser can't play this video.
+                <a href="assets/video/clinic-ai.mp4">Download the demo</a>.
+              </video>
+              <span class="project__media-badge">▶ Demo</span>
+            </div>
+            <div class="project__body">
+              <div class="project__header">
+                <span class="project__kicker">AI · WhatsApp Automation</span>
+                <h3 class="project__title">Clinic&nbsp;AI</h3>
+              </div>
+              <p class="project__desc">
+                An AI assistant that answers a clinic's WhatsApp in seconds, in the
+                patient's language, quotes only prices from the clinic's own list,
+                and books consultations — backed by a live command center where the
+                team can take over any chat, edit the knowledge it sells from, and
+                read AI-generated insights into what patients actually ask.
+              </p>
+              <div class="tags"><span>Node.js</span><span>WhatsApp Cloud API</span><span>Claude</span><span>Express</span><span>SQLite</span><span>Whisper</span></div>
+              <div class="project__links">
+                <a href="https://github.com/YassineSboui/clinic-whatsapp-ai" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
           <!-- NLP Medical -->
           <article class="project reveal">
+            <div class="project__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/video/medical-poster.jpg"
+              >
+                <source src="assets/video/medical.mp4" type="video/mp4" />
+                Your browser can't play this video.
+                <a href="assets/video/medical.mp4">Download the demo</a>.
+              </video>
+              <span class="project__media-badge">▶ Demo</span>
+            </div>
             <div class="project__header">
               <span class="project__kicker">NLP · Healthcare</span>
               <h3 class="project__title">Medical Prescription NLP</h3>
@@ -423,6 +521,21 @@
 
           <!-- MRAYAQ -->
           <article class="project reveal">
+            <div class="project__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/video/mrayaq-poster.jpg"
+              >
+                <source src="assets/video/mrayaq.mp4" type="video/mp4" />
+                Your browser can't play this video.
+                <a href="assets/video/mrayaq.mp4">Download the demo</a>.
+              </video>
+              <span class="project__media-badge">▶ Demo</span>
+            </div>
             <div class="project__header">
               <span class="project__kicker">Full-Stack · Brand</span>
               <h3 class="project__title">MRAYAQ</h3>
