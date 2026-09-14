@@ -21,10 +21,11 @@ Live: <https://yassinesboui.github.io/Portfolio/>
 | Project | Stack | Demo |
 | --- | --- | --- |
 | NeoForm V2 — multi-tenant form & workflow platform (NeoLedge) | Vue 3 · .NET 8 · PostgreSQL · Blockly | private |
+| NeoLibrary — 37-component Vue 3 design system (NeoLedge) | Vue 3 · PrimeVue 4 · Tailwind · Storybook | private |
 | Talent Bridge — data/BI/NLP/ML recruitment platform | Python · FastAPI · Vue 3 · Power BI | video |
+| Clinic AI — WhatsApp assistant & live command center | Node.js · WhatsApp Cloud API · Claude | video |
 | Medical Prescription NLP — symptom & entity analysis | Python · FastAPI · scikit-learn | video |
 | MRAYAQ — menswear brand site | Vue 3 · .NET 8 minimal API | video |
-| Smart City Traffic Simulator — intelligent intersection sim | C | — |
 
 ## Structure
 
