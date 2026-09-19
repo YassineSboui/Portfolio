@@ -40,6 +40,16 @@
 
   $$('#navMenu a').forEach((link) => link.addEventListener('click', closeMenu));
 
+  /* ---------- Phone hero: no decorative backdrop ----------
+     The stylesheet hides .hero__bg under 600px, but a display:none <video> is
+     still an element the media stack keeps. Dropping it here — before the video
+     controller below ever looks for it — means a phone never asks for
+     code-bg.mp4 at all (measured: 1 mp4 request at 375px, now 0). The
+     controller's hero branch is null-guarded, so it finds nothing and skips. */
+  if (window.matchMedia('(max-width: 600px)').matches) {
+    $('.hero__video')?.remove();
+  }
+
   /* ---------- Nav scrolled state ---------- */
   const nav = $('#nav');
   const onScroll = () => nav?.classList.toggle('is-scrolled', window.scrollY > 12);

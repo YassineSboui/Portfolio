@@ -88,7 +88,6 @@
         <div class="hero__bg" aria-hidden="true">
           <video
             class="hero__video"
-            autoplay
             muted
             loop
             playsinline
@@ -187,6 +186,13 @@
           <div class="hero__plate">
             <div class="hero__photo-ring">
               <picture>
+                <!-- the plate is 220 CSS px wide on a phone, so 440 covers a 2x
+                     screen: 9.7 KB instead of the 27 KB 800px master -->
+                <source
+                  media="(max-width: 600px)"
+                  srcset="assets/img/me-440.webp"
+                  type="image/webp"
+                />
                 <source srcset="assets/img/me.webp" type="image/webp" />
                 <img
                   src="assets/img/me.png"

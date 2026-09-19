@@ -1108,3 +1108,26 @@ ul { list-style: none; }
   .timeline__card::before { grid-column: 1; grid-row: auto; padding-top: 0; }
   .footer { text-align: left; }
 }
+
+/* ---------- Phone: put the name on the first screen ----------
+   Measured at 375x812 the h1 sat at document y=703 — at or below the fold once
+   a real browser's chrome is taken off the 812. The portrait plate above it was
+   most of that 703, so on a phone it moves under the terminal, the top spacing
+   collapses, and the decorative code backdrop goes (main.js drops the element
+   too, so nothing is fetched or decoded for it here). */
+@media (max-width: 600px) {
+  .hero { padding-top: 0.9rem; padding-bottom: 2.4rem; }
+  .hero__bg { display: none; }
+  .hero__masthead { margin-bottom: 1rem; }
+  .hero__visual { order: 1; margin: 2.6rem 0 0; max-width: 220px; justify-self: start; }
+  .hero__captions { margin-top: 1rem; }
+  .hero__actions { margin-top: 1.8rem; }
+
+  /* Moving the plate below the fold made its decoration a scroll cost instead
+     of a load cost: the 70px-blur shadow alone was a 116ms frame as it came
+     into view, and the inset hairline a further dropped frame. Measured at
+     375px, dropping both takes the worst scroll frame from 116ms back to
+     17ms. At 220px on a phone neither was doing visible work. */
+  .hero__photo-ring { box-shadow: none; }
+  .hero__photo-ring::after { content: none; }
+}
