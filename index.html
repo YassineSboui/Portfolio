@@ -6,7 +6,7 @@
     <title>Yassine Sboui — Software Developer</title>
     <meta
       name="description"
-      content="Yassine Sboui — Full-stack software developer building enterprise web platforms with Vue, .NET, Angular, and Python. Creator of NeoForm V2."
+      content="Yassine Sboui — Full-stack software developer building enterprise web platforms with Vue, .NET, Angular, and Python. Creator of NeoForm."
     />
     <meta name="author" content="Yassine Sboui" />
     <meta name="theme-color" content="#05070b" />
@@ -128,7 +128,7 @@
                   I build enterprise-grade web platforms end to end — from dynamic
                   <span class="term__kw">Vue&nbsp;3</span> interfaces to modular
                   <span class="term__kw">.NET&nbsp;8</span> back ends. Currently crafting
-                  <span class="term__fn">NeoForm&nbsp;V2</span>, a multi-tenant form &amp;
+                  <span class="term__fn">NeoForm</span>, a multi-tenant form &amp;
                   workflow engine, at NeoLedge.
                 </p>
               </div>
@@ -224,7 +224,7 @@
               front end to modular, multi-tenant services on the back end.
             </p>
             <p>
-              At <strong>NeoLedge</strong> I work on <strong>NeoForm&nbsp;V2</strong>, a
+              At <strong>NeoLedge</strong> I work on <strong>NeoForm</strong>, a
               dynamic form &amp; table platform that lets businesses design workflows
               visually, automate logic with Blockly, and integrate with external APIs,
               databases, and document systems. Outside of work I explore AI/NLP,
@@ -302,7 +302,7 @@
               </div>
               <p class="timeline__org">NeoLedge · Alternance</p>
               <p>
-                Full-stack development of <strong>NeoForm&nbsp;V2</strong>, an
+                Full-stack development of <strong>NeoForm</strong>, an
                 enterprise multi-tenant form &amp; workflow platform. Building Vue 3
                 designers and runtimes, modular ASP.NET Core services, Blockly-based
                 automation, and connectors to external APIs, databases, SMTP, and the
@@ -370,27 +370,26 @@
         </div>
 
         <div class="projects">
-          <!-- NeoForm V2 -->
+          <!-- Elise.Studio -->
           <article class="project project--featured reveal">
             <div class="project__glow"></div>
             <div class="project__header">
-              <span class="project__kicker">Flagship · NeoLedge</span>
-              <h3 class="project__title">NeoForm V2</h3>
+              <span class="project__kicker">Multi-Tenant Platform · NeoLedge</span>
+              <h3 class="project__title">Elise.Studio</h3>
             </div>
             <p class="project__desc">
-              A multi-tenant platform for designing dynamic business forms, tables,
-              and workflows — then executing them at scale. Users build schemas
-              visually, wire up logic with <strong>Blockly</strong>, and connect to
-              external APIs, databases, SMTP, Automate/ECS, and the Elise document
-              engine. Generates Word/PDF documents on submission and ships with full
-              observability (Serilog · Loki · Grafana).
+              NeoLedge sells forms, workflows, dashboards, document generation and integrations to enterprise customers, historically as separate apps. Elise.Studio consolidates nine modules over nine independently deployed .NET 9 backends - eight mount into one Vue 3 shell, the ninth is a control-plane API served by the admin console, and forms and data-management carry most of the code. Each request's tenant is enforced four times - YARP edge, an EF connection interceptor that resets the tenant setting on every connection open, PostgreSQL FORCE row-level security, NOSUPERUSER NOBYPASSRLS roles - and a conformance harness goes red when a table ships without a policy. Authorization replaced 27 Keycloak realm roles with a level plus a module perimeter, computed in shadow beside the old model before the old tables were deleted.
             </p>
             <ul class="project__highlights">
-              <li>Definition-driven engine — forms, tables, apps &amp; configs as versioned JSON</li>
-              <li>Visual form/table designers with drag-and-drop &amp; live runtime</li>
-              <li>Modular ASP.NET Core API with tenant resolution &amp; secret protection</li>
-              <li>Blockly automation injecting field / API / Elise / table utilities</li>
+                <li>Four-layer tenant isolation, conformance-tested per schema under that schema's own production role</li>
+                <li>27 realm roles replaced by a level plus module perimeter, resolved from the control plane</li>
+                <li>VueFlow graph compiled into Elsa 3; two-pass reachability nests ForEach bodies correctly</li>
+                <li>Machine keys carry the tenant inside the secret, fingerprinted whole with SHA-256</li>
             </ul>
+            <div class="tags"><span>.NET 9</span><span>Vue 3</span><span>PostgreSQL RLS</span><span>YARP</span><span>Elsa Workflows 3</span><span>Keycloak / OIDC</span><span>EF Core</span><span>Multi-tenancy</span></div>
+            <div class="project__links">
+                <span class="project__private">&#128274; Private enterprise project</span>
+            </div>
             <div class="project__media">
               <video
                 controls
@@ -398,24 +397,52 @@
                 loop
                 playsinline
                 preload="none"
-                poster="assets/video/neoform-v2-poster.jpg"
+                poster="assets/video/elise-studio-poster.jpg"
               >
-                <source src="assets/video/neoform-v2.mp4" type="video/mp4" />
+                <source src="assets/video/elise-studio.mp4" type="video/mp4" />
                 Your browser can't play this video.
-                <a href="assets/video/neoform-v2.mp4">Download the demo</a>.
+                <a href="assets/video/elise-studio.mp4">Download the demo</a>.
               </video>
-              <span class="project__media-badge">▶ Demo</span>
-            </div>
-
-            <div class="tags">
-              <span>Vue 3</span><span>Vite</span><span>TypeScript</span><span>ASP.NET Core</span>
-              <span>.NET 8</span><span>PostgreSQL</span><span>Blockly</span><span>Docker · Aspire</span>
-            </div>
-            <div class="project__links">
-              <span class="project__private">🔒 Private enterprise project</span>
+              <span class="project__media-badge">&#9654; Demo</span>
             </div>
           </article>
-
+          <!-- NeoForm -->
+          <article class="project project--wide reveal">
+            <div class="project__media">
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster="assets/video/neoform-poster.jpg"
+              >
+                <source src="assets/video/neoform.mp4" type="video/mp4" />
+                Your browser can't play this video.
+                <a href="assets/video/neoform.mp4">Download the demo</a>.
+              </video>
+              <span class="project__media-badge">&#9654; Demo</span>
+            </div>
+            <div class="project__body">
+              <div class="project__header">
+                <span class="project__kicker">Low-Code Platform · NeoLedge</span>
+                <h3 class="project__title">NeoForm</h3>
+              </div>
+              <p class="project__desc">
+                NeoLedge's ECM product needed custom intake forms for every deployment — a developer's project each time. NeoForm turns that into configuration: admins compose forms, tables and referentials, wire runtime behaviour in Blockly, and publish them inside the authenticated Studio or as anonymous public links. On a 2,359-commit team product I led the security and platform work: PostgreSQL row-level security as a second tenant boundary, an AST gate in front of the server-side JavaScript sandbox, and an SSRF filter that runs in the socket connect callback rather than at URL-validation time, closing the DNS-rebinding window.
+              </p>
+              <ul class="project__highlights">
+                  <li>PostgreSQL row-level security per tenant, proven by tests that bypass EF entirely</li>
+                  <li>AI co-designer: the model emits typed operations, a deterministic compiler builds the Blockly logic</li>
+                  <li>Deny-by-default authorization enforced by a test that walks the live endpoint table</li>
+                  <li>Outbound connectors across four SQL engines behind a read-only gate and socket-level SSRF filter</li>
+              </ul>
+              <div class="tags"><span>ASP.NET Core</span><span>PostgreSQL</span><span>EF Core</span><span>Vue 3</span><span>TypeScript</span><span>Blockly</span><span>Keycloak</span><span>.NET Aspire</span></div>
+              <div class="project__links">
+                  <span class="project__private">&#128274; Private enterprise project</span>
+              </div>
+            </div>
+          </article>
           <!-- NeoLibrary -->
           <article class="project project--wide reveal">
             <div class="project__media">
@@ -431,7 +458,7 @@
                 Your browser can't play this video.
                 <a href="assets/video/neolibrary.mp4">Download the demo</a>.
               </video>
-              <span class="project__media-badge">▶ Demo</span>
+              <span class="project__media-badge">&#9654; Demo</span>
             </div>
             <div class="project__body">
               <div class="project__header">
@@ -439,24 +466,21 @@
                 <h3 class="project__title">NeoLibrary</h3>
               </div>
               <p class="project__desc">
-                The Vue 3 component library the platform is built on — an
-                opinionated layer over <strong>PrimeVue 4</strong> so no
-                application has to re-wrap inputs, re-derive design tokens, or
-                re-solve validation and RTL. 37 components behind a single
-                <code>app.use()</code>, re-themed at runtime, with the heavy
-                integrations (Blockly, Leaflet, Quill) lazy-loaded.
+                Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components run PrimeVue 4 unstyled, and 27 per-component passthrough configs compute every internal DOM node's classes as pure functions of props and context — an 8-state field spec resolved by an explicit priority chain, asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 181 registered block types that compiles a workspace into async JavaScript.
               </p>
-              <div class="tags">
-                <span>Vue 3</span><span>PrimeVue 4</span><span>Tailwind</span>
-                <span>TypeScript</span><span>Storybook</span><span>Vitest</span>
-              </div>
+              <ul class="project__highlights">
+                  <li>31 Tailwind passthrough configs over PrimeVue 4 unstyled, 8-state priority chain</li>
+                  <li>NeoBlockly: 181 block types compiled to async JS, 7 lifecycle toolbox profiles</li>
+                  <li>585 tests across 58 files, 207 Storybook stories, vue-tsc strict gate in CI</li>
+                  <li>RTL direction resolved through 5 ordered sources, enforced by class-level tests</li>
+              </ul>
+              <div class="tags"><span>Vue 3</span><span>TypeScript</span><span>PrimeVue 4</span><span>Tailwind CSS</span><span>Blockly</span><span>Vitest</span><span>Storybook</span><span>Vite</span></div>
               <div class="project__links">
-                <span class="project__private">🔒 Private enterprise project</span>
+                  <span class="project__private">&#128274; Private enterprise project</span>
               </div>
             </div>
           </article>
-
-          <!-- Talent-Bridge -->
+          <!-- Talent Bridge -->
           <article class="project project--wide reveal">
             <div class="project__media">
               <video
@@ -471,26 +495,28 @@
                 Your browser can't play this video.
                 <a href="assets/video/talent-bridge.mp4">Download the demo</a>.
               </video>
-              <span class="project__media-badge">▶ Demo</span>
+              <span class="project__media-badge">&#9654; Demo</span>
             </div>
             <div class="project__body">
               <div class="project__header">
-                <span class="project__kicker">Data · AI · BI</span>
-                <h3 class="project__title">Talent&nbsp;Bridge</h3>
+                <span class="project__kicker">Matching Engine · Personal</span>
+                <h3 class="project__title">Talent Bridge</h3>
               </div>
               <p class="project__desc">
-                A modular platform combining data engineering, BI, NLP, ML, and
-                document-AI with role-based access to analyze the IT job market and
-                power smarter recruitment decisions. The demo walks through all three
-                workspaces — candidate, recruiter and admin.
+                Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge parses a PDF CV and scores it against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
               </p>
-              <div class="tags"><span>Python</span><span>NLP</span><span>Machine Learning</span><span>BI</span><span>Document AI</span></div>
+              <ul class="project__highlights">
+                  <li>Two-stage cap layer ceilings title-only and low-signal-skill matches before ranking</li>
+                  <li>Missing skills priced against 785,741 real job postings, tiered critical to low</li>
+                  <li>SSIS star schema, 13 tables, bridge tables decomposing each posting's skill list</li>
+                  <li>CNN plus text-evidence CV gate with accept / reject / manual-review verdict</li>
+              </ul>
+              <div class="tags"><span>Python</span><span>FastAPI</span><span>PyTorch</span><span>sentence-transformers</span><span>Vue 3</span><span>SQL Server</span><span>SSIS</span><span>Power BI</span></div>
               <div class="project__links">
-                <a href="https://github.com/YassineSboui/Talent-Bridge" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+                  <a href="https://github.com/YassineSboui/Talent-Bridge" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
               </div>
             </div>
           </article>
-
           <!-- Clinic AI -->
           <article class="project project--wide reveal">
             <div class="project__media">
@@ -506,29 +532,30 @@
                 Your browser can't play this video.
                 <a href="assets/video/clinic-ai.mp4">Download the demo</a>.
               </video>
-              <span class="project__media-badge">▶ Demo</span>
+              <span class="project__media-badge">&#9654; Demo</span>
             </div>
             <div class="project__body">
               <div class="project__header">
-                <span class="project__kicker">AI · WhatsApp Automation</span>
-                <h3 class="project__title">Clinic&nbsp;AI</h3>
+                <span class="project__kicker">WhatsApp Assistant · Personal</span>
+                <h3 class="project__title">Clinic AI</h3>
               </div>
               <p class="project__desc">
-                An AI assistant that answers a clinic's WhatsApp in seconds, in the
-                patient's language, quotes only prices from the clinic's own list,
-                and books consultations — backed by a live command center where the
-                team can take over any chat, edit the knowledge it sells from, and
-                read AI-generated insights into what patients actually ask.
+                Turkish clinics sell to foreign patients over WhatsApp, where replies come late and without a price. This answers the Meta webhook in the patient's language and books against an editable weekly calendar. Every price the model writes is re-extracted against an allow-list built from the clinic's price list and FAQ; a reply carrying an unlisted figure is discarded whole, booking marker included. Seven classes of invented date are rejected before an appointment exists, and a coordinator can seize a thread mid-generation — the in-flight reply is dropped at send time. Exercised end to end against a Meta test number: pilot-ready, not yet in production.
               </p>
-              <div class="tags"><span>Node.js</span><span>WhatsApp Cloud API</span><span>Claude</span><span>Express</span><span>SQLite</span><span>Whisper</span></div>
+              <ul class="project__highlights">
+                  <li>Price allow-list filter over model output, with Russian, Arabic and Turkish currency words</li>
+                  <li>Resident faster-whisper worker transcribes voice notes locally, with a four-level fallback chain</li>
+                  <li>Delivery runs inside a per-user promise queue, before the assistant turn is committed</li>
+                  <li>3,118-line operator dashboard: no front-end dependencies, no innerHTML, 8 XSS vectors asserted</li>
+              </ul>
+              <div class="tags"><span>Node.js 22</span><span>Express</span><span>better-sqlite3</span><span>WhatsApp Cloud API</span><span>Anthropic SDK</span><span>faster-whisper</span><span>Playwright</span><span>Vanilla JS</span></div>
               <div class="project__links">
-                <a href="https://github.com/YassineSboui/clinic-whatsapp-ai" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+                  <a href="https://github.com/YassineSboui/clinic-whatsapp-ai" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
               </div>
             </div>
           </article>
-
-          <!-- NLP Medical -->
-          <article class="project reveal">
+          <!-- Medical Symptom Triage NLP -->
+          <article class="project project--wide reveal">
             <div class="project__media">
               <video
                 controls
@@ -536,31 +563,36 @@
                 loop
                 playsinline
                 preload="none"
-                poster="assets/video/medical-poster.jpg"
+                poster="assets/video/medical-nlp-poster.jpg"
               >
-                <source src="assets/video/medical.mp4" type="video/mp4" />
+                <source src="assets/video/medical-nlp.mp4" type="video/mp4" />
                 Your browser can't play this video.
-                <a href="assets/video/medical.mp4">Download the demo</a>.
+                <a href="assets/video/medical-nlp.mp4">Download the demo</a>.
               </video>
-              <span class="project__media-badge">▶ Demo</span>
+              <span class="project__media-badge">&#9654; Demo</span>
             </div>
-            <div class="project__header">
-              <span class="project__kicker">NLP · Healthcare</span>
-              <h3 class="project__title">Medical Prescription NLP</h3>
-            </div>
-            <p class="project__desc">
-              An NLP-based prescription management MVP that analyzes patient
-              symptoms, extracts medical entities, suggests likely conditions, and
-              returns relevant medication information.
-            </p>
-            <div class="tags"><span>Python</span><span>NLP</span><span>NER</span><span>Healthcare</span></div>
-            <div class="project__links">
-              <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+            <div class="project__body">
+              <div class="project__header">
+                <span class="project__kicker">Clinical NLP · Personal</span>
+                <h3 class="project__title">Medical Symptom Triage NLP</h3>
+              </div>
+              <p class="project__desc">
+                Free-text symptom notes in; a triage suggestion for one of 14 conditions out, with medication reference and warnings. Held-out accuracy is 0.894 — and the interface publishes 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page's phrasing. Cholera drops to 0.015. Every answer also names the engine that decided and reports that engine's own accuracy, not the best one's. Building the measure that exposed all this was the hard part.
+              </p>
+              <ul class="project__highlights">
+                  <li>Cross-source transfer recall 0.524 shown in four UI places, per-label down to 0.015</li>
+                  <li>Every response names the deciding engine and carries that engine's own measured accuracy</li>
+                  <li>616 rows, each traced to a quoted CDC/WHO passage verified verbatim by the builder</li>
+                  <li>SQLite consultations with audit trail, filterable history, CSV export, Markdown reports, batch mode</li>
+              </ul>
+              <div class="tags"><span>Python</span><span>FastAPI</span><span>scikit-learn</span><span>Streamlit</span><span>SQLAlchemy</span><span>SQLite</span><span>Pydantic</span><span>pytest</span></div>
+              <div class="project__links">
+                  <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+              </div>
             </div>
           </article>
-
           <!-- MRAYAQ -->
-          <article class="project reveal">
+          <article class="project project--wide reveal">
             <div class="project__media">
               <video
                 controls
@@ -574,19 +606,26 @@
                 Your browser can't play this video.
                 <a href="assets/video/mrayaq.mp4">Download the demo</a>.
               </video>
-              <span class="project__media-badge">▶ Demo</span>
+              <span class="project__media-badge">&#9654; Demo</span>
             </div>
-            <div class="project__header">
-              <span class="project__kicker">Full-Stack · Brand</span>
-              <h3 class="project__title">MRAYAQ</h3>
-            </div>
-            <p class="project__desc">
-              A polished brand site for a Tunisian menswear label, built with a Vue 3
-              + Vite front end backed by a lightweight .NET 8 minimal API.
-            </p>
-            <div class="tags"><span>Vue 3</span><span>Vite</span><span>.NET 8</span><span>Minimal API</span></div>
-            <div class="project__links">
-              <a href="https://github.com/YassineSboui/MRAYAQ" target="_blank" rel="noopener" class="project__link">View on GitHub ↗</a>
+            <div class="project__body">
+              <div class="project__header">
+                <span class="project__kicker">Menswear Brand Site · Personal</span>
+                <h3 class="project__title">MRAYAQ</h3>
+              </div>
+              <p class="project__desc">
+                A brand site and back office for a Tunisian menswear label, built instead of paying for Shopify. Vue 3.5 front end, .NET 8 minimal API over SQL Server: 16 endpoints, 7 behind JWT admin auth, layered into Domain/Application/Infrastructure folders so no endpoint lambda touches the DbContext. Order creation accepts only product IDs and quantities, pricing every line from the database. The identity is the harder half — 789 lines of hand-written CSS re-skinning PrimeVue's Aura preset into emerald and gold, carrying hardcoded French, English and Tunisian derja copy.
+              </p>
+              <ul class="project__highlights">
+                  <li>Order request carries no price field; unit price snapshotted from the DB</li>
+                  <li>Search, category and min/max price filters composed into one EF Core query</li>
+                  <li>PBKDF2-HMACSHA256, 100,000 iterations, 16-byte per-user salt; JWT clock skew cut to 1 minute</li>
+                  <li>PrimeVue Aura re-skinned through &ndash;p-* variables; Cinzel, Space Grotesk, Noto Kufi Arabic</li>
+              </ul>
+              <div class="tags"><span>Vue 3</span><span>TypeScript</span><span>.NET 8</span><span>Minimal API</span><span>EF Core</span><span>SQL Server</span><span>PrimeVue</span><span>JWT</span></div>
+              <div class="project__links">
+                  <a href="https://github.com/YassineSboui/MRAYAQ" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+              </div>
             </div>
           </article>
         </div>

@@ -20,12 +20,13 @@ Live: <https://yassinesboui.github.io/Portfolio/>
 
 | Project | Stack | Demo |
 | --- | --- | --- |
-| NeoForm V2 — multi-tenant form & workflow platform (NeoLedge) | Vue 3 · .NET 8 · PostgreSQL · Blockly | private |
+| Elise.Studio — nine-module multi-tenant platform (NeoLedge) | .NET 9 · Vue 3 · PostgreSQL RLS · YARP | private |
+| NeoForm — low-code form, table & workflow platform (NeoLedge) | ASP.NET Core · Vue 3 · PostgreSQL · Blockly | private |
 | NeoLibrary — 37-component Vue 3 design system (NeoLedge) | Vue 3 · PrimeVue 4 · Tailwind · Storybook | private |
-| Talent Bridge — data/BI/NLP/ML recruitment platform | Python · FastAPI · Vue 3 · Power BI | video |
-| Clinic AI — WhatsApp assistant & live command center | Node.js · WhatsApp Cloud API · Claude | video |
-| Medical Prescription NLP — symptom & entity analysis | Python · FastAPI · scikit-learn | video |
-| MRAYAQ — menswear brand site | Vue 3 · .NET 8 minimal API | video |
+| Talent Bridge — CV scoring & job matching platform | Python · FastAPI · Vue 3 · scikit-learn | video |
+| Clinic AI — WhatsApp assistant & live command center | Node.js · WhatsApp Cloud API · SQLite | video |
+| Medical Symptom Triage NLP — attributed predictions, published transfer recall | Python · FastAPI · scikit-learn · Streamlit | video |
+| MRAYAQ — menswear brand site & back office | Vue 3 · .NET 8 minimal API · SQL Server | video |
 
 ## Structure
 
