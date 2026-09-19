@@ -378,15 +378,15 @@
               <h3 class="project__title">Elise.Studio</h3>
             </div>
             <p class="project__desc">
-              NeoLedge sells forms, workflows, dashboards, document generation and integrations to enterprise customers, historically as separate apps. Elise.Studio consolidates nine modules over nine independently deployed .NET 9 backends - eight mount into one Vue 3 shell, the ninth is a control-plane API served by the admin console, and forms and data-management carry most of the code. Each request's tenant is enforced four times - YARP edge, an EF connection interceptor that resets the tenant setting on every connection open, PostgreSQL FORCE row-level security, NOSUPERUSER NOBYPASSRLS roles - and a conformance harness goes red when a table ships without a policy. Authorization replaced 27 Keycloak realm roles with a level plus a module perimeter, computed in shadow beside the old model before the old tables were deleted.
+              NeoLedge sells forms, workflows, dashboards, document generation and integrations to enterprise customers, historically as separate apps. Elise.Studio consolidates nine modules over nine independently deployed .NET 10 backends - eight mount into one Vue 3 shell, the ninth is a control-plane API served by the admin console, and forms and data-management carry most of the code. Each request's tenant is enforced four times - YARP edge, an EF connection interceptor that resets the tenant setting on every connection open, PostgreSQL FORCE row-level security, NOSUPERUSER NOBYPASSRLS roles - and a conformance harness goes red when a table ships without a policy. Authorization replaced 27 Keycloak realm roles with a level plus a module perimeter, computed in shadow beside the old model before the old tables were deleted. Built on a three-developer team; my share was the authorization model, the per-module machine-key identity and half of the gateway edge, and the highlights below describe the product's architecture rather than a personal credit list.
             </p>
             <ul class="project__highlights">
                 <li>Four-layer tenant isolation, conformance-tested per schema under that schema's own production role</li>
                 <li>27 realm roles replaced by a level plus module perimeter, resolved from the control plane</li>
-                <li>VueFlow graph compiled into Elsa 3; two-pass reachability nests ForEach bodies correctly</li>
+                <li>VueFlow graph compiled into Elsa 3; two-pass reachability lifts ForEach body activities into a sub-Flowchart</li>
                 <li>Machine keys carry the tenant inside the secret, fingerprinted whole with SHA-256</li>
             </ul>
-            <div class="tags"><span>.NET 9</span><span>Vue 3</span><span>PostgreSQL RLS</span><span>YARP</span><span>Elsa Workflows 3</span><span>Keycloak / OIDC</span><span>EF Core</span><span>Multi-tenancy</span></div>
+            <div class="tags"><span>.NET 10</span><span>Vue 3</span><span>PostgreSQL RLS</span><span>YARP</span><span>Elsa Workflows 3</span><span>Keycloak / OIDC</span><span>EF Core</span><span>Multi-tenancy</span></div>
             <div class="project__links">
                 <span class="project__private">&#128274; Private enterprise project</span>
             </div>
@@ -466,11 +466,11 @@
                 <h3 class="project__title">NeoLibrary</h3>
               </div>
               <p class="project__desc">
-                Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components run PrimeVue 4 unstyled, and 27 per-component passthrough configs compute every internal DOM node's classes as pure functions of props and context — an 8-state field spec resolved by an explicit priority chain, asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 181 registered block types that compiles a workspace into async JavaScript.
+                Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components run PrimeVue 4 unstyled under 27 per-component passthrough configs, where every state-dependent DOM node's classes are computed as pure functions of props and context — an 8-state field spec, seven of them resolved by a six-branch priority chain (disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default), asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 187 registered block types that compiles a workspace into async JavaScript.
               </p>
               <ul class="project__highlights">
-                  <li>31 Tailwind passthrough configs over PrimeVue 4 unstyled, 8-state priority chain</li>
-                  <li>NeoBlockly: 181 block types compiled to async JS, 7 lifecycle toolbox profiles</li>
+                  <li>27 Tailwind passthrough configs over PrimeVue 4 unstyled, 8-state spec, 6-branch chain</li>
+                  <li>NeoBlockly: 187 block types compiled to async JS, 7 declared toolbox profiles, 6 distinct toolboxes today</li>
                   <li>585 tests across 58 files, 207 Storybook stories, vue-tsc strict gate in CI</li>
                   <li>RTL direction resolved through 5 ordered sources, enforced by class-level tests</li>
               </ul>
@@ -507,8 +507,8 @@
               </p>
               <ul class="project__highlights">
                   <li>Two-stage cap layer ceilings title-only and low-signal-skill matches before ranking</li>
-                  <li>Missing skills priced against 785,741 real job postings, tiered critical to low</li>
-                  <li>SSIS star schema, 13 tables, bridge tables decomposing each posting's skill list</li>
+                  <li>Missing skills tiered critical to low by demand across 668,704 public postings</li>
+                  <li>SSIS star schema, 15 tables, bridge tables decomposing each posting's skill list</li>
                   <li>CNN plus text-evidence CV gate with accept / reject / manual-review verdict</li>
               </ul>
               <div class="tags"><span>Python</span><span>FastAPI</span><span>PyTorch</span><span>sentence-transformers</span><span>Vue 3</span><span>SQL Server</span><span>SSIS</span><span>Power BI</span></div>
@@ -540,7 +540,7 @@
                 <h3 class="project__title">Clinic AI</h3>
               </div>
               <p class="project__desc">
-                Turkish clinics sell to foreign patients over WhatsApp, where replies come late and without a price. This answers the Meta webhook in the patient's language and books against an editable weekly calendar. Every price the model writes is re-extracted against an allow-list built from the clinic's price list and FAQ; a reply carrying an unlisted figure is discarded whole, booking marker included. Seven classes of invented date are rejected before an appointment exists, and a coordinator can seize a thread mid-generation — the in-flight reply is dropped at send time. Exercised end to end against a Meta test number: pilot-ready, not yet in production.
+                Turkish clinics sell to foreign patients over WhatsApp, where replies come late and without a price. This answers the Meta webhook in the patient's language and books against an editable weekly calendar. Every price the model writes is re-extracted against an allow-list built from the clinic's price list and FAQ; a reply carrying an unlisted figure is discarded whole, booking marker included. Seven classes of bad booking marker are rejected before an appointment exists, and a coordinator can seize a thread mid-generation — the in-flight reply is dropped at send time. Exercised end to end against a Meta test number: pilot-ready, not yet in production.
               </p>
               <ul class="project__highlights">
                   <li>Price allow-list filter over model output, with Russian, Arabic and Turkish currency words</li>
@@ -573,7 +573,7 @@
             </div>
             <div class="project__body">
               <div class="project__header">
-                <span class="project__kicker">Clinical NLP · Personal</span>
+                <span class="project__kicker">Medical NLP · Personal</span>
                 <h3 class="project__title">Medical Symptom Triage NLP</h3>
               </div>
               <p class="project__desc">
