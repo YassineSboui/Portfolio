@@ -24,7 +24,7 @@ Live: <https://yassinesboui.github.io/Portfolio/>
 | NeoForm — low-code form, table & workflow platform (NeoLedge) | ASP.NET Core · Vue 3 · PostgreSQL · Blockly | private |
 | NeoLibrary — 37-component Vue 3 design system (NeoLedge) | Vue 3 · PrimeVue 4 · Tailwind · Storybook | private |
 | Talent Bridge — CV scoring & job matching platform | Python · FastAPI · Vue 3 · scikit-learn | video |
-| Clinic AI — WhatsApp assistant & live command center | Node.js · WhatsApp Cloud API · SQLite | video |
+| Clinic AI — WhatsApp assistant & live command center | Node.js · WhatsApp Cloud API · SQLite | private |
 | Medical Symptom Triage NLP — attributed predictions, published transfer recall | Python · FastAPI · scikit-learn · Streamlit | video |
 | MRAYAQ — menswear brand site & back office | Vue 3 · .NET 8 minimal API · SQL Server | video |
 

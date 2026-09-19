@@ -401,13 +401,13 @@
               <h3 class="project__title">Elise.Studio</h3>
             </div>
             <p class="project__desc">
-              Nine business modules behind one console, for enterprise customers who previously bought each of them as a separate application. Build a form by dragging fields onto a canvas and publish it to a link a stranger can open without an account. Draw a workflow as a graph and get every run traced back step by step with real timings. Compose dashboards over a live warehouse. Wire connectors to REST, SQL, storage and e-signature services with credentials held in a vault and never readable again. Underneath, every request's tenant is enforced four separate times, down to row-level security in PostgreSQL, and a conformance test goes red the moment a table ships without a policy.
+              Nine business modules behind one console, for enterprise customers who previously bought each of them as a separate application. The forms module is NeoForm ported into this console — the same builder and runtime, re-homed as one module among nine rather than a product of its own. Build a form by dragging fields onto a canvas and publish it to a link a stranger can open without an account. Draw a workflow as a graph and get every run traced back step by step with real timings. Compose dashboards over a live warehouse. Wire connectors to REST, SQL, storage and e-signature services with credentials held in a vault and never readable again. Underneath, every request's tenant is enforced four separate times, down to row-level security in PostgreSQL, and a conformance test goes red the moment a table ships without a policy.
             </p>
             <ul class="project__highlights">
                 <li>Forms built by drag-and-drop and published to anonymous links on a separate host</li>
                 <li>Workflows drawn as a graph, compiled to Elsa 3, every run traced with real timings</li>
-                <li>Connector layer refuses private-network targets by name in about a second, not a timeout</li>
-                <li>One account, several organisations — the edge verifies membership before granting either</li>
+                <li>Private-network targets refused on resolved IPs before any socket opens — DISCOVERY_EGRESS_BLOCKED</li>
+                <li>One account, several organisations — the edge grants a workspace only after confirming membership</li>
             </ul>
             <div class="tags"><span>.NET 10</span><span>Vue 3</span><span>PostgreSQL RLS</span><span>YARP</span><span>Elsa Workflows 3</span><span>Keycloak / OIDC</span><span>EF Core</span><span>Multi-tenancy</span></div>
             <div class="project__links">
@@ -526,13 +526,13 @@
                 <h3 class="project__title">Talent Bridge</h3>
               </div>
               <p class="project__desc">
-                Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge parses a PDF CV and scores it against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
+                Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge puts an uploaded PDF through a CNN document gate that accepts, rejects or routes it to manual review — the stored sample accepts at 0.997 — grades its structure and content 96 out of 100 on a hybrid deep-learning-and-rules path, and scans its text against a fixed 84-skill vocabulary. That profile is then scored against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. Demand comes from the corpus itself: 668,704 of 785,741 scraped postings carry parsable skills. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
               </p>
               <ul class="project__highlights">
                   <li>Two-stage cap layer ceilings title-only and low-signal-skill matches before ranking</li>
-                  <li>Missing skills tiered critical to low by demand across 668,704 public postings</li>
-                  <li>SSIS star schema, 15 tables, bridge tables decomposing each posting's skill list</li>
-                  <li>CNN plus text-evidence CV gate with accept / reject / manual-review verdict</li>
+                  <li>Missing skills tiered critical to low by demand across 668,704 skill-bearing postings</li>
+                  <li>SSIS star schema, 14 tables, bridge tables decomposing each posting's skill list</li>
+                  <li>CNN plus text-evidence document gate, then a hybrid DL-and-rules quality grade out of 100</li>
               </ul>
               <div class="tags"><span>Python</span><span>FastAPI</span><span>PyTorch</span><span>sentence-transformers</span><span>Vue 3</span><span>SQL Server</span><span>SSIS</span><span>Power BI</span></div>
               <div class="project__links">
@@ -569,11 +569,11 @@
                   <li>Price allow-list filter over model output, with Russian, Arabic and Turkish currency words</li>
                   <li>Resident faster-whisper worker transcribes voice notes locally, with a four-level fallback chain</li>
                   <li>Delivery runs inside a per-user promise queue, before the assistant turn is committed</li>
-                  <li>3,118-line operator dashboard: no front-end dependencies, no innerHTML, 8 XSS vectors asserted</li>
+                  <li>Operator dashboard with no front-end dependencies, no innerHTML, 8 XSS vectors asserted</li>
               </ul>
               <div class="tags"><span>Node.js 22</span><span>Express</span><span>better-sqlite3</span><span>WhatsApp Cloud API</span><span>Anthropic SDK</span><span>faster-whisper</span><span>Playwright</span><span>Vanilla JS</span></div>
               <div class="project__links">
-                  <a href="https://github.com/YassineSboui/clinic-whatsapp-ai" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+                  <span class="project__private">&#128274; Private repository</span>
               </div>
             </div>
           </article>
@@ -637,13 +637,13 @@
                 <h3 class="project__title">MRAYAQ</h3>
               </div>
               <p class="project__desc">
-                A brand site and back office for a Tunisian menswear label, built instead of paying for Shopify. Vue 3.5 front end, .NET 8 minimal API over SQL Server: 16 endpoints, 7 behind JWT admin auth, layered into Domain/Application/Infrastructure folders so no endpoint lambda touches the DbContext. Order creation accepts only product IDs and quantities, pricing every line from the database. The identity is the harder half — 789 lines of hand-written CSS re-skinning PrimeVue's Aura preset into emerald and gold, carrying hardcoded French, English and Tunisian derja copy.
+                A brand site and back office for a Tunisian menswear label, built instead of paying for Shopify. Vue 3.5 front end, .NET 8 minimal API over SQL Server: 16 endpoints, 7 behind JWT admin auth, layered into Domain/Application/Infrastructure folders so no endpoint lambda touches the DbContext. Order creation accepts only product IDs and quantities, pricing every line from the database. The identity is the harder half — PrimeVue's Aura preset re-skinned by hand into emerald and gold, over French copy hardcoded in the components, with English labels and two lines of Tunisian derja set in Arabic.
               </p>
               <ul class="project__highlights">
                   <li>Order request carries no price field; unit price snapshotted from the DB</li>
                   <li>Search, category and min/max price filters composed into one EF Core query</li>
                   <li>PBKDF2-HMACSHA256, 100,000 iterations, 16-byte per-user salt; JWT clock skew cut to 1 minute</li>
-                  <li>PrimeVue Aura re-skinned through &ndash;p-* variables; Cinzel, Space Grotesk, Noto Kufi Arabic</li>
+                  <li>Aura re-skinned by hand — 8 --p-* token overrides, the rest bespoke; Cinzel and Noto Kufi Arabic</li>
               </ul>
               <div class="tags"><span>Vue 3</span><span>TypeScript</span><span>.NET 8</span><span>Minimal API</span><span>EF Core</span><span>SQL Server</span><span>PrimeVue</span><span>JWT</span></div>
               <div class="project__links">
