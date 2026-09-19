@@ -20,7 +20,7 @@ Live: <https://yassinesboui.github.io/Portfolio/>
 
 | Project | Stack | Demo |
 | --- | --- | --- |
-| Elise.Studio — nine-module multi-tenant platform (NeoLedge) | .NET 9 · Vue 3 · PostgreSQL RLS · YARP | private |
+| Elise.Studio — nine-module multi-tenant platform (NeoLedge) | .NET 10 · Vue 3 · PostgreSQL RLS · YARP | private |
 | NeoForm — low-code form, table & workflow platform (NeoLedge) | ASP.NET Core · Vue 3 · PostgreSQL · Blockly | private |
 | NeoLibrary — 37-component Vue 3 design system (NeoLedge) | Vue 3 · PrimeVue 4 · Tailwind · Storybook | private |
 | Talent Bridge — CV scoring & job matching platform | Python · FastAPI · Vue 3 · scikit-learn | video |

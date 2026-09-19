@@ -380,7 +380,7 @@
               <h3 class="project__title">Elise.Studio</h3>
             </div>
             <p class="project__desc">
-              NeoLedge sells forms, workflows, dashboards, document generation and integrations to enterprise customers, historically as separate apps. Elise.Studio consolidates nine modules over nine independently deployed .NET 10 backends - eight mount into one Vue 3 shell, the ninth is a control-plane API served by the admin console, and forms and data-management carry most of the code. Each request's tenant is enforced four times - YARP edge, an EF connection interceptor that resets the tenant setting on every connection open, PostgreSQL FORCE row-level security, NOSUPERUSER NOBYPASSRLS roles - and a conformance harness goes red when a table ships without a policy. Authorization replaced 27 Keycloak realm roles with a level plus a module perimeter, computed in shadow beside the old model before the old tables were deleted. Built on a three-developer team; my share was the authorization model, the per-module machine-key identity and half of the gateway edge, and the highlights below describe the product's architecture rather than a personal credit list.
+              NeoLedge sells forms, workflows, dashboards, document generation and integrations to enterprise customers, historically as separate apps. Elise.Studio consolidates nine modules over nine independently deployed .NET 10 backends - eight mount into one Vue 3 shell, the ninth is a control-plane API served by the admin console, and forms and data-management carry most of the code. Each request's tenant is enforced four times - YARP edge, an EF connection interceptor that resets the tenant setting on every connection open, PostgreSQL FORCE row-level security, NOSUPERUSER NOBYPASSRLS roles - and a conformance harness goes red when a table ships without a policy. Authorization replaced 27 Keycloak realm roles with a level plus a module perimeter, computed in shadow beside the old model before the old tables were deleted.
             </p>
             <ul class="project__highlights">
                 <li>Four-layer tenant isolation, conformance-tested per schema under that schema's own production role</li>
@@ -399,8 +399,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/elise-studio-poster.jpg"
               >
                 <source src="assets/video/elise-studio.mp4" type="video/mp4" />
@@ -419,8 +417,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/neoform-poster.jpg"
               >
                 <source src="assets/video/neoform.mp4" type="video/mp4" />
@@ -458,8 +454,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/neolibrary-poster.jpg"
               >
                 <source src="assets/video/neolibrary.mp4" type="video/mp4" />
@@ -497,8 +491,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/talent-bridge-poster.jpg"
               >
                 <source src="assets/video/talent-bridge.mp4" type="video/mp4" />
@@ -536,8 +528,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/clinic-ai-poster.jpg"
               >
                 <source src="assets/video/clinic-ai.mp4" type="video/mp4" />
@@ -575,8 +565,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/medical-nlp-poster.jpg"
               >
                 <source src="assets/video/medical-nlp.mp4" type="video/mp4" />
@@ -614,8 +602,6 @@
                 loop
                 playsinline
                 preload="none"
-                width="1920"
-                height="1080"
                 poster="assets/video/mrayaq-poster.jpg"
               >
                 <source src="assets/video/mrayaq.mp4" type="video/mp4" />
