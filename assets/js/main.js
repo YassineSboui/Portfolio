@@ -413,6 +413,49 @@
     });
   }
 
+  /* ---------- Reading progress rule under the nav ----------
+     One transform write per animation frame, coalesced through rAF, on an
+     element that is already its own layer. It reads scrollY and the cached
+     document height only — no layout is forced from the scroll handler. */
+  const progress = $('#navProgress');
+  if (progress) {
+    let queued = false;
+    const paint = () => {
+      queued = false;
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      progress.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    };
+    paint();
+    window.addEventListener(
+      'scroll',
+      () => { if (!queued) { queued = true; requestAnimationFrame(paint); } },
+      { passive: true }
+    );
+    window.addEventListener('resize', paint, { passive: true });
+  }
+
+  /* ---------- Which section the reader is in ---------- */
+  const navLinks = $$('#navMenu a[href^="#"]');
+  const linkFor = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+  const navSections = $$('main section[id]').filter((s) => linkFor.has(s.id));
+  if ('IntersectionObserver' in window && navSections.length) {
+    const share = new Map();
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => share.set(e.target.id, e.isIntersecting ? e.intersectionRatio : 0));
+        let bestId = null;
+        let best = 0;
+        share.forEach((v, k) => { if (v > best) { best = v; bestId = k; } });
+        navLinks.forEach((a) => a.classList.remove('is-active'));
+        if (bestId) linkFor.get(bestId)?.classList.add('is-active');
+      },
+      { threshold: [0, 0.12, 0.35, 0.7], rootMargin: '-72px 0px -45% 0px' }
+    );
+    navSections.forEach((s) => sectionObserver.observe(s));
+  }
+
   /* ---------- Footer year ---------- */
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
