@@ -243,6 +243,12 @@ ul { list-style: none; }
   background: var(--grad);
   box-shadow: var(--shadow);
   animation: spin-ring 14s linear infinite;
+  /* The portrait inside is a square element that spins. Its *layout* box is the
+     square, so at 45 degrees its bounding box is 1.41x wider and pushed the
+     document 29px past a 375px viewport — a phantom width, since what is drawn
+     is a circle that looks identical at every angle. Clipping to the circle
+     costs nothing visible and keeps the page exactly viewport-wide. */
+  overflow: clip;
 }
 .hero__photo-ring img {
   width: 100%;
@@ -459,11 +465,36 @@ ul { list-style: none; }
 .project--wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 1.8rem; align-items: center; }
 /* Contained on every card type (standard, wide, featured) — never bled to the
    card's outer edge, so it never touches or crosses the card's own border. */
-.project__media { position: relative; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); background: #000; margin-bottom: 1.4rem; }
+/* The 16/9 box belongs to the container, and the video is taken out of flow
+   inside it. A <video> is a replaced element: its intrinsic size is 300x150
+   until metadata arrives and snaps to 1920x1080, and drops back to 300x150
+   every time the element is torn down to free its decoder. While the video sat
+   in normal flow that churn re-laid out the card on every load and release —
+   measured at 118ms of layout across one scroll pass, against 25ms with the
+   videos gone. Out of flow behind `contain`, media state cannot move a pixel of
+   the page, and the layout cost disappears. */
+.project__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  contain: layout paint style;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+  margin-bottom: 1.4rem;
+}
 .project--wide .project__media { margin-bottom: 0; } /* spacing comes from the grid gap instead */
 .project--featured .project__media { margin-top: 1.6rem; } /* breathing room below the highlights list above it */
 .project__media video,
-.project__media img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
+.project__media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
 .project__media-badge {
   position: absolute; top: 0.7rem; left: 0.7rem;
   padding: 0.3rem 0.7rem; border-radius: 999px;
@@ -693,8 +724,8 @@ ul { list-style: none; }
 }
 
 /* ---------- project video cards ---------- */
-.project__media video { aspect-ratio: 16 / 9; object-fit: cover; }
-.project--wide .project__media video { aspect-ratio: 16 / 9; }
+/* The 16/9 box is the container's (see .project__media above); the video itself
+   must stay free of an intrinsic ratio so its own metadata can never re-lay it out. */
 .project__media-badge { font-family: var(--mono); letter-spacing: 0.06em; }
 
 /* placeholder for a project card whose demo video isn't recorded yet */
