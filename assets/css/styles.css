@@ -979,7 +979,7 @@ ul, ol { list-style: none; }
 }
 
 /* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.js-reveal .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* =====================================================================
@@ -1095,6 +1095,9 @@ ul, ol { list-style: none; }
   }
   .nav__menu a { display: block; padding: 0.7rem 0; font-size: 0.78rem; }
   .nav__cta { display: inline-block; margin-top: 0.6rem; }
+  /* In-flow from 880px down, not 720px: the panel exists at every width the hamburger
+     does, so the disclosure has to push it open rather than float over it. */
+  .nav__drop { position: static; min-width: 0; padding: 0.2rem 0 0.4rem 0.9rem; background: none; border: 0; box-shadow: none; }
 
   /* Touch target floor. Measured at 375px: the hamburger was 34x25, the theme toggle
      34x34, and "View on GitHub" — the one call to action on every project — 134x24.
@@ -1160,7 +1163,6 @@ ul, ol { list-style: none; }
   .contents__name { grid-column: 1; grid-row: 1; }
   .contents__number { grid-column: 2; grid-row: 1; justify-self: end; text-align: right; }
   .contents__line { grid-column: 1 / -1; grid-row: 2; margin-top: 0.3rem; }
-  .nav__drop { position: static; min-width: 0; padding: 0.2rem 0 0.4rem 0.9rem; background: none; border: 0; box-shadow: none; }
   .work__figure::after { inset: -8px; }
   .work__colophon { margin-top: 2rem; }
   .contact { grid-template-columns: 1fr; }
@@ -1212,4 +1214,22 @@ ul, ol { list-style: none; }
      17ms. At 220px on a phone neither was doing visible work. */
   .hero__photo-ring { box-shadow: none; }
   .hero__photo-ring::after { content: none; }
+}
+
+/* ---------- Paper ----------
+   Printing, or "Save as PDF" to attach to an application, is a published surface too. The
+   reveal gate blanked pages 2-12 of a 13-page export — every project, every Decision, the
+   index, Experience and the contact details. Neutralised here the way the reduced-motion
+   block does it; the chrome goes, and the page is forced onto the light plate so it does
+   not print a black rectangle. The videos print as their poster frames, which is right. */
+@media print {
+  .js-reveal .reveal, .reveal { opacity: 1 !important; transform: none !important; }
+  .nav, .theme-toggle, .nav__toggle, .skip-link, .project__media-badge { display: none !important; }
+  :root, :root[data-theme='dark'], :root[data-theme='light'] {
+    --bg: #fff; --bg-soft: #fff; --text: #111; --text-dim: #333; --text-faint: #555;
+    --rule: #ccc; --rule-soft: #ddd; --shadow: none;
+  }
+  body { background: #fff; color: #111; }
+  .work, .decision, .contents__item, .work__figure { break-inside: avoid; }
+  a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 0.72em; color: #555; word-break: break-all; }
 }

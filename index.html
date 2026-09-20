@@ -141,11 +141,11 @@
               <div class="term__row">
                 <p class="term__line"><span class="term__prompt">➜</span> <span class="term__cmd">cat what-i-build.md</span></p>
                 <p class="term__out">
-                  I led the security and platform work on a 2,359-commit team product at
-                  NeoLedge — PostgreSQL row-level security as a second tenant boundary, an
-                  AST gate in front of the server-side JavaScript sandbox, and an SSRF
-                  filter that runs in the socket connect callback rather than at
-                  URL-validation time, closing the DNS-rebinding window.
+                  I build product and I own the security under it. At NeoLedge that has
+                  meant 989 of NeoForm's 2,359 commits — the form builder and the Blockly
+                  layer as much as the tenant boundary — and nine modules of Elise.Studio
+                  behind one console. The three mechanisms I would want you to check are
+                  further down; each one is a decision with a stated cost.
                 </p>
               </div>
 
@@ -206,7 +206,7 @@
               <span class="contents__no" aria-hidden="true">01</span>
               <span class="contents__name">Elise.Studio</span>
               <span class="contents__number">Nine modules</span>
-              <span class="contents__line">one console where nine applications used to be bought separately</span>
+              <span class="contents__line">one console where several of these used to be bought separately</span>
             </a>
           </li>
           <li class="contents__item c--neoform">
@@ -214,7 +214,7 @@
               <span class="contents__no" aria-hidden="true">02</span>
               <span class="contents__name">NeoForm</span>
               <span class="contents__number">2,359 commits</span>
-              <span class="contents__line">the security and platform layer of a low-code form platform</span>
+              <span class="contents__line">989 of its commits, from the builder canvas to row-level security</span>
             </a>
           </li>
           <li class="contents__item c--medical">
@@ -279,7 +279,7 @@
               <h3 class="work__title">Elise.Studio</h3>
             </header>
             <p class="work__lede">
-              Nine business modules behind one console, for enterprise customers who previously bought each of them as a separate application. The forms module is NeoForm ported into this console — the same builder and runtime, re-homed as one module among nine rather than a product of its own. Build a form by dragging fields onto a canvas and publish it to a link a stranger can open without an account. Draw a workflow as a graph and get every run traced back step by step with real timings. Compose dashboards over a live warehouse. Wire connectors to REST, SQL, storage and e-signature services with credentials held in a vault and never readable again. Underneath, every request's tenant is enforced four separate times, down to row-level security in PostgreSQL, and a conformance test goes red the moment a table ships without a policy.
+              Nine business modules behind one console - eight mounted in the shell, the ninth a control-plane API - for enterprise customers who used to buy several of these as separate applications, NeoForm among them. The forms module is where NeoForm went next: the same builder carried onto .NET 10 inside a nine-module console, with the tenant boundary hardened from one check to four, the runtime script guard made configurable and an egress guard added around the connectors. Build a form by dragging fields onto a canvas and publish it to a link a stranger can open without an account. Draw a workflow as a graph and get every run traced back step by step with real timings. Compose dashboards whose aggregation is pushed down into PostgreSQL instead of being assembled in the API, read through a role that cannot bypass row-level security. Wire connectors to REST, SQL, storage and e-signature services with credentials held in a vault and never readable again. Underneath, every request's tenant is enforced four separate times, down to row-level security in PostgreSQL, and a conformance test goes red the moment a table ships without a policy.
             </p>
             <div class="work__figure">
               <div class="project__media">
@@ -353,7 +353,7 @@
                 <p class="decision__line"><span class="decision__part">The constraint</span> The assistant answers foreign patients for Turkish clinics over WhatsApp, and must never quote a price it invented.</p>
                 <p class="decision__line"><span class="decision__part">What I rejected</span> Correcting the number.</p>
                 <p class="decision__line"><span class="decision__part">What I did</span> Every price the model writes is re-extracted against an allow-list built from the clinic's price list and FAQ; a reply carrying an unlisted figure is discarded whole, booking marker included.</p>
-                <p class="decision__line"><span class="decision__part">What it cost</span> The patient waits for a regenerated answer.</p>
+                <p class="decision__line"><span class="decision__part">What it cost</span> The patient gets a fixed "our coordinator will confirm your plan first" line instead of the answer they asked for, and the reply the model did write is discarded with it, booking included.</p>
               </div>
             </li>
             <li class="decision reveal">
@@ -384,7 +384,7 @@
               <h3 class="work__title">NeoForm</h3>
             </header>
             <p class="work__lede">
-              NeoLedge's ECM product needed custom intake forms for every deployment — a developer's project each time. NeoForm turns that into configuration: admins compose forms, tables and referentials, wire runtime behaviour in Blockly, and publish them inside the authenticated Studio or as anonymous public links. On a 2,359-commit team product I led the security and platform work: PostgreSQL row-level security as a second tenant boundary, an AST gate in front of the server-side JavaScript sandbox, and an SSRF filter that runs in the socket connect callback rather than at URL-validation time, closing the DNS-rebinding window.
+              NeoLedge's ECM product needed custom intake forms for every deployment — a developer's project each time. NeoForm turns that into configuration: admins compose forms, tables and referentials, wire runtime behaviour in Blockly, and publish them inside the authenticated Studio or as anonymous public links. I built across it — 989 of its 2,359 commits, second of twelve authors, from the builder canvas and the Blockly layer through to the security work, which is mine end to end: PostgreSQL row-level security as a second tenant boundary, an AST gate in front of the server-side JavaScript sandbox, and an SSRF filter that runs in the socket connect callback rather than at URL-validation time, closing the DNS-rebinding window.
             </p>
             <div class="work__figure">
               <div class="project__media">
@@ -409,7 +409,7 @@
                   <li>PostgreSQL row-level security per tenant, proven by tests that bypass EF entirely</li>
                   <li>AI co-designer: the model emits typed operations, a deterministic compiler builds the Blockly logic</li>
                   <li>Deny-by-default authorization enforced by a test that walks the live endpoint table</li>
-                  <li>Outbound connectors across four SQL engines behind a read-only gate and socket-level SSRF filter</li>
+                  <li>Outbound connectors across four SQL engines behind a read-only statement gate; the REST connector pinned to a socket-level SSRF filter</li>
               </ul>
             </div>
             <div class="work__colophon">
@@ -472,7 +472,7 @@
               <h3 class="work__title">NeoLibrary</h3>
             </header>
             <p class="work__lede">
-              Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components run PrimeVue 4 unstyled under 27 per-component passthrough configs, where every state-dependent DOM node's classes are computed as pure functions of props and context — an 8-state field spec, seven of them resolved by a six-branch priority chain (disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default), asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 187 registered block types that compiles a workspace into async JavaScript.
+              Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components - the 25 that wrap PrimeVue 4 render it unstyled under 27 per-component passthrough configs, where every state-dependent DOM node's classes are computed as pure functions of props and context — an 8-state field spec, seven of them resolved by a six-branch priority chain (disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default), asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 187 registered block types that compiles a workspace into async JavaScript.
             </p>
             <div class="work__figure">
               <div class="project__media">
@@ -516,7 +516,7 @@
               <h3 class="work__title">Talent Bridge</h3>
             </header>
             <p class="work__lede">
-              Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge puts an uploaded PDF through a CNN document gate that accepts, rejects or routes it to manual review — the stored sample accepts at 0.997 — grades its structure and content 96 out of 100 on a hybrid deep-learning-and-rules path, and scans its text against a fixed 84-skill vocabulary. That profile is then scored against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. Demand comes from the corpus itself: 668,704 of 785,741 scraped postings carry parsable skills. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
+              Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge puts an uploaded PDF through a CNN document gate that accepts it, rejects it, or holds it back as unverified — the stored sample accepts at 0.997 — grades its structure and content 96 out of 100 on a hybrid deep-learning-and-rules path, and scans its text against a fixed 84-skill vocabulary. That profile is then scored against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. Demand comes from the corpus itself: 668,704 of 785,741 scraped postings carry parsable skills. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
             </p>
             <div class="work__figure">
               <div class="project__media">
@@ -667,9 +667,10 @@
               </div>
               <p class="timeline__org">NeoLedge · Alternance</p>
               <p>
-                Tenant isolation, the connector layer and the egress guard — across
-                <strong>NeoForm</strong>, <strong>Elise.Studio</strong> and
-                <strong>NeoLibrary</strong>.
+                Full-stack across <strong>NeoForm</strong>, <strong>Elise.Studio</strong>
+                and <strong>NeoLibrary</strong> — builder, runtime and a 37-component
+                design system, through to tenant isolation, the connector layer and the
+                egress guard.
               </p>
               <div class="tags">
                 <span>Vue 3</span><span>.NET 10</span><span>PostgreSQL</span><span>Blockly</span><span>Docker</span>
@@ -728,6 +729,9 @@
       <p>© <span id="year"></span> Yassine Sboui — Designed &amp; built from scratch.</p>
     </footer>
 
+    <!-- Sets the reveal gate before first paint. The animation is opt-in, so with
+         JavaScript off the document renders in full instead of 24 blocks at opacity 0. -->
+    <script>document.documentElement.classList.add('js-reveal');</script>
     <script src="assets/js/main.js" defer></script>
   </body>
 </html>
