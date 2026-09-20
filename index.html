@@ -394,260 +394,310 @@
 
         <div class="projects">
           <!-- Elise.Studio -->
-          <article class="project project--featured reveal">
-            <div class="project__glow"></div>
-            <div class="project__header">
-              <span class="project__kicker">Multi-Tenant Platform · NeoLedge</span>
-              <h3 class="project__title">Elise.Studio</h3>
-            </div>
-            <p class="project__desc">
+          <article class="work work--elise work--featured reveal">
+            <p class="work__no" aria-hidden="true">01</p>
+            <header class="work__head">
+              <p class="work__kicker">Multi-Tenant Platform · NeoLedge</p>
+              <h3 class="work__title">Elise.Studio</h3>
+            </header>
+            <p class="work__lede">
               Nine business modules behind one console, for enterprise customers who previously bought each of them as a separate application. The forms module is NeoForm ported into this console — the same builder and runtime, re-homed as one module among nine rather than a product of its own. Build a form by dragging fields onto a canvas and publish it to a link a stranger can open without an account. Draw a workflow as a graph and get every run traced back step by step with real timings. Compose dashboards over a live warehouse. Wire connectors to REST, SQL, storage and e-signature services with credentials held in a vault and never readable again. Underneath, every request's tenant is enforced four separate times, down to row-level security in PostgreSQL, and a conformance test goes red the moment a table ships without a policy.
             </p>
-            <ul class="project__highlights">
-                <li>Forms built by drag-and-drop and published to anonymous links on a separate host</li>
-                <li>Workflows drawn as a graph, compiled to Elsa 3, every run traced with real timings</li>
-                <li>Private-network targets refused on resolved IPs before any socket opens — DISCOVERY_EGRESS_BLOCKED</li>
-                <li>One account, several organisations — the edge grants a workspace only after confirming membership</li>
-            </ul>
-            <div class="tags"><span>.NET 10</span><span>Vue 3</span><span>PostgreSQL RLS</span><span>YARP</span><span>Elsa Workflows 3</span><span>Keycloak / OIDC</span><span>EF Core</span><span>Multi-tenancy</span></div>
-            <div class="project__links">
-                <span class="project__private">&#128274; Private enterprise project</span>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/elise-studio-poster.jpg"
+                >
+                  <source src="assets/video/elise-studio.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/elise-studio.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
+              </div>
             </div>
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/elise-studio-poster.jpg"
-              >
-                <source src="assets/video/elise-studio.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/elise-studio.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
+              <ul class="project__highlights">
+                  <li>Forms built by drag-and-drop and published to anonymous links on a separate host</li>
+                  <li>Workflows drawn as a graph, compiled to Elsa 3, every run traced with real timings</li>
+                  <li>Private-network targets refused on resolved IPs before any socket opens — DISCOVERY_EGRESS_BLOCKED</li>
+                  <li>One account, several organisations — the edge grants a workspace only after confirming membership</li>
+              </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
+              <div class="tags"><span>.NET 10</span><span>Vue 3</span><span>PostgreSQL RLS</span><span>YARP</span><span>Elsa Workflows 3</span><span>Keycloak / OIDC</span><span>EF Core</span><span>Multi-tenancy</span></div>
+              <div class="project__links">
+                <span class="project__private">&#128274; Private enterprise project</span>
+              </div>
             </div>
           </article>
           <!-- NeoForm -->
-          <article class="project project--wide reveal">
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/neoform-poster.jpg"
-              >
-                <source src="assets/video/neoform.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/neoform.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
-            </div>
-            <div class="project__body">
-              <div class="project__header">
-                <span class="project__kicker">Low-Code Platform · NeoLedge</span>
-                <h3 class="project__title">NeoForm</h3>
+          <article class="work work--neoform reveal">
+            <p class="work__no" aria-hidden="true">02</p>
+            <header class="work__head">
+              <p class="work__kicker">Low-Code Platform · NeoLedge</p>
+              <h3 class="work__title">NeoForm</h3>
+            </header>
+            <p class="work__lede">
+              NeoLedge's ECM product needed custom intake forms for every deployment — a developer's project each time. NeoForm turns that into configuration: admins compose forms, tables and referentials, wire runtime behaviour in Blockly, and publish them inside the authenticated Studio or as anonymous public links. On a 2,359-commit team product I led the security and platform work: PostgreSQL row-level security as a second tenant boundary, an AST gate in front of the server-side JavaScript sandbox, and an SSRF filter that runs in the socket connect callback rather than at URL-validation time, closing the DNS-rebinding window.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/neoform-poster.jpg"
+                >
+                  <source src="assets/video/neoform.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/neoform.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
               </div>
-              <p class="project__desc">
-                NeoLedge's ECM product needed custom intake forms for every deployment — a developer's project each time. NeoForm turns that into configuration: admins compose forms, tables and referentials, wire runtime behaviour in Blockly, and publish them inside the authenticated Studio or as anonymous public links. On a 2,359-commit team product I led the security and platform work: PostgreSQL row-level security as a second tenant boundary, an AST gate in front of the server-side JavaScript sandbox, and an SSRF filter that runs in the socket connect callback rather than at URL-validation time, closing the DNS-rebinding window.
-              </p>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
               <ul class="project__highlights">
                   <li>PostgreSQL row-level security per tenant, proven by tests that bypass EF entirely</li>
                   <li>AI co-designer: the model emits typed operations, a deterministic compiler builds the Blockly logic</li>
                   <li>Deny-by-default authorization enforced by a test that walks the live endpoint table</li>
                   <li>Outbound connectors across four SQL engines behind a read-only gate and socket-level SSRF filter</li>
               </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
               <div class="tags"><span>ASP.NET Core</span><span>PostgreSQL</span><span>EF Core</span><span>Vue 3</span><span>TypeScript</span><span>Blockly</span><span>Keycloak</span><span>.NET Aspire</span></div>
               <div class="project__links">
-                  <span class="project__private">&#128274; Private enterprise project</span>
+                <span class="project__private">&#128274; Private enterprise project</span>
               </div>
             </div>
           </article>
           <!-- Medical Symptom Triage NLP -->
-          <article class="project project--wide reveal">
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/medical-nlp-poster.jpg"
-              >
-                <source src="assets/video/medical-nlp.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/medical-nlp.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
-            </div>
-            <div class="project__body">
-              <div class="project__header">
-                <span class="project__kicker">Medical NLP · Personal</span>
-                <h3 class="project__title">Medical Symptom Triage NLP</h3>
+          <article class="work work--medical reveal">
+            <p class="work__no" aria-hidden="true">03</p>
+            <header class="work__head">
+              <p class="work__kicker">Medical NLP · Personal</p>
+              <h3 class="work__title">Medical Symptom Triage NLP</h3>
+            </header>
+            <p class="work__lede">
+              Free-text symptom notes in; a triage suggestion for one of 14 conditions out, with medication reference and warnings. Held-out accuracy is 0.894 — and the interface publishes 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page's phrasing. Cholera drops to 0.015. Every answer also names the engine that decided and reports that engine's own accuracy, not the best one's. Building the measure that exposed all this was the hard part.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/medical-nlp-poster.jpg"
+                >
+                  <source src="assets/video/medical-nlp.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/medical-nlp.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
               </div>
-              <p class="project__desc">
-                Free-text symptom notes in; a triage suggestion for one of 14 conditions out, with medication reference and warnings. Held-out accuracy is 0.894 — and the interface publishes 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page's phrasing. Cholera drops to 0.015. Every answer also names the engine that decided and reports that engine's own accuracy, not the best one's. Building the measure that exposed all this was the hard part.
-              </p>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
               <ul class="project__highlights">
                   <li>Cross-source transfer recall 0.524 shown in four UI places, per-label down to 0.015</li>
                   <li>Every response names the deciding engine and carries that engine's own measured accuracy</li>
                   <li>616 rows, each traced to a quoted CDC/WHO passage verified verbatim by the builder</li>
                   <li>SQLite consultations with audit trail, filterable history, CSV export, Markdown reports, batch mode</li>
               </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
               <div class="tags"><span>Python</span><span>FastAPI</span><span>scikit-learn</span><span>Streamlit</span><span>SQLAlchemy</span><span>SQLite</span><span>Pydantic</span><span>pytest</span></div>
               <div class="project__links">
-                  <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+                <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
               </div>
             </div>
           </article>
           <!-- NeoLibrary -->
-          <article class="project project--wide reveal">
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/neolibrary-poster.jpg"
-              >
-                <source src="assets/video/neolibrary.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/neolibrary.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
-            </div>
-            <div class="project__body">
-              <div class="project__header">
-                <span class="project__kicker">Design System · NeoLedge</span>
-                <h3 class="project__title">NeoLibrary</h3>
+          <article class="work work--neolibrary reveal">
+            <p class="work__no" aria-hidden="true">04</p>
+            <header class="work__head">
+              <p class="work__kicker">Design System · NeoLedge</p>
+              <h3 class="work__title">NeoLibrary</h3>
+            </header>
+            <p class="work__lede">
+              Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components run PrimeVue 4 unstyled under 27 per-component passthrough configs, where every state-dependent DOM node's classes are computed as pure functions of props and context — an 8-state field spec, seven of them resolved by a six-branch priority chain (disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default), asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 187 registered block types that compiles a workspace into async JavaScript.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/neolibrary-poster.jpg"
+                >
+                  <source src="assets/video/neolibrary.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/neolibrary.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
               </div>
-              <p class="project__desc">
-                Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components run PrimeVue 4 unstyled under 27 per-component passthrough configs, where every state-dependent DOM node's classes are computed as pure functions of props and context — an 8-state field spec, seven of them resolved by a six-branch priority chain (disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default), asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 187 registered block types that compiles a workspace into async JavaScript.
-              </p>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
               <ul class="project__highlights">
                   <li>27 Tailwind passthrough configs over PrimeVue 4 unstyled, 8-state spec, 6-branch chain</li>
                   <li>NeoBlockly: 187 block types compiled to async JS, 7 declared toolbox profiles, 6 distinct toolboxes today</li>
                   <li>585 tests across 58 files, 207 Storybook stories, vue-tsc strict gate in CI</li>
                   <li>RTL direction resolved through 5 ordered sources, enforced by class-level tests</li>
               </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
               <div class="tags"><span>Vue 3</span><span>TypeScript</span><span>PrimeVue 4</span><span>Tailwind CSS</span><span>Blockly</span><span>Vitest</span><span>Storybook</span><span>Vite</span></div>
               <div class="project__links">
-                  <span class="project__private">&#128274; Private enterprise project</span>
+                <span class="project__private">&#128274; Private enterprise project</span>
               </div>
             </div>
           </article>
           <!-- Talent Bridge -->
-          <article class="project project--wide reveal">
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/talent-bridge-poster.jpg"
-              >
-                <source src="assets/video/talent-bridge.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/talent-bridge.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
-            </div>
-            <div class="project__body">
-              <div class="project__header">
-                <span class="project__kicker">Matching Engine · Personal</span>
-                <h3 class="project__title">Talent Bridge</h3>
+          <article class="work work--talent reveal">
+            <p class="work__no" aria-hidden="true">05</p>
+            <header class="work__head">
+              <p class="work__kicker">Matching Engine · Personal</p>
+              <h3 class="work__title">Talent Bridge</h3>
+            </header>
+            <p class="work__lede">
+              Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge puts an uploaded PDF through a CNN document gate that accepts, rejects or routes it to manual review — the stored sample accepts at 0.997 — grades its structure and content 96 out of 100 on a hybrid deep-learning-and-rules path, and scans its text against a fixed 84-skill vocabulary. That profile is then scored against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. Demand comes from the corpus itself: 668,704 of 785,741 scraped postings carry parsable skills. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/talent-bridge-poster.jpg"
+                >
+                  <source src="assets/video/talent-bridge.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/talent-bridge.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
               </div>
-              <p class="project__desc">
-                Keyword ATS filters rank a job title above a candidate who can do the work, and explain neither decision. Talent Bridge puts an uploaded PDF through a CNN document gate that accepts, rejects or routes it to manual review — the stored sample accepts at 0.997 — grades its structure and content 96 out of 100 on a hybrid deep-learning-and-rules path, and scans its text against a fixed 84-skill vocabulary. That profile is then scored against job rows from a SQL Server star-schema warehouse on seven weighted components — skills 0.35, MiniLM embedding similarity 0.25, then role, experience, education, location, opportunity — and the API response carries every sub-score, matched and missing skills, and written reasons. Demand comes from the corpus itself: 668,704 of 785,741 scraped postings carry parsable skills. The hard part was false positives: two stages of ceilings cap matches supported only by the job title, so a title hit with a skills sub-score under 35 is held at 62.
-              </p>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
               <ul class="project__highlights">
                   <li>Two-stage cap layer ceilings title-only and low-signal-skill matches before ranking</li>
                   <li>Missing skills tiered critical to low by demand across 668,704 skill-bearing postings</li>
                   <li>SSIS star schema, 14 tables, bridge tables decomposing each posting's skill list</li>
                   <li>CNN plus text-evidence document gate, then a hybrid DL-and-rules quality grade out of 100</li>
               </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
               <div class="tags"><span>Python</span><span>FastAPI</span><span>PyTorch</span><span>sentence-transformers</span><span>Vue 3</span><span>SQL Server</span><span>SSIS</span><span>Power BI</span></div>
               <div class="project__links">
-                  <a href="https://github.com/YassineSboui/Talent-Bridge" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+                <a href="https://github.com/YassineSboui/Talent-Bridge" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
               </div>
             </div>
           </article>
           <!-- Clinic AI -->
-          <article class="project project--wide reveal">
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/clinic-ai-poster.jpg"
-              >
-                <source src="assets/video/clinic-ai.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/clinic-ai.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
-            </div>
-            <div class="project__body">
-              <div class="project__header">
-                <span class="project__kicker">WhatsApp Assistant · Personal</span>
-                <h3 class="project__title">Clinic AI</h3>
+          <article class="work work--clinic reveal">
+            <p class="work__no" aria-hidden="true">06</p>
+            <header class="work__head">
+              <p class="work__kicker">WhatsApp Assistant · Personal</p>
+              <h3 class="work__title">Clinic AI</h3>
+            </header>
+            <p class="work__lede">
+              Turkish clinics sell to foreign patients over WhatsApp, where replies come late and without a price. This answers the Meta webhook in the patient's language and books against an editable weekly calendar. Every price the model writes is re-extracted against an allow-list built from the clinic's price list and FAQ; a reply carrying an unlisted figure is discarded whole, booking marker included. Seven classes of bad booking marker are rejected before an appointment exists, and a coordinator can seize a thread mid-generation — the in-flight reply is dropped at send time. Exercised end to end against a Meta test number: pilot-ready, not yet in production.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/clinic-ai-poster.jpg"
+                >
+                  <source src="assets/video/clinic-ai.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/clinic-ai.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
               </div>
-              <p class="project__desc">
-                Turkish clinics sell to foreign patients over WhatsApp, where replies come late and without a price. This answers the Meta webhook in the patient's language and books against an editable weekly calendar. Every price the model writes is re-extracted against an allow-list built from the clinic's price list and FAQ; a reply carrying an unlisted figure is discarded whole, booking marker included. Seven classes of bad booking marker are rejected before an appointment exists, and a coordinator can seize a thread mid-generation — the in-flight reply is dropped at send time. Exercised end to end against a Meta test number: pilot-ready, not yet in production.
-              </p>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
               <ul class="project__highlights">
                   <li>Price allow-list filter over model output, with Russian, Arabic and Turkish currency words</li>
                   <li>Resident faster-whisper worker transcribes voice notes locally, with a four-level fallback chain</li>
                   <li>Delivery runs inside a per-user promise queue, before the assistant turn is committed</li>
                   <li>Operator dashboard with no front-end dependencies, no innerHTML, 8 XSS vectors asserted</li>
               </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
               <div class="tags"><span>Node.js 22</span><span>Express</span><span>better-sqlite3</span><span>WhatsApp Cloud API</span><span>Anthropic SDK</span><span>faster-whisper</span><span>Playwright</span><span>Vanilla JS</span></div>
               <div class="project__links">
-                  <span class="project__private">&#128274; Private repository</span>
+                <span class="project__private">&#128274; Private repository</span>
               </div>
             </div>
           </article>
           <!-- MRAYAQ -->
-          <article class="project project--wide reveal">
-            <div class="project__media">
-              <video
-                controls
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster="assets/video/mrayaq-poster.jpg"
-              >
-                <source src="assets/video/mrayaq.mp4" type="video/mp4" />
-                Your browser can't play this video.
-                <a href="assets/video/mrayaq.mp4">Download the demo</a>.
-              </video>
-              <span class="project__media-badge">&#9654; Demo</span>
-            </div>
-            <div class="project__body">
-              <div class="project__header">
-                <span class="project__kicker">Menswear Brand Site · Personal</span>
-                <h3 class="project__title">MRAYAQ</h3>
+          <article class="work work--mrayaq reveal">
+            <p class="work__no" aria-hidden="true">07</p>
+            <header class="work__head">
+              <p class="work__kicker">Menswear Brand Site · Personal</p>
+              <h3 class="work__title">MRAYAQ</h3>
+            </header>
+            <p class="work__lede">
+              A brand site and back office for a Tunisian menswear label, built instead of paying for Shopify. Vue 3.5 front end, .NET 8 minimal API over SQL Server: 16 endpoints, 9 behind JWT admin auth, layered into Domain/Application/Infrastructure folders so no endpoint lambda touches the DbContext. Order creation accepts only product IDs and quantities, pricing every line from the database. The identity is the harder half — PrimeVue's Aura preset re-skinned by hand into emerald and gold, over French copy hardcoded in the components, with English labels and two lines of Tunisian derja set in Arabic.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/mrayaq-poster.jpg"
+                >
+                  <source src="assets/video/mrayaq.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/mrayaq.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
               </div>
-              <p class="project__desc">
-                A brand site and back office for a Tunisian menswear label, built instead of paying for Shopify. Vue 3.5 front end, .NET 8 minimal API over SQL Server: 16 endpoints, 9 behind JWT admin auth, layered into Domain/Application/Infrastructure folders so no endpoint lambda touches the DbContext. Order creation accepts only product IDs and quantities, pricing every line from the database. The identity is the harder half — PrimeVue's Aura preset re-skinned by hand into emerald and gold, over French copy hardcoded in the components, with English labels and two lines of Tunisian derja set in Arabic.
-              </p>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
               <ul class="project__highlights">
                   <li>Order request carries no price field; unit price snapshotted from the DB</li>
                   <li>Search, category and min/max price filters composed into one EF Core query</li>
                   <li>PBKDF2-HMACSHA256, 100,000 iterations, 16-byte per-user salt; JWT clock skew cut to 1 minute</li>
                   <li>Aura re-skinned by hand — 8 --p-* token overrides, the rest bespoke; Cinzel and Noto Kufi Arabic</li>
               </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
               <div class="tags"><span>Vue 3</span><span>TypeScript</span><span>.NET 8</span><span>Minimal API</span><span>EF Core</span><span>SQL Server</span><span>PrimeVue</span><span>JWT</span></div>
               <div class="project__links">
-                  <a href="https://github.com/YassineSboui/MRAYAQ" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+                <a href="https://github.com/YassineSboui/MRAYAQ" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
               </div>
             </div>
           </article>
