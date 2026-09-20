@@ -1095,6 +1095,20 @@ ul, ol { list-style: none; }
   }
   .nav__menu a { display: block; padding: 0.7rem 0; font-size: 0.78rem; }
   .nav__cta { display: inline-block; margin-top: 0.6rem; }
+
+  /* Touch target floor. Measured at 375px: the hamburger was 34x25, the theme toggle
+     34x34, and "View on GitHub" — the one call to action on every project — 134x24.
+     WCAG 2.5.8 wants 24 and these were sitting on that line or under it; a thumb
+     wants 44. Height comes from padding and min-height, never from font-size, so
+     nothing about the type changes. Both summaries already null their marker and
+     draw their own ::after, so flex is safe on them. */
+  .nav__toggle, .theme-toggle, .nav__brand { min-width: 44px; min-height: 44px; }
+  .project__link, .project__private, .footer a, .contact__link, .contact a, .projects__more a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav__disclosure summary, .stack summary { min-height: 44px; display: flex; align-items: center; }
 }
 
 @media (max-width: 720px) {
@@ -1108,13 +1122,44 @@ ul, ol { list-style: none; }
   .work--featured .work__figure, .work--featured .work__notes,
   .work--brief .work__lede, .work--brief .work__figure,
   .work--brief .work__notes, .work--brief .work__colophon { grid-column: 1; grid-row: auto; }
+  /* One column means source order is reading order, and source order put ~560px of
+     lede between the title and the first frame of running product. The evidence is
+     the reason the page exists, so it goes directly under the name and the
+     explanation reads after it — the same order the desktop featured spread already
+     uses. This alone moves the first poster from screen 3.56 to about 1.9.
+
+     `order` alone was not enough and the first attempt silently did nothing: the
+     featured spread pins `.work--featured .work__lede { grid-row: 3 }` outside any
+     query, and that selector is missing from the reset list above — so the lede held
+     row 3 while the figure auto-placed into row 4 behind it. `order` only sequences
+     items the grid is free to place. Every rule here therefore carries `grid-row:
+     auto` and is written at two classes, to outweigh the pinned pair. */
+  .work .work__no { order: 0; grid-row: auto; grid-column: 1; }
+  .work .work__head { order: 1; grid-row: auto; grid-column: 1; }
+  .work .work__figure { order: 2; grid-row: auto; grid-column: 1; }
+  .work .work__lede { order: 3; grid-row: auto; grid-column: 1; margin-top: 1.5rem; }
+  .work .work__notes { order: 4; grid-row: auto; grid-column: 1; }
+  .work .work__colophon { order: 5; grid-row: auto; grid-column: 1; }
+
   .decision { grid-template-columns: 1fr; }
   .decision__label, .decision__body { grid-column: 1; grid-row: auto; }
   .decision__label { margin-bottom: 0.7rem; }
   .decision__no { display: inline; margin-right: 0.6rem; }
   .before { padding-left: 0; }
-  .contents__link { grid-template-columns: 1fr; gap: 0.15rem; padding: 1rem 0; }
+  /* The 1080px rule puts .contents__line in column 2. A bare `1fr` here did not take
+     that back, so the browser opened an IMPLICIT second track to hold it and the seven
+     names were squeezed into whatever was left of the first: "Symptom Triage Console"
+     set on three lines in a 65px column. The index that exists to make the work
+     findable was the worst-composed thing on the page on a phone. grid-column has to
+     be reset explicitly — it does not fall back when the track list shrinks.
+     Recomposed, not shrunk: the name and its one load-bearing number share the top
+     line and read as an index entry, title left and figure right, with the sentence
+     running full width beneath. 961px to ~660px across the seven. */
+  .contents__link { grid-template-columns: minmax(0, 1fr) minmax(0, auto); gap: 0.1rem 0.9rem; padding: 0.95rem 0; }
   .contents__no { display: none; }
+  .contents__name { grid-column: 1; grid-row: 1; }
+  .contents__number { grid-column: 2; grid-row: 1; justify-self: end; text-align: right; }
+  .contents__line { grid-column: 1 / -1; grid-row: 2; margin-top: 0.3rem; }
   .nav__drop { position: static; min-width: 0; padding: 0.2rem 0 0.4rem 0.9rem; background: none; border: 0; box-shadow: none; }
   .work__figure::after { inset: -8px; }
   .work__colophon { margin-top: 2rem; }
@@ -1130,15 +1175,35 @@ ul, ol { list-style: none; }
 /* ---------- Phone: put the name on the first screen ----------
    Measured at 375x812 the h1 sat at document y=703 — at or below the fold once
    a real browser's chrome is taken off the 812. The portrait plate above it was
-   most of that 703, so on a phone it moves under the terminal, the top spacing
-   collapses, and the decorative code backdrop goes (main.js drops the element
-   too, so nothing is fetched or decoded for it here). */
+   most of that 703, so the top spacing collapses and the decorative code backdrop
+   goes (main.js drops the element too, so nothing is fetched or decoded for it). */
 @media (max-width: 600px) {
   .hero { padding-top: 0.9rem; padding-bottom: 2.4rem; }
   .hero__masthead { margin-bottom: 1rem; }
-  .hero__visual { order: 1; margin: 2.6rem 0 0; max-width: 220px; justify-self: start; }
-  .hero__captions { margin-top: 1rem; }
+
+  /* Moving the plate below the terminal fixed the h1 and broke the beat after it:
+     the button says "seven builds, seven demos" with an arrow down, and what came
+     next was 350px of face before anything it pointed at. Recomposed rather than
+     resized — on a phone the portrait is not a plate in its own column, it is a
+     52px identity chip on one line with the availability badge, above the rail.
+     352px becomes 72px and the face and the badge both survive. */
+  .hero__visual { order: -1; margin: 0 0 1.15rem; max-width: none; width: 100%; justify-self: stretch; }
+  .hero__plate { display: flex; align-items: center; gap: 0.85rem; }
+  .hero__photo-ring { flex: 0 0 52px; width: 52px; aspect-ratio: 1; border-radius: 50%; }
+  /* The badge's hairline separates it from the plate above it on desktop. Beside a
+     52px avatar there is nothing above it to separate, so the rule read as a line
+     starting and ending in mid-air. */
+  .hero__captions { margin: 0; }
+  .hero__badge { border-top: 0; padding-top: 0; }
   .hero__actions { margin-top: 1.8rem; }
+
+  /* Three weights, still three weights. Every clamp bottoms out at this width, so
+     78.4/57.6/40 landed as 43.2/36.8/28 and the featured spread was 17% over its
+     neighbours instead of 36%. The featured size is already as large as 375px will
+     carry, so the separation is restored from underneath. */
+  .work--featured .work__title { font-size: 2.7rem; }
+  .work__title { font-size: 2.05rem; }
+  .work--brief .work__title { font-size: 1.55rem; }
 
   /* Moving the plate below the fold made its decoration a scroll cost instead
      of a load cost: the 70px-blur shadow alone was a 116ms frame as it came
