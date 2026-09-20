@@ -217,17 +217,9 @@
               <span class="contents__line">989 of its commits, from the builder canvas to row-level security</span>
             </a>
           </li>
-          <li class="contents__item c--medical">
-            <a class="contents__link" href="#work-medical-nlp">
-              <span class="contents__no" aria-hidden="true">03</span>
-              <span class="contents__name">Symptom Triage Console</span>
-              <span class="contents__number">0.524 transfer recall</span>
-              <span class="contents__line">triage suggestions that publish their own cross-source failure</span>
-            </a>
-          </li>
           <li class="contents__item c--neolibrary">
             <a class="contents__link" href="#work-neolibrary">
-              <span class="contents__no" aria-hidden="true">04</span>
+              <span class="contents__no" aria-hidden="true">03</span>
               <span class="contents__name">NeoLibrary</span>
               <span class="contents__number">585 tests</span>
               <span class="contents__line">37 components, one tested source of truth over PrimeVue 4</span>
@@ -235,7 +227,7 @@
           </li>
           <li class="contents__item c--talent">
             <a class="contents__link" href="#work-talent-bridge">
-              <span class="contents__no" aria-hidden="true">05</span>
+              <span class="contents__no" aria-hidden="true">04</span>
               <span class="contents__name">Talent Bridge</span>
               <span class="contents__number">785,741 postings</span>
               <span class="contents__line">matching that returns every sub-score and the reasons behind it</span>
@@ -243,7 +235,7 @@
           </li>
           <li class="contents__item c--clinic">
             <a class="contents__link" href="#work-clinic-ai">
-              <span class="contents__no" aria-hidden="true">06</span>
+              <span class="contents__no" aria-hidden="true">05</span>
               <span class="contents__name">Clinic AI</span>
               <span class="contents__number">Seven rejected marker classes</span>
               <span class="contents__line">WhatsApp booking that quotes only prices the clinic published</span>
@@ -251,10 +243,18 @@
           </li>
           <li class="contents__item c--mrayaq">
             <a class="contents__link" href="#work-mrayaq">
-              <span class="contents__no" aria-hidden="true">07</span>
+              <span class="contents__no" aria-hidden="true">06</span>
               <span class="contents__name">MRAYAQ</span>
               <span class="contents__number">16 endpoints, 9 behind JWT</span>
               <span class="contents__line">brand site and back office, built instead of paying for Shopify</span>
+            </a>
+          </li>
+          <li class="contents__item c--medical">
+            <a class="contents__link" href="#work-medical-nlp">
+              <span class="contents__no" aria-hidden="true">07</span>
+              <span class="contents__name">Symptom Triage Console</span>
+              <span class="contents__number">0.524 transfer recall</span>
+              <span class="contents__line">triage suggestions that publish their own cross-source failure</span>
             </a>
           </li>
         </ol>
@@ -420,53 +420,9 @@
               </div>
             </div>
           </article>
-          <!-- Symptom Triage Console -->
-          <article class="work work--medical reveal" id="work-medical-nlp">
-            <p class="work__no" aria-hidden="true">03</p>
-            <header class="work__head">
-              <p class="work__kicker">Medical NLP · Personal</p>
-              <h3 class="work__title">Symptom Triage Console</h3>
-            </header>
-            <p class="work__lede">
-              Free-text symptom notes in; a triage suggestion for one of 14 conditions out, with medication reference and warnings. Held-out accuracy is 0.894 — and the interface publishes 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page's phrasing. Cholera drops to 0.015. Every answer also names the engine that decided and reports that engine's own accuracy, not the best one's. Building the measure that exposed all this was the hard part.
-            </p>
-            <div class="work__figure">
-              <div class="project__media">
-                <video
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  preload="none"
-                  poster="assets/video/medical-nlp-poster.jpg"
-                >
-                  <source src="assets/video/medical-nlp.mp4" type="video/mp4" />
-                  Your browser can't play this video.
-                  <a href="assets/video/medical-nlp.mp4">Download the demo</a>.
-                </video>
-                <span class="project__media-badge">&#9654; Demo</span>
-              </div>
-            </div>
-            <div class="work__notes">
-              <p class="work__label">Notes</p>
-              <ul class="project__highlights">
-                  <li>Cross-source transfer recall 0.524 shown in four UI places, per-label down to 0.015</li>
-                  <li>Every response names the deciding engine and carries that engine's own measured accuracy</li>
-                  <li>616 rows, each traced to a quoted CDC/WHO passage verified verbatim by the builder</li>
-                  <li>SQLite consultations with audit trail, filterable history, CSV export, Markdown reports, batch mode</li>
-              </ul>
-            </div>
-            <div class="work__colophon">
-              <p class="work__label">Stack</p>
-              <div class="tags"><span>Python</span><span>FastAPI</span><span>scikit-learn</span><span>Streamlit</span></div>
-              <div class="project__links">
-                <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
-              </div>
-            </div>
-          </article>
           <!-- NeoLibrary -->
           <article class="work work--neolibrary reveal" id="work-neolibrary">
-            <p class="work__no" aria-hidden="true">04</p>
+            <p class="work__no" aria-hidden="true">03</p>
             <header class="work__head">
               <p class="work__kicker">Design System · NeoLedge</p>
               <h3 class="work__title">NeoLibrary</h3>
@@ -510,7 +466,7 @@
           </article>
           <!-- Talent Bridge -->
           <article class="work work--talent work--brief reveal" id="work-talent-bridge">
-            <p class="work__no" aria-hidden="true">05</p>
+            <p class="work__no" aria-hidden="true">04</p>
             <header class="work__head">
               <p class="work__kicker">Matching Engine · Personal</p>
               <h3 class="work__title">Talent Bridge</h3>
@@ -554,7 +510,7 @@
           </article>
           <!-- Clinic AI -->
           <article class="work work--clinic work--brief reveal" id="work-clinic-ai">
-            <p class="work__no" aria-hidden="true">06</p>
+            <p class="work__no" aria-hidden="true">05</p>
             <header class="work__head">
               <p class="work__kicker">WhatsApp Assistant · Personal</p>
               <h3 class="work__title">Clinic AI</h3>
@@ -598,7 +554,7 @@
           </article>
           <!-- MRAYAQ -->
           <article class="work work--mrayaq work--brief reveal" id="work-mrayaq">
-            <p class="work__no" aria-hidden="true">07</p>
+            <p class="work__no" aria-hidden="true">06</p>
             <header class="work__head">
               <p class="work__kicker">Menswear Brand Site · Personal</p>
               <h3 class="work__title">MRAYAQ</h3>
@@ -637,6 +593,50 @@
               <div class="tags"><span>Vue 3</span><span>TypeScript</span><span>.NET 8</span><span>Minimal API</span></div>
               <div class="project__links">
                 <a href="https://github.com/YassineSboui/MRAYAQ" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
+              </div>
+            </div>
+          </article>
+          <!-- Symptom Triage Console -->
+          <article class="work work--medical reveal" id="work-medical-nlp">
+            <p class="work__no" aria-hidden="true">07</p>
+            <header class="work__head">
+              <p class="work__kicker">Medical NLP · Personal</p>
+              <h3 class="work__title">Symptom Triage Console</h3>
+            </header>
+            <p class="work__lede">
+              Free-text symptom notes in; a triage suggestion for one of 14 conditions out, with medication reference and warnings. Held-out accuracy is 0.894 — and the interface publishes 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page's phrasing. Cholera drops to 0.015. Every answer also names the engine that decided and reports that engine's own accuracy, not the best one's. Building the measure that exposed all this was the hard part.
+            </p>
+            <div class="work__figure">
+              <div class="project__media">
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="assets/video/medical-nlp-poster.jpg"
+                >
+                  <source src="assets/video/medical-nlp.mp4" type="video/mp4" />
+                  Your browser can't play this video.
+                  <a href="assets/video/medical-nlp.mp4">Download the demo</a>.
+                </video>
+                <span class="project__media-badge">&#9654; Demo</span>
+              </div>
+            </div>
+            <div class="work__notes">
+              <p class="work__label">Notes</p>
+              <ul class="project__highlights">
+                  <li>Cross-source transfer recall 0.524 shown in four UI places, per-label down to 0.015</li>
+                  <li>Every response names the deciding engine and carries that engine's own measured accuracy</li>
+                  <li>616 rows, each traced to a quoted CDC/WHO passage verified verbatim by the builder</li>
+                  <li>SQLite consultations with audit trail, filterable history, CSV export, Markdown reports, batch mode</li>
+              </ul>
+            </div>
+            <div class="work__colophon">
+              <p class="work__label">Stack</p>
+              <div class="tags"><span>Python</span><span>FastAPI</span><span>scikit-learn</span><span>Streamlit</span></div>
+              <div class="project__links">
+                <a href="https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System" target="_blank" rel="noopener" class="project__link">View on GitHub &#8599;</a>
               </div>
             </div>
           </article>

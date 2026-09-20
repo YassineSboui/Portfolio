@@ -26,11 +26,11 @@ Live: <https://yassinesboui.github.io/Portfolio/>
 | --- | --- | --- | --- |
 | Elise.Studio — nine-module multi-tenant platform (NeoLedge) | .NET 10 · Vue 3 · PostgreSQL RLS · YARP | video | private |
 | NeoForm — low-code form, table & rules platform (NeoLedge) | ASP.NET Core · PostgreSQL · EF Core · Vue 3 | video | private |
-| Symptom Triage Console — attributed predictions, published transfer recall | Python · FastAPI · scikit-learn · Streamlit | video | [GitHub](https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System) |
 | NeoLibrary — 37-component Vue 3 design system (NeoLedge) | Vue 3 · TypeScript · PrimeVue 4 · Tailwind CSS | video | private |
 | Talent Bridge — CV scoring & job matching platform | Python · FastAPI · PyTorch · sentence-transformers | video | [GitHub](https://github.com/YassineSboui/Talent-Bridge) |
 | Clinic AI — WhatsApp assistant & live command center | Node.js 22 · Express · better-sqlite3 · WhatsApp Cloud API | video | private |
 | MRAYAQ — menswear brand site & back office | Vue 3 · TypeScript · .NET 8 · Minimal API | video | [GitHub](https://github.com/YassineSboui/MRAYAQ) |
+| Symptom Triage Console — attributed predictions, published transfer recall | Python · FastAPI · scikit-learn · Streamlit | video | [GitHub](https://github.com/YassineSboui/NLP-Based-Medical-Prescription-Management-System) |
 
 ## Structure
 
