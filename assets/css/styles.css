@@ -16,7 +16,10 @@
   --border: var(--rule);
   --text: #ece8e1;
   --text-dim: #a5a09a;
-  --text-faint: #6f6a64;
+  /* #6f6a64 measured 3.63:1 on #0d0d0f and carried the nav, the section indices,
+     .timeline__date, .project__private and the footer at 10.88px — below AA at any
+     size. #8a847c measures 5.25:1 and is the same warm grey. */
+  --text-faint: #8a847c;
 
   /* one quiet house accent; each project carries its own on top of it */
   --accent: oklch(0.8 0.085 78);
@@ -28,10 +31,6 @@
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --display: 'Instrument Serif', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
-  --code-kw: #7dd3fc;
-  --code-fn: #c4b5fd;
-  --code-st: #86efac;
-  --code-cm: #56657a;
 
   --radius: 3px;
   --radius-sm: 2px;
@@ -54,7 +53,9 @@
   --rule-soft: rgba(26, 23, 17, 0.1);
   --text: #1a1814;
   --text-dim: #5d584f;
-  --text-faint: #8b857a;
+  /* the paper plate needs the same lift the other way: #8b857a was 3.25:1 on
+     #f4f1ea, #6f6a61 is 4.76:1 */
+  --text-faint: #6f6a61;
   --accent: oklch(0.5 0.1 66);
   --accent-2: oklch(0.5 0.1 66);
   --accent-3: oklch(0.5 0.1 66);
@@ -91,16 +92,18 @@ body {
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.06; letter-spacing: -0.005em; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
-ul { list-style: none; }
+ul, ol { list-style: none; }
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
 /* small caps label, the connective tissue of the whole layout */
 .label,
-.section__index,
 .work__label,
 .work__kicker,
 .nav__menu a,
-.edu-card__year,
+.nav__disclosure summary,
+.contents__no,
+.decision__label,
+.stack summary,
 .timeline__date {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -108,8 +111,6 @@ ul { list-style: none; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-
-.grad-text { color: inherit; }
 
 .skip-link {
   position: absolute;
@@ -168,7 +169,9 @@ ul { list-style: none; }
   padding-top: 1.1rem;
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
-.section__index { color: var(--text-faint); }
+/* The 01-06 eyebrows are gone — they advertised the page as a template sequence —
+   so the title itself takes the rail's second column. */
+.section__head .section__title { grid-column: 2; }
 .section__title {
   font-size: clamp(2.1rem, 5.2vw, 3.6rem);
   letter-spacing: -0.015em;
@@ -257,6 +260,51 @@ ul { list-style: none; }
 .nav__cta::after { display: none; }
 .nav__cta:hover { border-color: var(--accent); color: var(--accent) !important; }
 
+/* "Work" is a native <details>: it opens on click or Enter/Space, closes on Escape,
+   and nothing in the focus order moves. No script, so it cannot get out of step with
+   aria-expanded, and it can never trap a keyboard. */
+.nav__disclosure { position: relative; }
+.nav__disclosure summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--text-faint);
+  padding-block: 0.35rem;
+  transition: color 0.3s var(--ease);
+}
+.nav__disclosure summary::-webkit-details-marker { display: none; }
+.nav__disclosure summary::after {
+  content: '+';
+  margin-left: 0.45rem;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+.nav__disclosure[open] summary::after { content: '\2212'; }
+.nav__disclosure summary:hover,
+.nav__disclosure[open] summary { color: var(--text); }
+.nav__drop {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: -0.9rem;
+  min-width: 15rem;
+  padding: 0.5rem 0.9rem 0.7rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+.nav__drop a {
+  display: block;
+  padding: 0.45rem 0;
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-dim);
+}
+.nav__drop a::after { display: none; }
+.nav__drop a:hover { color: var(--text); }
+
 .theme-toggle {
   display: grid;
   place-items: center;
@@ -325,20 +373,7 @@ ul { list-style: none; }
   color: var(--text-faint);
 }
 .hero__rule { flex: 1; height: 1px; background: var(--rule); }
-.hero__sep { color: var(--text-faint); margin: 0 0.35rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; }
-.hero__socials { display: flex; align-items: center; gap: 0; margin-top: 1.9rem; margin-left: -12px; }
-.hero__socials a {
-  color: var(--text-faint);
-  transition: color 0.3s, transform 0.3s var(--ease);
-  /* 20px glyph, 44px target — SC 2.5.8 without changing the drawn size */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-}
-.hero__socials a:hover { color: var(--text); transform: translateY(-3px); }
 
 /* portrait as a plate, not a spinning badge */
 .hero__visual { position: relative; justify-self: center; width: 100%; max-width: 360px; }
@@ -393,66 +428,6 @@ ul { list-style: none; }
   background: #4ade80;
   box-shadow: 0 0 0 3px color-mix(in srgb, #4ade80 18%, transparent);
 }
-
-/* ---------- About ---------- */
-.about { display: grid; grid-template-columns: var(--rail) minmax(0, 1.55fr) minmax(0, 0.9fr); gap: 0 var(--col-gap); }
-.about__text { grid-column: 2; max-width: 40rem; }
-.about__text p { color: var(--text-dim); margin-bottom: 1.15rem; }
-.about__text p:first-child {
-  font-family: var(--display);
-  font-size: clamp(1.25rem, 2.3vw, 1.65rem);
-  line-height: 1.42;
-  color: var(--text);
-  margin-bottom: 1.6rem;
-}
-.about__text strong { color: var(--text); font-weight: 500; }
-.about__text p:first-child strong { font-weight: 400; font-style: italic; }
-.about__facts {
-  grid-column: 3;
-  display: flex;
-  flex-direction: column;
-  align-content: start;
-  background: none;
-  border: 0;
-  border-top: 1px solid var(--rule);
-  border-radius: 0;
-  padding: 0;
-  height: fit-content;
-}
-.about__facts li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.7rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--rule-soft);
-  color: var(--text-dim);
-  font-size: 0.9rem;
-}
-.about__facts span { font-size: 0.85rem; opacity: 0.65; }
-
-/* ---------- Skills ---------- */
-.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 var(--col-gap); }
-.skill-card {
-  background: none;
-  border: 0;
-  border-top: 1px solid var(--rule);
-  border-radius: 0;
-  padding: 1.1rem 0 0;
-  transition: none;
-}
-.skill-card:hover { transform: none; background: none; }
-.skill-card h3 { font-size: 1.35rem; margin-bottom: 1.1rem; }
-.skill-card ul { display: flex; flex-direction: column; }
-.skill-card li {
-  color: var(--text-dim);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--rule-soft);
-  transition: color 0.3s;
-}
-.skill-card li::before { content: none; }
-.skill-card li:hover { color: var(--text); }
 
 /* ---------- Timeline ---------- */
 .timeline { position: relative; list-style: none; counter-reset: tl; }
@@ -521,8 +496,63 @@ ul { list-style: none; }
 .tags span:last-child::after { content: none; }
 
 /* =====================================================================
+   CONTENTS — the jump index that replaced the chip grid
+   Seven rows, each carrying the one number that makes its project checkable.
+   ===================================================================== */
+/* The index has to be READ, not studied: it is the cheapest screen on the page and
+   the only thing between the hero and the first running product. Tighter block
+   padding here is what moves the first video poster from screen 4.65 to 1.7. */
+.section--contents { padding-block: clamp(2.2rem, 4vw, 3.4rem); }
+.section--contents .section__head { margin-bottom: clamp(1.3rem, 2.4vw, 1.9rem); }
+.contents { border-top: 1px solid var(--rule); }
+.contents__item {
+  --h: 78;
+  --work-accent: oklch(0.8 0.12 var(--h));
+  border-bottom: 1px solid var(--rule-soft);
+}
+[data-theme='light'] .contents__item { --work-accent: oklch(0.52 0.14 var(--h)); }
+.c--elise { --h: 228; }
+.c--neoform { --h: 192; }
+.c--medical { --h: 258; }
+.c--neolibrary { --h: 340; }
+.c--talent { --h: 288; }
+.c--clinic { --h: 85; }
+.c--mrayaq { --h: 152; }
+
+.contents__link {
+  display: grid;
+  /* the fourth column is sized so every one of the seven lines sets on ONE line at
+     1440 — seven two-line rows is 100px of index nobody reads twice */
+  grid-template-columns: var(--rail) minmax(9rem, 0.76fr) minmax(0, 0.72fr) minmax(0, 1.52fr);
+  align-items: baseline;
+  gap: 0.2rem var(--col-gap);
+  /* a 28.8px name plus 0.78rem top and bottom is a 53px row — SC 2.5.8 with room */
+  padding: 0.78rem 0;
+  transition: color 0.3s var(--ease);
+}
+.contents__no { color: var(--text-faint); transition: color 0.35s var(--ease); }
+.contents__name {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--text);
+}
+.contents__number {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--work-accent);
+}
+.contents__line { color: var(--text-dim); font-size: 0.86rem; line-height: 1.5; }
+.contents__link:hover .contents__no { color: var(--work-accent); }
+.contents__link:hover .contents__name { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+
+/* =====================================================================
    PROJECTS — each one a spread, not a card
    ===================================================================== */
+/* No section heading here any more, so the section's own top padding is the only
+   thing between the Contents rule and the first product name. */
+.section--works { padding-top: clamp(1.6rem, 3vw, 2.4rem); }
 .projects { display: block; }
 
 .work {
@@ -594,6 +624,11 @@ ul { list-style: none; }
 }
 .work:hover .work__title::after { transform: scaleX(1); }
 .work--featured .work__title { font-size: clamp(2.7rem, 6.6vw, 4.9rem); }
+/* The featured spread reads title -> plate -> text. Its lede is the longest on the
+   page (72ch of it), and behind the text the first frame of running product sat
+   400px further down for no reason other than source order. */
+.work--featured .work__figure { grid-row: 2; margin-top: clamp(1.2rem, 2.2vw, 1.6rem); }
+.work--featured .work__lede { grid-row: 3; margin-top: clamp(1.7rem, 3.2vw, 2.6rem); }
 
 .work__lede {
   grid-column: 2 / -1;
@@ -605,6 +640,28 @@ ul { list-style: none; }
   line-height: 1.78;
 }
 .work--featured .work__lede { font-size: 1.02rem; max-width: 72ch; }
+
+/* --- tier 3: compact ---------------------------------------------------------
+   Breadth and range at a lower weight. The figure moves into the narrow column
+   beside the text instead of spanning it, which is the whole height saving; the
+   16/9 box still belongs to .project__media, so nothing about the video's layout
+   containment changes. */
+.work--brief { margin-top: clamp(2.6rem, 5vw, 4.5rem); }
+.work--brief .work__title { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
+.work--brief .work__lede {
+  grid-column: 2;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-width: 56ch;
+}
+.work--brief .work__figure {
+  grid-column: 3;
+  grid-row: 2 / span 3;
+  margin-top: 1.1rem;
+}
+.work--brief .work__notes { grid-column: 2; grid-row: 3; margin-top: clamp(1.4rem, 2.6vw, 2.2rem); }
+.work--brief .work__colophon { grid-column: 2; grid-row: 4; margin-top: clamp(1.4rem, 2.6vw, 2.2rem); }
+.work--brief .project__highlights li { padding-block: 0.7rem; font-size: 0.86rem; }
 
 /* --- the plate ------------------------------------------------------- */
 .work__figure {
@@ -771,45 +828,6 @@ ul { list-style: none; }
 .projects__more a:hover { color: var(--accent); }
 .projects__more a:hover::after { background: var(--accent); }
 
-/* Lightbox */
-.lightbox {
-  position: fixed; inset: 0; z-index: 300;
-  display: flex; align-items: center; justify-content: center;
-  padding: 4vmin;
-  background: color-mix(in srgb, var(--bg) 93%, transparent);
-  backdrop-filter: blur(6px);
-  animation: lb-in 0.25s var(--ease);
-}
-.lightbox[hidden] { display: none; }
-.lightbox__img { max-width: 100%; max-height: 92vh; border-radius: 2px; box-shadow: var(--shadow); }
-.lightbox__close {
-  position: absolute; top: 1.2rem; right: 1.6rem;
-  width: 42px; height: 42px; border-radius: 2px;
-  background: none; border: 1px solid var(--rule);
-  color: var(--text); font-size: 1.5rem; line-height: 1; cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-}
-.lightbox__close:hover { border-color: var(--accent); color: var(--accent); }
-@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
-
-/* ---------- Education ---------- */
-.edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 var(--col-gap); }
-.edu-card {
-  position: relative;
-  background: none;
-  border: 0;
-  border-top: 1px solid var(--rule);
-  border-radius: 0;
-  padding: 1.2rem 0 0;
-  transition: none;
-}
-.edu-card:hover { transform: none; }
-/* one card has no year; the empty slot still has to hold the row's baseline */
-.edu-card__year { position: static; display: block; min-height: 1.65em; color: var(--text-faint); margin-bottom: 0.9rem; }
-.edu-card h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); margin-bottom: 0.6rem; padding-right: 0; }
-.edu-card p { color: var(--text-dim); font-size: 0.9rem; }
-.edu-card__note { color: var(--text-faint); font-size: 0.85rem; margin-top: 0.5rem; }
-
 /* ---------- Contact ---------- */
 .section--contact { text-align: left; }
 .contact {
@@ -821,14 +839,16 @@ ul { list-style: none; }
   border-top: 1px solid var(--rule);
   padding-top: 1.1rem;
 }
-.contact .section__index { grid-column: 1; grid-row: 1; display: block; color: var(--text-faint); }
+/* 73.6px was the largest type on the site — 3.9x the name of a nine-module
+   platform. It comes down to 57.6px so the restored 78.4px featured project title
+   is the page's typographic peak. */
 .contact__title {
   grid-column: 2;
   grid-row: 1;
-  font-size: clamp(2.3rem, 6.5vw, 4.6rem);
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
   letter-spacing: -0.02em;
   max-width: 16ch;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 .contact__sub { grid-column: 2; grid-row: 2; color: var(--text-dim); max-width: 46ch; margin-bottom: 2.4rem; }
 .contact .btn { grid-column: 2; grid-row: 3; justify-self: start; }
@@ -860,13 +880,102 @@ ul { list-style: none; }
 .footer {
   max-width: var(--maxw);
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   padding: 2.4rem var(--gutter);
   color: var(--text-faint);
   font-family: var(--mono);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   border-top: 1px solid var(--rule-soft);
+}
+
+/* =====================================================================
+   DECISIONS — one fixed four-part shape, six times
+   Sits between the first spread and the second, so it is reasoning about something
+   already seen. Mono label in the rail, four lines at --text-dim, 62ch. No cards,
+   no boxes, no icons: the repetition of the shape is what makes it skimmable.
+   ===================================================================== */
+.decisions {
+  margin-top: clamp(4rem, 8vw, 7.5rem);
+  padding-top: clamp(1.5rem, 2.6vw, 2.4rem);
+  border-top: 1px solid var(--rule);
+}
+.decisions .section__head {
+  border-top: 0;
+  padding-top: 0;
+  margin-bottom: clamp(1.8rem, 3.5vw, 3rem);
+}
+.decision-list { display: block; }
+.decision {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 0.2rem var(--col-gap);
+  border-top: 1px solid var(--rule-soft);
+  padding: 1.4rem 0 1.5rem;
+}
+.decision__label {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.decision__no { display: block; color: var(--text-faint); margin-bottom: 0.35rem; }
+.decision__body { grid-column: 2; grid-row: 1; max-width: 62ch; }
+.decision__line {
+  color: var(--text-dim);
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.decision__line:last-child { margin-bottom: 0; }
+.decision__part {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-right: 0.55rem;
+  white-space: nowrap;
+}
+
+/* ---------- Before NeoLedge: two grey lines in place of three CV entries ------- */
+.before {
+  max-width: 52rem;
+  margin-top: 1.4rem;
+  padding-left: calc(var(--rail) + var(--col-gap));
+  color: var(--text-faint);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ---------- Full stack, collapsed: keyword surface at no vertical cost --------- */
+.stack { margin-bottom: 1.6rem; text-align: left; }
+.stack summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-faint);
+  /* SC 2.5.8 — the row is 10.88px type, the target is not */
+  padding-block: 0.6rem;
+  transition: color 0.3s;
+}
+.stack summary::-webkit-details-marker { display: none; }
+.stack summary::after { content: '+'; margin-left: 0.5rem; }
+.stack[open] summary::after { content: '\2212'; }
+.stack summary:hover { color: var(--text-dim); }
+.stack__body { padding: 0.4rem 0 0.6rem; }
+.stack__body p {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+.stack__group {
+  display: inline-block;
+  min-width: 7.5rem;
+  color: var(--text-faint);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 /* ---------- Reveal animation ---------- */
@@ -877,31 +986,6 @@ ul { list-style: none; }
    Hero terminal — the one code surface, kept dark on both plates
    ===================================================================== */
 .hero { position: relative; isolation: isolate; }
-
-.hero__bg {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 100vw;
-  height: 100%;
-  transform: translateX(-50%);
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
-.hero__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.22;
-}
-.hero__scrim {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(1200px 660px at 22% 20%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%),
-    linear-gradient(180deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 72%, transparent) 30%, color-mix(in srgb, var(--bg) 84%, transparent) 72%, var(--bg) 100%);
-}
 
 /* ---------- terminal card ---------- */
 .term {
@@ -914,26 +998,8 @@ ul { list-style: none; }
   overflow: hidden;
   max-width: 41rem;
 }
-.term__bar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1rem;
-  background: rgba(255, 255, 255, 0.035);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
-.term__dot { width: 9px; height: 9px; border-radius: 50%; flex: none; opacity: 0.85; }
-.term__dot--r { background: #ff5f57; }
-.term__dot--y { background: #febc2e; }
-.term__dot--g { background: #28c840; }
-.term__file {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: #6f6a64;
-  margin-left: auto;
-  margin-right: auto;
-  letter-spacing: 0.1em;
-}
+/* The bar went with the traffic lights: three saturated RGB primaries were the
+   only fully saturated objects on a warm-monochrome page. */
 .term__body { padding: 1.3rem 1.45rem 1.5rem; font-family: var(--mono); font-size: 0.86rem; line-height: 1.85; }
 
 .term__line { display: flex; gap: 0.55rem; align-items: baseline; flex-wrap: wrap; }
@@ -948,23 +1014,8 @@ ul { list-style: none; }
   line-height: 1.04;
   margin: 0.5rem 0 0.25rem;
 }
-.term__out--role { font-size: 0.92rem; letter-spacing: 0.02em; }
-.term__out--role .grad-text {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 1.35em;
-  letter-spacing: 0;
-}
+.term__out--role { font-size: 0.92rem; letter-spacing: 0.02em; color: #ece8e1; }
 .term__blank { height: 0.75rem; }
-
-.term__tags { display: flex; flex-wrap: wrap; gap: 0.35rem 0.4rem; margin-top: 0.25rem; }
-.term__tag {
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  padding: 0.1rem 0.5rem;
-  border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
 
 .caret {
   display: inline-block;
@@ -984,26 +1035,14 @@ ul { list-style: none; }
    its text must not inherit the theme's (light-mode) foreground tokens.
    --------------------------------------------------------------------- */
 .term { color: #ece8e1; }
-.term__file { color: #6f6a64; }
 .term__cmd { color: #ece8e1; }
 .term__out { color: #a5a09a; }
 .term__out--name { color: #f6f3ee; }
-.term__out--role { color: #ece8e1; }
 .term__prompt { color: oklch(0.8 0.085 78); }
-.term__prompt::after { color: #6f6a64; }
-.term__kw { color: #7dd3fc; }
-.term__fn { color: #c4b5fd; }
-.term__str { color: #86efac; }
-.term__cm { color: #56657a; }
-.term__tag { color: #cfc9c0; background: rgba(255, 255, 255, 0.04); }
-.term .hero__sep { color: #6f6a64; }
+.term__prompt::after { color: #8a847c; }
 .caret { background: oklch(0.8 0.085 78); }
 
-/* light theme: keep the code backdrop legible instead of washing out to white */
-[data-theme='light'] .hero__video { opacity: 0.14; }
-
 @media (prefers-reduced-motion: reduce) {
-  .hero__video { display: none; }
   .caret { animation: none; }
   .term.is-typing .term__row { visibility: visible; }
   .reveal { opacity: 1; transform: none; }
@@ -1013,13 +1052,18 @@ ul { list-style: none; }
 @media (max-width: 1080px) {
   .work { grid-template-columns: var(--rail) minmax(0, 1fr); }
   .work__head, .work__lede, .work__figure { grid-column: 2 / -1; }
-  .work--featured .work__figure { grid-column: 1 / -1; }
+  .work--featured .work__figure { grid-column: 1 / -1; grid-row: 2; }
+  .work--featured .work__lede { grid-row: 3; }
   .work__notes { grid-column: 2 / -1; grid-row: 4; }
   .work__colophon { grid-column: 2 / -1; grid-row: 5; margin-top: 2.2rem; }
   .work--featured .work__notes { grid-column: 2 / -1; }
-  .about { grid-template-columns: var(--rail) minmax(0, 1fr); }
-  .about__text { grid-column: 2; }
-  .about__facts { grid-column: 2; margin-top: 2.5rem; }
+  /* the compact spread has no third column to sit beside, so it stacks like the rest */
+  .work--brief .work__lede { grid-column: 2 / -1; }
+  .work--brief .work__figure { grid-column: 2 / -1; grid-row: 3; }
+  .work--brief .work__notes { grid-column: 2 / -1; grid-row: 4; }
+  .work--brief .work__colophon { grid-column: 2 / -1; grid-row: 5; }
+  .contents__link { grid-template-columns: var(--rail) minmax(0, 1fr) minmax(0, 0.9fr); }
+  .contents__line { grid-column: 2 / -1; margin-top: 0.2rem; }
 }
 
 @media (max-width: 880px) {
@@ -1056,20 +1100,27 @@ ul { list-style: none; }
 @media (max-width: 720px) {
   :root { --rail: 0px; --col-gap: 0px; }
   .section__head { grid-template-columns: 1fr; gap: 0.5rem; }
-  .section__index { display: block; }
+  .section__head .section__title { grid-column: 1; }
   .work { grid-template-columns: 1fr; }
   .work__no { grid-row: auto; margin-bottom: 0.6rem; }
   .work__head, .work__lede, .work__figure,
   .work__notes, .work__colophon,
-  .work--featured .work__figure, .work--featured .work__notes { grid-column: 1; grid-row: auto; }
+  .work--featured .work__figure, .work--featured .work__notes,
+  .work--brief .work__lede, .work--brief .work__figure,
+  .work--brief .work__notes, .work--brief .work__colophon { grid-column: 1; grid-row: auto; }
+  .decision { grid-template-columns: 1fr; }
+  .decision__label, .decision__body { grid-column: 1; grid-row: auto; }
+  .decision__label { margin-bottom: 0.7rem; }
+  .decision__no { display: inline; margin-right: 0.6rem; }
+  .before { padding-left: 0; }
+  .contents__link { grid-template-columns: 1fr; gap: 0.15rem; padding: 1rem 0; }
+  .contents__no { display: none; }
+  .nav__drop { position: static; min-width: 0; padding: 0.2rem 0 0.4rem 0.9rem; background: none; border: 0; box-shadow: none; }
   .work__figure::after { inset: -8px; }
   .work__colophon { margin-top: 2rem; }
-  .about, .contact { grid-template-columns: 1fr; }
-  .about__text, .about__facts, .contact > * { grid-column: 1 !important; }
-  .contact .section__index { margin-bottom: 0.8rem; }
-  .skills, .edu { gap: 2.2rem 0; }
+  .contact { grid-template-columns: 1fr; }
+  .contact > * { grid-column: 1 !important; }
   .term__body { font-size: 0.78rem; padding: 1.05rem; }
-  .term__out--role .grad-text { font-size: 1.25em; }
   .timeline__card { grid-template-columns: 1fr; }
   .timeline__top, .timeline__org, .timeline__card p:not(.timeline__org), .timeline__card .tags { grid-column: 1; }
   .timeline__card::before { grid-column: 1; grid-row: auto; padding-top: 0; }
@@ -1084,7 +1135,6 @@ ul { list-style: none; }
    too, so nothing is fetched or decoded for it here). */
 @media (max-width: 600px) {
   .hero { padding-top: 0.9rem; padding-bottom: 2.4rem; }
-  .hero__bg { display: none; }
   .hero__masthead { margin-bottom: 1rem; }
   .hero__visual { order: 1; margin: 2.6rem 0 0; max-width: 220px; justify-self: start; }
   .hero__captions { margin-top: 1rem; }

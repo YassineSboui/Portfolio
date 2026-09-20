@@ -1,6 +1,12 @@
 /* =====================================================================
    Yassine Sboui — Portfolio interactions
-   No dependencies. Theme toggle, mobile nav, scroll reveal, nav state.
+   No dependencies. Theme toggle, mobile nav, scroll reveal, nav state, and the
+   project video lifecycle.
+
+   Deleted, not disabled: a lightbox whose only trigger was $$('[data-full]')
+   (zero matching elements in index.html, so it could never open) and a Carousel
+   module with no .carousel in the document. On a page arguing for engineering
+   rigor, unreachable code is the first thing a reviewer finds in devtools.
    ===================================================================== */
 (() => {
   'use strict';
@@ -28,10 +34,25 @@
   const navToggle = $('#navToggle');
   const navMenu = $('#navMenu');
 
+  // The "Work" item is a native <details>. It needs no script to open, close or be
+  // announced — this only tidies up after a navigation, and gives Escape the same
+  // meaning from inside the list that it already has on the summary itself.
+  const workMenu = $('.nav__disclosure');
+
   const closeMenu = () => {
     navMenu?.classList.remove('is-open');
     navToggle?.setAttribute('aria-expanded', 'false');
+    if (workMenu) workMenu.open = false;
   };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !workMenu?.open) return;
+    workMenu.open = false;
+    // Never strand the focus ring on an element that just disappeared.
+    if (!document.activeElement || workMenu.contains(document.activeElement)) {
+      workMenu.querySelector('summary')?.focus();
+    }
+  });
 
   navToggle?.addEventListener('click', () => {
     const open = navMenu.classList.toggle('is-open');
@@ -39,16 +60,6 @@
   });
 
   $$('#navMenu a').forEach((link) => link.addEventListener('click', closeMenu));
-
-  /* ---------- Phone hero: no decorative backdrop ----------
-     The stylesheet hides .hero__bg under 600px, but a display:none <video> is
-     still an element the media stack keeps. Dropping it here — before the video
-     controller below ever looks for it — means a phone never asks for
-     code-bg.mp4 at all (measured: 1 mp4 request at 375px, now 0). The
-     controller's hero branch is null-guarded, so it finds nothing and skips. */
-  if (window.matchMedia('(max-width: 600px)').matches) {
-    $('.hero__video')?.remove();
-  }
 
   /* ---------- Nav scrolled state ---------- */
   const nav = $('#nav');
@@ -74,83 +85,6 @@
   } else {
     reveals.forEach((el) => el.classList.add('is-visible'));
   }
-
-  /* ---------- Lightbox (gallery) ---------- */
-  const lightbox = $('#lightbox');
-  const lightboxImg = $('#lightboxImg');
-  const lightboxClose = $('#lightboxClose');
-
-  const openLightbox = (src, alt) => {
-    if (!lightbox) return;
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
-    lightbox.hidden = false;
-    document.body.style.overflow = 'hidden';
-    lightboxClose.focus();
-  };
-  const closeLightbox = () => {
-    if (!lightbox) return;
-    lightbox.hidden = true;
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
-  };
-
-  $$('[data-full]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const img = btn.querySelector('img');
-      openLightbox(btn.dataset.full, img ? img.alt : '');
-    });
-  });
-  lightboxClose?.addEventListener('click', closeLightbox);
-  lightbox?.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox && !lightbox.hidden) closeLightbox();
-  });
-
-  /* ---------- Carousel ---------- */
-  $$('.carousel').forEach((carousel) => {
-    const track = $('.carousel__track', carousel);
-    const slides = $$('.carousel__slide', carousel);
-    const dotsWrap = $('.carousel__dots', carousel);
-    if (!track || slides.length === 0) return;
-
-    let index = 0;
-    const dots = slides.map((_, i) => {
-      const dot = document.createElement('button');
-      dot.type = 'button';
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', `Screenshot ${i + 1}`);
-      dot.addEventListener('click', () => go(i));
-      dotsWrap?.appendChild(dot);
-      return dot;
-    });
-
-    function go(i) {
-      index = (i + slides.length) % slides.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((d, di) => {
-        d.classList.toggle('is-active', di === index);
-        d.setAttribute('aria-selected', String(di === index));
-      });
-    }
-
-    $('.carousel__nav--prev', carousel)?.addEventListener('click', () => go(index - 1));
-    $('.carousel__nav--next', carousel)?.addEventListener('click', () => go(index + 1));
-
-    // Touch / swipe
-    let startX = null;
-    track.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
-    track.addEventListener('touchend', (e) => {
-      if (startX === null) return;
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
-      startX = null;
-    });
-
-    go(0);
-  });
 
   /* ---------- Terminal intro: reveal each command block in sequence ---------- */
   const term = $('#termIntro');
@@ -394,27 +328,6 @@
     );
 
     cardVideos.forEach((v) => { previewObserver.observe(v); nearObserver.observe(v); });
-
-    // The hero backdrop is decorative and muted; it only runs while it is on
-    // screen, never while the tab is hidden, and never under reduced motion
-    // (where the stylesheet hides it, but its autoplay attribute would otherwise
-    // leave a hidden element decoding).
-    const heroVideo = $('.hero__video');
-    if (heroVideo) {
-      let heroVisible = false;
-      const syncHero = () => {
-        if (heroVisible && !document.hidden && !reduceMotion.matches) {
-          const p = heroVideo.play();
-          if (p && p.catch) p.catch(() => {});
-        } else heroVideo.pause();
-      };
-      if (reduceMotion.matches) heroVideo.pause();
-      new IntersectionObserver(
-        (entries) => { entries.forEach((e) => { heroVisible = e.isIntersecting; }); syncHero(); },
-        { threshold: 0.1 }
-      ).observe(heroVideo);
-      document.addEventListener('visibilitychange', syncHero);
-    }
 
     // A backgrounded tab should not be decoding anything.
     document.addEventListener('visibilitychange', () => {
