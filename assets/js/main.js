@@ -24,9 +24,25 @@
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) root.setAttribute('data-theme', stored);
 
+  // The toggle changed the page but not the browser's own chrome, so on Android Chrome
+  // and iOS Safari the address bar stayed near-black above a cream page. It also never
+  // said which theme was active, so a screen reader announced the same thing both ways.
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const PLATE = { dark: '#0d0d0f', light: '#f4f1ea' };
+
+  const applyTheme = (mode) => {
+    root.setAttribute('data-theme', mode);
+    if (themeMeta) themeMeta.content = PLATE[mode];
+    themeToggle?.setAttribute('aria-pressed', String(mode === 'light'));
+    themeToggle?.setAttribute(
+      'aria-label', mode === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+  };
+
+  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+
   themeToggle?.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    root.setAttribute('data-theme', next);
+    applyTheme(next);
     localStorage.setItem(STORAGE_KEY, next);
   });
 

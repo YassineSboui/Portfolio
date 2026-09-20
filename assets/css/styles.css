@@ -510,7 +510,11 @@ ul, ol { list-style: none; }
   --work-accent: oklch(0.8 0.12 var(--h));
   border-bottom: 1px solid var(--rule-soft);
 }
-[data-theme='light'] .contents__item { --work-accent: oklch(0.52 0.14 var(--h)); }
+/* 0.52 put two of the seven hues under AA on the light plate: NeoForm's teal at
+   4.24:1 and Elise.Studio's blue at 4.49:1, both carrying .work__kicker (10.88px)
+   and .contents__number (11.52px) — normal-size text with real content in it.
+   0.47 clears every hue; measured below in the same pass that found it. */
+[data-theme='light'] .contents__item { --work-accent: oklch(0.47 0.14 var(--h)); }
 .c--elise { --h: 228; }
 .c--neoform { --h: 192; }
 .c--medical { --h: 258; }
@@ -566,7 +570,7 @@ ul, ol { list-style: none; }
   margin-top: clamp(4rem, 8vw, 7.5rem);
   position: relative;
 }
-[data-theme='light'] .work { --work-accent: oklch(0.52 0.14 var(--h)); }
+[data-theme='light'] .work { --work-accent: oklch(0.47 0.14 var(--h)); }
 .work:first-child { margin-top: 0; }
 
 /* the hairline above each spread picks up that project's colour on hover */
