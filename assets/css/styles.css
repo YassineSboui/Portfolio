@@ -492,7 +492,10 @@ p { text-wrap: pretty; }
 .constellation.has-pick .cnode.is-on { opacity: 1; }
 .cnode.is-on circle { fill: var(--mark); stroke: var(--mark); }
 .cnode.is-on text { fill: var(--ink); font-weight: 600; }
-.constellation__panel { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--nav-h) + 24px); border: 1px solid var(--rule-2); padding: 1.4rem; min-height: 12rem; }
+/* The panel follows the reader down its own column. Nothing else may sit in that column, or it
+   slides over it: the chip lists below stay in column 1, and the panel carries its own paper. */
+.constellation__panel { grid-column: 2; grid-row: 1 / span 2; align-self: start; position: sticky; top: calc(var(--nav-h) + 24px);
+  z-index: 2; background: var(--paper); border: 1px solid var(--rule-2); padding: 1.4rem; min-height: 12rem; }
 .constellation__hint { color: var(--ink-2); font-size: var(--fs-sm); }
 .cpanel__name { font: 650 var(--fs-lg)/1.1 var(--display); font-stretch: 112%; }
 .cpanel__count { margin-top: 0.4rem; font-size: var(--fs-sm); color: var(--ink-3); }
@@ -500,7 +503,7 @@ p { text-wrap: pretty; }
 .cpanel__list { margin-top: 1rem; display: grid; border-top: 1px solid var(--rule-2); }
 .cpanel__list a { display: block; padding: 0.6rem 0; border-bottom: 1px solid var(--rule-2); text-decoration: none; font-weight: 500; }
 .cpanel__list a:hover { color: var(--mark-text); }
-.stack-list { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.8rem 2rem; margin-top: 1rem; }
+.stack-list { grid-column: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.8rem 2rem; margin-top: 1rem; }
 .stack-list h3 { font: 600 var(--fs-sm)/1 var(--display); font-stretch: 112%; color: var(--ink-3); margin-bottom: 0.8rem; }
 .stack-list ul { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .chip {
@@ -715,6 +718,7 @@ p { text-wrap: pretty; }
   .hero__figure { max-width: 560px; }
   .constellation { grid-template-columns: 1fr; }
   .constellation__panel { grid-column: 1; grid-row: auto; position: static; }
+  .stack-list { grid-column: 1; }
   .titleblock { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .titleblock > div { border-left: 0; border-top: 1px solid var(--rule); }
   .titleblock > div:nth-child(-n + 2) { border-top: 0; }
