@@ -1,7 +1,8 @@
 /* =====================================================================
-   Yassine Sboui — Portfolio interactions
-   No dependencies. Theme toggle, mobile nav, scroll reveal, nav state, and the
-   project video lifecycle.
+   Yassine Sboui — Portfolio interactions, shared by every page
+   No dependencies. Theme toggle, mobile nav, the purposeful reveals, nav
+   state, and the project video lifecycle. Page-specific behaviour lives in
+   home.js, archive.js and case.js.
 
    Deleted, not disabled: a lightbox whose only trigger was $$('[data-full]')
    (zero matching elements in index.html, so it could never open) and a Carousel
@@ -28,7 +29,7 @@
   // and iOS Safari the address bar stayed near-black above a cream page. It also never
   // said which theme was active, so a screen reader announced the same thing both ways.
   const themeMeta = document.querySelector('meta[name="theme-color"]');
-  const PLATE = { dark: '#0d0d0f', light: '#f4f1ea' };
+  const PLATE = { dark: '#0a1424', light: '#f1f4f9' };
 
   const applyTheme = (mode) => {
     root.setAttribute('data-theme', mode);
@@ -50,29 +51,19 @@
   const navToggle = $('#navToggle');
   const navMenu = $('#navMenu');
 
-  // The "Work" item is a native <details>. It needs no script to open, close or be
-  // announced — this only tidies up after a navigation, and gives Escape the same
-  // meaning from inside the list that it already has on the summary itself.
-  const workMenu = $('.nav__disclosure');
-
-  const closeMenu = () => {
-    navMenu?.classList.remove('is-open');
-    navToggle?.setAttribute('aria-expanded', 'false');
-    if (workMenu) workMenu.open = false;
+  const setMenu = (open) => {
+    navMenu?.classList.toggle('is-open', open);
+    navToggle?.setAttribute('aria-expanded', String(open));
+    navToggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   };
+  const closeMenu = () => setMenu(false);
 
+  navToggle?.addEventListener('click', () => setMenu(!navMenu.classList.contains('is-open')));
+  // Escape closes the open menu and puts focus back on the button that opened it.
   document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape' || !workMenu?.open) return;
-    workMenu.open = false;
-    // Never strand the focus ring on an element that just disappeared.
-    if (!document.activeElement || workMenu.contains(document.activeElement)) {
-      workMenu.querySelector('summary')?.focus();
-    }
-  });
-
-  navToggle?.addEventListener('click', () => {
-    const open = navMenu.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(open));
+    if (e.key !== 'Escape' || !navMenu?.classList.contains('is-open')) return;
+    closeMenu();
+    navToggle?.focus();
   });
 
   $$('#navMenu a').forEach((link) => link.addEventListener('click', closeMenu));
@@ -83,14 +74,18 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---------- Scroll reveal ---------- */
-  const reveals = $$('.reveal');
+  /* ---------- Reveals ----------
+     Only for things that are drawn — the activity bars grow, an architecture
+     diagram's connections draw in. Text and sections never fade in. */
+  const reveals = $$('[data-reveal]');
+  // The hidden starting state is opt-in from here, so if this script never runs nothing stays hidden.
+  if (reveals.length) root.classList.add('reveals');
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const io = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add('is-in');
             obs.unobserve(entry.target);
           }
         });
@@ -99,19 +94,7 @@
     );
     reveals.forEach((el) => io.observe(el));
   } else {
-    reveals.forEach((el) => el.classList.add('is-visible'));
-  }
-
-  /* ---------- Terminal intro: reveal each command block in sequence ---------- */
-  const term = $('#termIntro');
-  if (term && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const rows = $$('.term__row', term);
-    term.classList.add('is-typing');
-    rows.forEach((row, i) => {
-      setTimeout(() => row.classList.add('is-shown'), 260 + i * 620);
-    });
-    // once the last row is out, drop the gate so nothing can stay hidden
-    setTimeout(() => term.classList.remove('is-typing'), 260 + rows.length * 620 + 400);
+    reveals.forEach((el) => el.classList.add('is-in'));
   }
 
   /* ---------- Project video lifecycle ------------------------------------
@@ -148,6 +131,9 @@
 
     const cardVideos = $$('.project__media video');
     const state = new WeakMap();
+    // A film in a carousel slide that is not showing sits under the visible one, at the
+    // same position, so geometry alone would call it fully visible. It is never a candidate.
+    const offstage = (v) => !!v.closest('.slide:not(.is-active)');
 
     const st = (v) => {
       let s = state.get(v);
@@ -237,7 +223,7 @@
       let bestRatio = 0;
       cardVideos.forEach((v) => {
         const s = st(v);
-        if (s.userPaused) return;
+        if (s.userPaused || offstage(v)) return;
         if (s.userPlayed && s.ratio > 0) { best = v; bestRatio = 2; return; }
         if (bestRatio < 2 && s.ratio > bestRatio) { bestRatio = s.ratio; best = v; }
       });
@@ -273,7 +259,7 @@
       cardVideos.forEach((v) => {
         const s = st(v);
         s.ratio = liveRatio(v);
-        if (s.userPaused) return;                  // rule 1: never reconsidered
+        if (s.userPaused || offstage(v)) return;   // rule 1: never reconsidered
         // A video the visitor started themselves outranks the automatic preview
         // for as long as any part of it is still on screen.
         if (s.userPlayed && s.ratio > 0) { best = v; bestRatio = 2; return; }
@@ -345,6 +331,9 @@
 
     cardVideos.forEach((v) => { previewObserver.observe(v); nearObserver.observe(v); });
 
+    // The carousel changed slides: whatever was playing may now be offstage.
+    window.addEventListener('carousel:change', review);
+
     // A backgrounded tab should not be decoding anything.
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) { clearTimeout(settleTimer); pauseAllExcept(null); }
@@ -393,6 +382,16 @@
       { threshold: [0, 0.12, 0.35, 0.7], rootMargin: '-72px 0px -45% 0px' }
     );
     navSections.forEach((s) => sectionObserver.observe(s));
+  }
+
+  /* ---------- Pause what is not on screen ----------
+     The hero's drafting packet, the ticker, the pipeline's signal and the live pulses would
+     otherwise keep animating for the whole visit, wherever the reader is. */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => e.target.classList.toggle('is-offscreen', !e.isIntersecting));
+    }, { rootMargin: '100px 0px' });
+    $$('.hero, .ticker, .pipeline, .carousel, .case__head, .pgrid').forEach((el) => io.observe(el));
   }
 
   /* ---------- Footer year ---------- */

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NeoLibrary — case study — Yassine Sboui</title>
+    <meta name="description" content="One tested source of truth for every NeoLedge product&#x27;s fields: 37 Vue 3 components whose state classes are pure functions, asserted with nothing mounted." />
+    <meta name="author" content="Yassine Sboui" />
+    <meta name="theme-color" content="#0a1424" />
+    <link rel="canonical" href="https://yassinesboui.github.io/Portfolio/work/neolibrary.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NeoLibrary — case study — Yassine Sboui" />
+    <meta property="og:description" content="One tested source of truth for every NeoLedge product&#x27;s fields: 37 Vue 3 components whose state classes are pure functions, asserted with nothing mounted." />
+    <meta property="og:url" content="https://yassinesboui.github.io/Portfolio/work/neolibrary.html" />
+    <meta property="og:image" content="https://yassinesboui.github.io/Portfolio/assets/img/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://yassinesboui.github.io/Portfolio/assets/img/og-card.jpg" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon-64.png" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+    <!-- Set the theme before first paint, so a visitor who chose the light plate never sees
+         the dark one flash first. main.js owns the toggle; this only reads the stored choice. -->
+    <script>try{var t=localStorage.getItem('ys-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(_){}document.documentElement.classList.add('js')</script>
+    <!-- Fonts are self-hosted (assets/fonts), so no third-party origin sits on the critical path. They
+         are deliberately not preloaded: on a slow link a preload competes with the stylesheet the
+         first paint needs (measured 24 Nov 2026 with render/preload-ab.js), and swapping in causes no
+         layout shift. -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/case.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="nav" id="nav">
+      <nav class="nav__inner wrap" aria-label="Primary">
+        <a href="../index.html" class="nav__brand" aria-label="Yassine Sboui, home">
+          <span class="nav__mark" aria-hidden="true">YS</span>
+          <span class="nav__name">Yassine Sboui</span>
+        </a>
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../projects.html" aria-current="page">All projects</a></li>
+          <li><a href="../index.html#pipeline">Process</a></li>
+          <li><a href="../index.html#decisions">Decisions</a></li>
+          <li><a href="../index.html#contact" class="nav__cta">Contact</a></li>
+        </ul>
+        <div class="nav__tools">
+          <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" /></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+          </button>
+          <button class="nav__toggle icon-btn" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation">
+            <span></span><span></span>
+          </button>
+        </div>
+      </nav>
+      <span class="nav__progress" id="navProgress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main" class="case accent-neolibrary">
+      <header class="case__head wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../projects.html">All projects</a></li><li aria-current="page">NeoLibrary</li></ol></nav>
+        <h1 class="case__title">NeoLibrary</h1>
+        <div class="case__meta"><p class="case__kind">Design System</p><p class="status status--enterprise "><span class="status__dot" aria-hidden="true"></span>At NeoLedge</p></div>
+        <p class="case__summary">One tested source of truth for every NeoLedge product&#x27;s fields: 37 Vue 3 components whose state classes are pure functions, asserted with nothing mounted.</p>
+        <div class="case__links"><span class="note-private">Private enterprise project</span></div>
+      </header>
+      <figure class="case__film wrap">
+        <div class="project__media frame">
+              <video controls muted loop playsinline preload="none" poster="../assets/video/neolibrary-poster.jpg" width="1600" height="900">
+                <source src="../assets/video/neolibrary.mp4" type="video/mp4" />
+                Your browser can't play this video. <a href="../assets/video/neolibrary.mp4">Download the film</a>.
+              </video>
+            </div>
+        <figcaption>Demo film, recorded from the running app. Muted; the controls turn the sound on.</figcaption>
+      </figure>
+      <div class="case__layout wrap">
+        <nav class="case__toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem and objectives</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#engineering">Engineering challenges and decisions</a></li><li><a href="#stack">Technologies</a></li><li><a href="#contribution">My contribution</a></li><li><a href="#screens">Screens</a></li><li><a href="#results">Results</a></li></ol></nav>
+        <div class="case__content">
+        <section class="case__sec" id="overview" aria-labelledby="overview-h">
+          <h2 class="case__h" id="overview-h">Overview</h2>
+          <p class="case__lede">Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted. NeoLibrary makes that one tested source of truth: 37 Vue 3 components - the 25 that wrap PrimeVue 4 render it unstyled under 27 per-component passthrough configs, where every state-dependent DOM node&#x27;s classes are computed as pure functions of props and context — an 8-state field spec, seven of them resolved by a six-branch priority chain (disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default), asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct. It also ships NeoBlockly, a visual rule editor with 187 registered block types that compiles a workspace into async JavaScript.</p>
+        </section>
+        <section class="case__sec" id="problem" aria-labelledby="problem-h">
+          <h2 class="case__h" id="problem-h">Problem and objectives</h2>
+          <p>Every product team at NeoLedge restyled PrimeVue independently, so brand-critical field states drifted from one product to the next.</p><ul class="checklist"><li>One component library every product consumes</li><li>Field states defined once and tested without rendering</li><li>Right-to-left layouts that stay correct as components change</li></ul>
+        </section>
+        <section class="case__sec" id="architecture" aria-labelledby="architecture-h">
+          <h2 class="case__h" id="architecture-h">Architecture</h2>
+          <figure class="arch" data-arch data-reveal>
+            <div class="arch__canvas frame">
+              <svg viewBox="0 0 1116 364" class="arch__svg" aria-label="Architecture diagram of NeoLibrary" role="group">
+                <defs><marker id="arrow-neolibrary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" /></marker></defs>
+                <g class="arch__edges" style="--marker:url(#arrow-neolibrary)"><g class="arch__edge" data-from="apps" data-to="lib"><path d="M208 182 H262 V182 H316" id="e-neolibrary-0" /><text class="arch__elabel" x="262" y="174" text-anchor="middle">imports</text></g><g class="arch__edge" data-from="lib" data-to="pt"><path d="M504 182 H558 V58 H612" id="e-neolibrary-1" /></g><g class="arch__edge" data-from="pt" data-to="prime"><path d="M800 58 H854 V58 H908" id="e-neolibrary-2" /><text class="arch__elabel" x="854" y="50" text-anchor="middle">unstyled</text></g><g class="arch__edge" data-from="lib" data-to="blockly"><path d="M504 182 H558 V306 H612" id="e-neolibrary-3" /></g><g class="arch__edge" data-from="tests" data-to="pt"><path d="M706 146 L706 94" id="e-neolibrary-4" /><text class="arch__elabel" x="714" y="120" text-anchor="start">asserts</text></g></g>
+                <g class="arch__node" data-node="apps" tabindex="0" role="button" aria-describedby="arch-neolibrary-apps" style="--i:0" transform="translate(20 146)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Products</text>
+              <text class="arch__tech" x="14" y="51">NeoLedge front ends</text>
+            </g><g class="arch__node" data-node="lib" tabindex="0" role="button" aria-describedby="arch-neolibrary-lib" style="--i:1" transform="translate(316 146)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">NeoLibrary</text>
+              <text class="arch__tech" x="14" y="51">Vue 3 · TypeScript</text>
+            </g><g class="arch__node" data-node="pt" tabindex="0" role="button" aria-describedby="arch-neolibrary-pt" style="--i:2" transform="translate(612 22)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Passthrough</text>
+              <text class="arch__tech" x="14" y="51">27 configs · Tailwind</text>
+            </g><g class="arch__node" data-node="prime" tabindex="0" role="button" aria-describedby="arch-neolibrary-prime" style="--i:3" transform="translate(908 22)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">PrimeVue 4</text>
+              <text class="arch__tech" x="14" y="51">unstyled mode</text>
+            </g><g class="arch__node" data-node="blockly" tabindex="0" role="button" aria-describedby="arch-neolibrary-blockly" style="--i:4" transform="translate(612 270)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">NeoBlockly</text>
+              <text class="arch__tech" x="14" y="51">187 block types</text>
+            </g><g class="arch__node" data-node="tests" tabindex="0" role="button" aria-describedby="arch-neolibrary-tests" style="--i:5" transform="translate(612 146)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Tests</text>
+              <text class="arch__tech" x="14" y="51">Vitest · Storybook · vu…</text>
+            </g>
+              </svg>
+            </div>
+            <div class="arch__detail" aria-live="polite">
+              <p class="arch__detail-name">Products</p>
+              <p class="arch__detail-tech">NeoLedge front ends</p>
+              <p class="arch__detail-desc">The applications that consume the library, NeoForm among them.</p>
+            </div>
+            <figcaption>Select a component to see what it does and what it connects to.<span class="arch__swipe"> On a narrow screen, swipe the drawing sideways to see all of it.</span></figcaption>
+            <ul class="arch__list"><li id="arch-neolibrary-apps" data-node="apps"><strong>Products</strong> <span class="arch__tech-full">NeoLedge front ends</span> — The applications that consume the library, NeoForm among them.</li><li id="arch-neolibrary-lib" data-node="lib"><strong>NeoLibrary</strong> <span class="arch__tech-full">Vue 3 · TypeScript</span> — 37 components with one 8-state field specification.</li><li id="arch-neolibrary-pt" data-node="pt"><strong>Passthrough</strong> <span class="arch__tech-full">27 configs · Tailwind</span> — Classes computed as pure functions of props and context.</li><li id="arch-neolibrary-prime" data-node="prime"><strong>PrimeVue 4</strong> <span class="arch__tech-full">unstyled mode</span> — Behaviour and accessibility from PrimeVue; every pixel from the passthrough.</li><li id="arch-neolibrary-blockly" data-node="blockly"><strong>NeoBlockly</strong> <span class="arch__tech-full">187 block types</span> — A visual rule editor that compiles a workspace into async JavaScript.</li><li id="arch-neolibrary-tests" data-node="tests"><strong>Tests</strong> <span class="arch__tech-full">Vitest · Storybook · vue-tsc</span> — 585 tests, 207 stories, a strict type gate in CI; RTL enforced at class level.</li></ul>
+          </figure>
+        </section>
+        <section class="case__sec" id="engineering" aria-labelledby="engineering-h">
+          <h2 class="case__h" id="engineering-h">Engineering challenges and decisions</h2>
+          <ul class="notes"><li>27 Tailwind passthrough configs over PrimeVue 4 unstyled, 8-state spec, 6-branch chain</li><li>NeoBlockly: 187 block types compiled to async JS, 7 declared toolbox profiles, 6 distinct toolboxes today</li><li>585 tests across 58 files, 207 Storybook stories, vue-tsc strict gate in CI</li><li>RTL direction resolved through 5 ordered sources, enforced by class-level tests</li></ul><div class="case-decision"><h3>Nothing mounted</h3><dl>
+              <div><dt>The constraint</dt><dd>37 components, an 8-state field spec, seven of those states resolved by a six-branch priority chain — disabled &gt; readonly &gt; invalid &gt; warning &gt; focused &gt; default.</dd></div>
+              <div><dt>What I rejected</dt><dd>Rendering components to assert it.</dd></div>
+              <div><dt>What I did</dt><dd>Passthrough classes computed as pure functions of props and context, asserted in unit tests with nothing mounted, including a test that forbids physical padding so RTL stays correct.</dd></div>
+              <div><dt>What it cost</dt><dd>The tests assert classes, not pixels.</dd></div></dl></div>
+        </section>
+        <section class="case__sec" id="stack" aria-labelledby="stack-h">
+          <h2 class="case__h" id="stack-h">Technologies</h2>
+          <ul class="tags"><li>Vue 3</li><li>TypeScript</li><li>PrimeVue 4</li><li>Tailwind CSS</li><li>Blockly</li><li>Vitest</li><li>Storybook</li><li>Vite</li></ul>
+        </section>
+        <section class="case__sec" id="contribution" aria-labelledby="contribution-h">
+          <h2 class="case__h" id="contribution-h">My contribution</h2>
+          <p>Owner and lead developer — architecture, the 37 components, the passthrough design system and the Blockly editor.</p>
+        </section>
+        <section class="case__sec" id="screens" aria-labelledby="screens-h">
+          <h2 class="case__h" id="screens-h">Screens</h2>
+          <p class="case__small">Stills from the demo film.</p><ul class="shots"><li class="shot shot--still frame"><img src="../assets/img/work/neolibrary-still-1.jpg" alt="Still from the NeoLibrary demo film" width="960" height="540" loading="lazy" decoding="async" /></li><li class="shot shot--still frame"><img src="../assets/img/work/neolibrary-still-2.jpg" alt="Still from the NeoLibrary demo film" width="960" height="540" loading="lazy" decoding="async" /></li><li class="shot shot--still frame"><img src="../assets/img/work/neolibrary-still-3.jpg" alt="Still from the NeoLibrary demo film" width="960" height="540" loading="lazy" decoding="async" /></li></ul>
+        </section>
+        <section class="case__sec" id="results" aria-labelledby="results-h">
+          <h2 class="case__h" id="results-h">Results</h2>
+          <dl class="schedule"><div><dt>37</dt><dd>components; 25 wrap PrimeVue 4 unstyled</dd></div><div><dt>585</dt><dd>tests across 58 files</dd></div><div><dt>207</dt><dd>Storybook stories</dd></div><div><dt>187</dt><dd>NeoBlockly block types, compiled to async JavaScript</dd></div></dl>
+        </section>
+        </div>
+      </div>
+      <nav class="case__pager wrap" aria-label="More projects">
+        <a href="neoform.html" class="pager pager--prev"><span>Previous</span><strong>NeoForm</strong></a>
+        <a href="../projects.html" class="pager pager--all"><span>Back to</span><strong>All projects</strong></a>
+        <a href="talent-bridge.html" class="pager pager--next"><span>Next</span><strong>Talent Bridge</strong></a>
+      </nav>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <dl class="titleblock" aria-label="About this site">
+          <div><dt>Drawn by</dt><dd>Yassine Sboui</dd></div>
+          <div><dt>Sheet</dt><dd>Case study: NeoLibrary</dd></div>
+          <div><dt>Revision</dt><dd>24 Nov 2026</dd></div>
+          <div><dt>Location</dt><dd>Tunis</dd></div>
+          <div><dt>Built with</dt><dd>HTML, CSS and plain JavaScript — no framework, no build step in the browser</dd></div>
+        </dl>
+        <ul class="footer__links">
+          <li><a href="mailto:sboui.ys7@gmail.com">Email</a></li>
+          <li><a href="https://github.com/YassineSboui" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/yassine7sboui/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="../projects.html">All projects</a></li>
+        </ul>
+        <p class="footer__copy">© <span id="year">2026</span> Yassine Sboui</p>
+      </div>
+    </footer>
+  </body>
+</html>

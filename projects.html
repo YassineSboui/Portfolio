@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>All projects — Yassine Sboui</title>
+    <meta name="description" content="Ten products by Yassine Sboui, each with a demo film, plus the earlier work they grew out of." />
+    <meta name="author" content="Yassine Sboui" />
+    <meta name="theme-color" content="#0a1424" />
+    <link rel="canonical" href="https://yassinesboui.github.io/Portfolio/projects.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="All projects — Yassine Sboui" />
+    <meta property="og:description" content="Ten products by Yassine Sboui, each with a demo film, plus the earlier work they grew out of." />
+    <meta property="og:url" content="https://yassinesboui.github.io/Portfolio/projects.html" />
+    <meta property="og:image" content="https://yassinesboui.github.io/Portfolio/assets/img/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://yassinesboui.github.io/Portfolio/assets/img/og-card.jpg" />
+    <link rel="icon" type="image/png" href="assets/img/favicon-64.png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <!-- Set the theme before first paint, so a visitor who chose the light plate never sees
+         the dark one flash first. main.js owns the toggle; this only reads the stored choice. -->
+    <script>try{var t=localStorage.getItem('ys-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(_){}document.documentElement.classList.add('js')</script>
+    <!-- Fonts are self-hosted (assets/fonts), so no third-party origin sits on the critical path. They
+         are deliberately not preloaded: on a slow link a preload competes with the stylesheet the
+         first paint needs (measured 24 Nov 2026 with render/preload-ab.js), and swapping in causes no
+         layout shift. -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/archive.js" defer></script>
+    <noscript><style>.toolbar { display: none; }</style></noscript>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="nav" id="nav">
+      <nav class="nav__inner wrap" aria-label="Primary">
+        <a href="index.html" class="nav__brand" aria-label="Yassine Sboui, home">
+          <span class="nav__mark" aria-hidden="true">YS</span>
+          <span class="nav__name">Yassine Sboui</span>
+        </a>
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="projects.html" aria-current="page">All projects</a></li>
+          <li><a href="index.html#pipeline">Process</a></li>
+          <li><a href="index.html#decisions">Decisions</a></li>
+          <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
+        </ul>
+        <div class="nav__tools">
+          <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" /></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+          </button>
+          <button class="nav__toggle icon-btn" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation">
+            <span></span><span></span>
+          </button>
+        </div>
+      </nav>
+      <span class="nav__progress" id="navProgress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main" class="archive">
+      <section class="sheet sheet--first wrap" aria-labelledby="archive-title">
+        <div class="sheet__head">
+          <h1 class="sheet__title" id="archive-title">All projects</h1>
+          <p class="sheet__intro">Ten products, each with a film recorded from the running app. Filter by kind of work, or search by name and technology.</p>
+        </div>
+        <div class="toolbar" id="toolbar">
+          <label class="search">
+            <span class="search__label">Search projects</span>
+            <input type="search" id="projectSearch" placeholder="Vue, PostgreSQL, WhatsApp…" autocomplete="off" />
+          </label>
+          <ul class="filters" aria-label="Filter by kind of work">
+            <li><button type="button" class="filter is-all" data-cat="" aria-pressed="true">All<span class="filter__n">10</span></button></li><li><button type="button" class="filter" data-cat="enterprise" aria-pressed="false">Enterprise<span class="filter__n">3</span></button></li><li><button type="button" class="filter" data-cat="fullstack" aria-pressed="false">Full stack<span class="filter__n">6</span></button></li><li><button type="button" class="filter" data-cat="ai" aria-pressed="false">AI &amp; ML<span class="filter__n">4</span></button></li><li><button type="button" class="filter" data-cat="mobile" aria-pressed="false">Mobile<span class="filter__n">2</span></button></li><li><button type="button" class="filter" data-cat="frontend" aria-pressed="false">Front end<span class="filter__n">2</span></button></li><li><button type="button" class="filter" data-cat="backend" aria-pressed="false">Back end<span class="filter__n">5</span></button></li><li><button type="button" class="filter" data-cat="security" aria-pressed="false">Security<span class="filter__n">4</span></button></li>
+          </ul>
+          <p class="toolbar__count" id="resultCount" aria-live="polite">10 projects</p>
+        </div>
+        <div class="pgrid" id="projectGrid">
+          <article class="pcard accent-tachkilti" data-cats="fullstack security mobile" data-search="tachkilti football &amp; padel app · personal · live football and padel for groups of friends: sign-ups from the phone, teams drawn level, and anonymous scores nobody can trace — not even the platform owner. nuxt 4 vue 3 typescript drizzle orm postgresql pwa vitest playwright vercel">
+            <div class="pcard__media frame"><img src="assets/img/work/tachkilti-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Football &amp; Padel App</p><p class="status status--live "><span class="status__dot" aria-hidden="true"></span>Live</p></div>
+              <h2 class="pcard__title"><a href="work/tachkilti.html" class="pcard__link">Tachkilti</a></h2>
+              <p class="pcard__summary">Football and padel for groups of friends: sign-ups from the phone, teams drawn level, and anonymous scores nobody can trace — not even the platform owner.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Full stack</li><li>Security</li><li>Mobile</li></ul>
+              <ul class="tags"><li>Nuxt 4</li><li>Vue 3</li><li>TypeScript</li><li>Drizzle ORM</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-elise-studio" data-cats="enterprise fullstack security" data-search="elise.studio multi-tenant platform · neoledge nine business modules behind one console, with every request&#x27;s tenant enforced four separate times — down to row-level security in postgresql. .net 10 vue 3 postgresql rls yarp elsa workflows 3 keycloak / oidc ef core multi-tenancy">
+            <div class="pcard__media frame"><img src="assets/img/work/elise-studio-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Multi-Tenant Platform</p><p class="status status--enterprise "><span class="status__dot" aria-hidden="true"></span>At NeoLedge</p></div>
+              <h2 class="pcard__title"><a href="work/elise-studio.html" class="pcard__link">Elise.Studio</a></h2>
+              <p class="pcard__summary">Nine business modules behind one console, with every request&#x27;s tenant enforced four separate times — down to row-level security in PostgreSQL.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Enterprise</li><li>Full stack</li><li>Security</li></ul>
+              <ul class="tags"><li>.NET 10</li><li>Vue 3</li><li>PostgreSQL RLS</li><li>YARP</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-neoform" data-cats="enterprise fullstack security frontend" data-search="neoform low-code platform · neoledge a low-code platform: admins drag forms together, wire their logic in blockly, and publish them inside the product or as a link a stranger can open. asp.net core postgresql ef core vue 3 typescript blockly keycloak .net aspire">
+            <div class="pcard__media frame"><img src="assets/img/work/neoform-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Low-Code Platform</p><p class="status status--enterprise "><span class="status__dot" aria-hidden="true"></span>At NeoLedge</p></div>
+              <h2 class="pcard__title"><a href="work/neoform.html" class="pcard__link">NeoForm</a></h2>
+              <p class="pcard__summary">A low-code platform: admins drag forms together, wire their logic in Blockly, and publish them inside the product or as a link a stranger can open.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Enterprise</li><li>Full stack</li><li>Security</li><li>Front end</li></ul>
+              <ul class="tags"><li>ASP.NET Core</li><li>PostgreSQL</li><li>EF Core</li><li>Vue 3</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-neolibrary" data-cats="enterprise frontend" data-search="neolibrary design system · neoledge one tested source of truth for every neoledge product&#x27;s fields: 37 vue 3 components whose state classes are pure functions, asserted with nothing mounted. vue 3 typescript primevue 4 tailwind css blockly vitest storybook vite">
+            <div class="pcard__media frame"><img src="assets/img/work/neolibrary-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Design System</p><p class="status status--enterprise "><span class="status__dot" aria-hidden="true"></span>At NeoLedge</p></div>
+              <h2 class="pcard__title"><a href="work/neolibrary.html" class="pcard__link">NeoLibrary</a></h2>
+              <p class="pcard__summary">One tested source of truth for every NeoLedge product&#x27;s fields: 37 Vue 3 components whose state classes are pure functions, asserted with nothing mounted.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Enterprise</li><li>Front end</li></ul>
+              <ul class="tags"><li>Vue 3</li><li>TypeScript</li><li>PrimeVue 4</li><li>Tailwind CSS</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-talent-bridge" data-cats="ai backend" data-search="talent bridge matching engine · personal job matching that shows its work: a seven-part score over 785,741 scraped postings, with every sub-score, matched and missing skill, and written reason in the response. python fastapi pytorch sentence-transformers vue 3 sql server ssis power bi">
+            <div class="pcard__media frame"><img src="assets/img/work/talent-bridge-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Matching Engine</p><p class="status status--open "><span class="status__dot" aria-hidden="true"></span>Open source</p></div>
+              <h2 class="pcard__title"><a href="work/talent-bridge.html" class="pcard__link">Talent Bridge</a></h2>
+              <p class="pcard__summary">Job matching that shows its work: a seven-part score over 785,741 scraped postings, with every sub-score, matched and missing skill, and written reason in the response.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>AI &amp; ML</li><li>Back end</li></ul>
+              <ul class="tags"><li>Python</li><li>FastAPI</li><li>PyTorch</li><li>sentence-transformers</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-tripmate" data-cats="fullstack ai" data-search="tripmate travel planner pwa · live a travel planner whose budget analysis warns before the money runs out — and whose ai never sees a traveller&#x27;s name. next.js 16 react 19 typescript mongodb mongoose tailwind css 4 zod pwa vitest">
+            <div class="pcard__media frame"><img src="assets/img/work/tripmate-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Travel Planner PWA</p><p class="status status--live "><span class="status__dot" aria-hidden="true"></span>Live</p></div>
+              <h2 class="pcard__title"><a href="work/tripmate.html" class="pcard__link">TripMate</a></h2>
+              <p class="pcard__summary">A travel planner whose budget analysis warns before the money runs out — and whose AI never sees a traveller&#x27;s name.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Full stack</li><li>AI &amp; ML</li></ul>
+              <ul class="tags"><li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>MongoDB</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-clinic-ai" data-cats="ai backend security" data-search="clinic ai whatsapp assistant · personal a whatsapp assistant for clinics that answers in the patient&#x27;s language and books appointments — and only ever quotes prices the clinic published. node.js 22 express better-sqlite3 whatsapp cloud api anthropic sdk faster-whisper playwright vanilla js">
+            <div class="pcard__media frame"><img src="assets/img/work/clinic-ai-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">WhatsApp Assistant</p><p class="status status--pilot "><span class="status__dot" aria-hidden="true"></span>Pilot-ready</p></div>
+              <h2 class="pcard__title"><a href="work/clinic-ai.html" class="pcard__link">Clinic AI</a></h2>
+              <p class="pcard__summary">A WhatsApp assistant for clinics that answers in the patient&#x27;s language and books appointments — and only ever quotes prices the clinic published.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>AI &amp; ML</li><li>Back end</li><li>Security</li></ul>
+              <ul class="tags"><li>Node.js 22</li><li>Express</li><li>better-sqlite3</li><li>WhatsApp Cloud API</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-auto-ecole" data-cats="mobile fullstack backend" data-search="auto-école driving-school platform · team of six a driving school in one app — student, instructor and office — where a student&#x27;s progress is replayed from the lesson sheets, never stored twice. flutter dart spring boot 4.1 java 17 postgresql flyway spring security riverpod docker">
+            <div class="pcard__media frame"><img src="assets/img/work/auto-ecole-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Driving-School Platform</p><p class="status status--team "><span class="status__dot" aria-hidden="true"></span>Team of six</p></div>
+              <h2 class="pcard__title"><a href="work/auto-ecole.html" class="pcard__link">Auto-École</a></h2>
+              <p class="pcard__summary">A driving school in one app — student, instructor and office — where a student&#x27;s progress is replayed from the lesson sheets, never stored twice.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Mobile</li><li>Full stack</li><li>Back end</li></ul>
+              <ul class="tags"><li>Flutter</li><li>Dart</li><li>Spring Boot 4.1</li><li>Java 17</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-mrayaq" data-cats="fullstack backend" data-search="mrayaq menswear brand site · personal a brand site and back office for a tunisian menswear label, built instead of paying for shopify — every order line priced from the database, never from the client. vue 3 typescript .net 8 minimal api ef core sql server primevue jwt">
+            <div class="pcard__media frame"><img src="assets/img/work/mrayaq-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Menswear Brand Site</p><p class="status status--open "><span class="status__dot" aria-hidden="true"></span>Open source</p></div>
+              <h2 class="pcard__title"><a href="work/mrayaq.html" class="pcard__link">MRAYAQ</a></h2>
+              <p class="pcard__summary">A brand site and back office for a Tunisian menswear label, built instead of paying for Shopify — every order line priced from the database, never from the client.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>Full stack</li><li>Back end</li></ul>
+              <ul class="tags"><li>Vue 3</li><li>TypeScript</li><li>.NET 8</li><li>Minimal API</li></ul>
+            </div>
+          </article>
+          <article class="pcard accent-medical-nlp" data-cats="ai backend" data-search="symptom triage console medical nlp · personal symptom notes in, a triage suggestion out — with a published measure of where the classifier fails, shown beside its accuracy. python fastapi scikit-learn streamlit sqlalchemy sqlite pydantic pytest">
+            <div class="pcard__media frame"><img src="assets/img/work/medical-nlp-640.jpg" alt="" width="640" height="360" loading="lazy" decoding="async" /></div>
+            <div class="pcard__body">
+              <div class="pcard__meta"><p class="pcard__kind">Medical NLP</p><p class="status status--open "><span class="status__dot" aria-hidden="true"></span>Open source</p></div>
+              <h2 class="pcard__title"><a href="work/medical-nlp.html" class="pcard__link">Symptom Triage Console</a></h2>
+              <p class="pcard__summary">Symptom notes in, a triage suggestion out — with a published measure of where the classifier fails, shown beside its accuracy.</p>
+              <ul class="pcard__cats" aria-label="Categories"><li>AI &amp; ML</li><li>Back end</li></ul>
+              <ul class="tags"><li>Python</li><li>FastAPI</li><li>scikit-learn</li><li>Streamlit</li></ul>
+            </div>
+          </article>
+        </div>
+        <div class="empty" id="emptyState" hidden>
+          <p>No project matches that search in this category.</p>
+          <button type="button" class="btn" id="clearFilters">Clear the search and filters</button>
+        </div>
+      </section>
+
+      <section class="sheet wrap" aria-labelledby="earlier-title">
+        <div class="sheet__head">
+          <h2 class="sheet__title" id="earlier-title">Earlier and smaller work</h2>
+          <p class="sheet__intro">The student projects and exercises the products above grew out of, newest first.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="ledger">
+            <thead><tr><th scope="col">Repository</th><th scope="col">Year</th><th scope="col">Stack</th><th scope="col">What it is</th><th scope="col">Code</th></tr></thead>
+            <tbody>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Smart-City-Traffic-Simulator" target="_blank" rel="noopener">Smart City Traffic Simulator</a></th>
+              <td>2026</td><td>C · Linux</td><td>A smart intersection simulated with processes, threads, shared memory and semaphores, built to make operating-system concepts visible.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Franchise-Management-CRM" target="_blank" rel="noopener">Franchise Management CRM</a></th>
+              <td>2025</td><td>FastAPI · React</td><td>A CRM for franchises, branches and budgets, built as a timed interview exercise, with Pytest on every push.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Tournament-Manager-JavaFX" target="_blank" rel="noopener">Tournament Manager JavaFX</a></th>
+              <td>2024</td><td>Java · JavaFX · MySQL</td><td>A desktop app for running tournaments: teams, matches, fixtures and sign-in.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row">Resume Parser API</th>
+              <td>2023</td><td>Python · FastAPI · spaCy</td><td>Reads a mailbox over IMAP, pulls CV attachments and parses them — built at Sofiatech.</td><td>Private</td>
+            </tr>
+            <tr>
+              <th scope="row">Document Intake Automation</th>
+              <td>2023</td><td>Python · Tkinter</td><td>The operator front end for the resume pipeline: files CV attachments on its own.</td><td>Private</td>
+            </tr>
+            <tr>
+              <th scope="row">Internship Recruitment Platform</th>
+              <td>2023</td><td>Angular · Express · MongoDB</td><td>Job, internship and final-year-project openings, with candidates scored against each opening.</td><td>Private</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/JWT-Authentication-API" target="_blank" rel="noopener">JWT Authentication API</a></th>
+              <td>2022</td><td>Express</td><td>A small API written to get JWT auth right and nothing else.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Match-Ticketing-Platform" target="_blank" rel="noopener">Match Ticketing Platform</a></th>
+              <td>2022</td><td>Angular 14</td><td>Football match tickets: fixtures, seat counts and an admin view.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/MERN-E-Commerce-Store" target="_blank" rel="noopener">MERN E Commerce Store</a></th>
+              <td>2022</td><td>MongoDB · Express · React · Node</td><td>Catalogue, reviews and a four-step checkout ending in PayPal.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row">Aleria Consulting Web App</th>
+              <td>2022</td><td>React · Apollo GraphQL</td><td>Billboard booking: companies request panels, owners accept or reject, live notifications.</td><td>Private</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Ad-Panel-Map-Prototype" target="_blank" rel="noopener">Ad Panel Map Prototype</a></th>
+              <td>2022</td><td>React · Mapbox</td><td>The map prototype that became the billboard booking platform.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row">AR Tree Planting Visualizer</th>
+              <td>2022</td><td>Unity · AR Foundation · C#</td><td>Lays out tree planting on real ground through the phone camera, with four water-harvesting techniques.</td><td>Private</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Travel-Agency-Web-App" target="_blank" rel="noopener">Travel Agency Web App</a></th>
+              <td>2021</td><td>Angular 12 · Leaflet</td><td>Browse destinations, hotels and offers, then reserve a trip.</td><td>Public</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/YassineSboui/Travel-Agency-API" target="_blank" rel="noopener">Travel Agency API</a></th>
+              <td>2021</td><td>Express · Mongoose</td><td>The 32-endpoint REST API behind the travel agency front end.</td><td>Public</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <dl class="titleblock" aria-label="About this site">
+          <div><dt>Drawn by</dt><dd>Yassine Sboui</dd></div>
+          <div><dt>Sheet</dt><dd>All projects</dd></div>
+          <div><dt>Revision</dt><dd>24 Nov 2026</dd></div>
+          <div><dt>Location</dt><dd>Tunis</dd></div>
+          <div><dt>Built with</dt><dd>HTML, CSS and plain JavaScript — no framework, no build step in the browser</dd></div>
+        </dl>
+        <ul class="footer__links">
+          <li><a href="mailto:sboui.ys7@gmail.com">Email</a></li>
+          <li><a href="https://github.com/YassineSboui" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/yassine7sboui/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="projects.html">All projects</a></li>
+        </ul>
+        <p class="footer__copy">© <span id="year">2026</span> Yassine Sboui</p>
+      </div>
+    </footer>
+  </body>
+</html>

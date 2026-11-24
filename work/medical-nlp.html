@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Symptom Triage Console — case study — Yassine Sboui</title>
+    <meta name="description" content="Symptom notes in, a triage suggestion out — with a published measure of where the classifier fails, shown beside its accuracy." />
+    <meta name="author" content="Yassine Sboui" />
+    <meta name="theme-color" content="#0a1424" />
+    <link rel="canonical" href="https://yassinesboui.github.io/Portfolio/work/medical-nlp.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Symptom Triage Console — case study — Yassine Sboui" />
+    <meta property="og:description" content="Symptom notes in, a triage suggestion out — with a published measure of where the classifier fails, shown beside its accuracy." />
+    <meta property="og:url" content="https://yassinesboui.github.io/Portfolio/work/medical-nlp.html" />
+    <meta property="og:image" content="https://yassinesboui.github.io/Portfolio/assets/img/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://yassinesboui.github.io/Portfolio/assets/img/og-card.jpg" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon-64.png" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+    <!-- Set the theme before first paint, so a visitor who chose the light plate never sees
+         the dark one flash first. main.js owns the toggle; this only reads the stored choice. -->
+    <script>try{var t=localStorage.getItem('ys-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(_){}document.documentElement.classList.add('js')</script>
+    <!-- Fonts are self-hosted (assets/fonts), so no third-party origin sits on the critical path. They
+         are deliberately not preloaded: on a slow link a preload competes with the stylesheet the
+         first paint needs (measured 24 Nov 2026 with render/preload-ab.js), and swapping in causes no
+         layout shift. -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/case.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="nav" id="nav">
+      <nav class="nav__inner wrap" aria-label="Primary">
+        <a href="../index.html" class="nav__brand" aria-label="Yassine Sboui, home">
+          <span class="nav__mark" aria-hidden="true">YS</span>
+          <span class="nav__name">Yassine Sboui</span>
+        </a>
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="../index.html#work">Work</a></li>
+          <li><a href="../projects.html" aria-current="page">All projects</a></li>
+          <li><a href="../index.html#pipeline">Process</a></li>
+          <li><a href="../index.html#decisions">Decisions</a></li>
+          <li><a href="../index.html#contact" class="nav__cta">Contact</a></li>
+        </ul>
+        <div class="nav__tools">
+          <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" /></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+          </button>
+          <button class="nav__toggle icon-btn" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation">
+            <span></span><span></span>
+          </button>
+        </div>
+      </nav>
+      <span class="nav__progress" id="navProgress" aria-hidden="true"></span>
+    </header>
+
+    <main id="main" class="case accent-medical-nlp">
+      <header class="case__head wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../projects.html">All projects</a></li><li aria-current="page">Symptom Triage Console</li></ol></nav>
+        <h1 class="case__title">Symptom Triage Console</h1>
+        <div class="case__meta"><p class="case__kind">Medical NLP</p><p class="status status--open "><span class="status__dot" aria-hidden="true"></span>Open source</p></div>
+        <p class="case__summary">Symptom notes in, a triage suggestion out — with a published measure of where the classifier fails, shown beside its accuracy.</p>
+        <div class="case__links"><a class="btn" href="https://github.com/YassineSboui/Medical-Prescription-NLP-System" target="_blank" rel="noopener">View the code on GitHub</a></div>
+      </header>
+      <figure class="case__film wrap">
+        <div class="project__media frame">
+              <video controls muted loop playsinline preload="none" poster="../assets/video/medical-nlp-poster.jpg" width="1600" height="900">
+                <source src="../assets/video/medical-nlp.mp4" type="video/mp4" />
+                Your browser can't play this video. <a href="../assets/video/medical-nlp.mp4">Download the film</a>.
+              </video>
+            </div>
+        <figcaption>Demo film, recorded from the running app. Muted; the controls turn the sound on.</figcaption>
+      </figure>
+      <div class="case__layout wrap">
+        <nav class="case__toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem and objectives</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#engineering">Engineering challenges and decisions</a></li><li><a href="#stack">Technologies</a></li><li><a href="#contribution">My contribution</a></li><li><a href="#screens">Screens</a></li><li><a href="#results">Results</a></li></ol></nav>
+        <div class="case__content">
+        <section class="case__sec" id="overview" aria-labelledby="overview-h">
+          <h2 class="case__h" id="overview-h">Overview</h2>
+          <p class="case__lede">Free-text symptom notes in; a triage suggestion for one of 14 conditions out, with medication reference and warnings. Held-out accuracy is 0.894 — and the interface publishes 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page&#x27;s phrasing. Cholera drops to 0.015. Every answer also names the engine that decided and reports that engine&#x27;s own accuracy, not the best one&#x27;s. Building the measure that exposed all this was the hard part.</p>
+        </section>
+        <section class="case__sec" id="problem" aria-labelledby="problem-h">
+          <h2 class="case__h" id="problem-h">Problem and objectives</h2>
+          <p>A held-out accuracy of 0.894 looks finished. Holding out an entire CDC or WHO source passage showed the classifier was largely learning one page&#x27;s phrasing.</p><ul class="checklist"><li>Suggest one of 14 conditions from free text, with medication reference and warnings</li><li>Say which engine decided, and how accurate that engine is</li><li>Publish the measure that makes the numbers look worse</li></ul>
+        </section>
+        <section class="case__sec" id="architecture" aria-labelledby="architecture-h">
+          <h2 class="case__h" id="architecture-h">Architecture</h2>
+          <figure class="arch" data-arch data-reveal>
+            <div class="arch__canvas frame">
+              <svg viewBox="0 0 1116 364" class="arch__svg" aria-label="Architecture diagram of Symptom Triage Console" role="group">
+                <defs><marker id="arrow-medical-nlp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" /></marker></defs>
+                <g class="arch__edges" style="--marker:url(#arrow-medical-nlp)"><g class="arch__edge" data-from="ui" data-to="api"><path d="M208 182 H262 V182 H316" id="e-medical-nlp-0" /><text class="arch__elabel" x="262" y="174" text-anchor="middle">HTTP</text></g><g class="arch__edge" data-from="api" data-to="eng"><path d="M504 182 H558 V58 H612" id="e-medical-nlp-1" /></g><g class="arch__edge" data-from="eng" data-to="eval"><path d="M800 58 H854 V58 H908" id="e-medical-nlp-2" /><text class="arch__elabel" x="854" y="50" text-anchor="middle">measured</text></g><g class="arch__edge" data-from="api" data-to="db"><path d="M504 182 H558 V306 H612" id="e-medical-nlp-3" /></g><g class="arch__edge rev" data-from="data" data-to="eng"><path d="M800 58 H854 V306 H908" id="e-medical-nlp-4" /><text class="arch__elabel" x="860" y="186" text-anchor="start">trains</text></g></g>
+                <g class="arch__node" data-node="ui" tabindex="0" role="button" aria-describedby="arch-medical-nlp-ui" style="--i:0" transform="translate(20 146)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Console</text>
+              <text class="arch__tech" x="14" y="51">Streamlit</text>
+            </g><g class="arch__node" data-node="api" tabindex="0" role="button" aria-describedby="arch-medical-nlp-api" style="--i:1" transform="translate(316 146)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">API</text>
+              <text class="arch__tech" x="14" y="51">FastAPI · 11 endpoints</text>
+            </g><g class="arch__node" data-node="eng" tabindex="0" role="button" aria-describedby="arch-medical-nlp-eng" style="--i:2" transform="translate(612 22)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Engines</text>
+              <text class="arch__tech" x="14" y="51">scikit-learn</text>
+            </g><g class="arch__node" data-node="eval" tabindex="0" role="button" aria-describedby="arch-medical-nlp-eval" style="--i:3" transform="translate(908 22)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Evaluation</text>
+              <text class="arch__tech" x="14" y="51">held-out and cross-sour…</text>
+            </g><g class="arch__node" data-node="db" tabindex="0" role="button" aria-describedby="arch-medical-nlp-db" style="--i:4" transform="translate(612 270)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">SQLite</text>
+              <text class="arch__tech" x="14" y="51">SQLAlchemy</text>
+            </g><g class="arch__node" data-node="data" tabindex="0" role="button" aria-describedby="arch-medical-nlp-data" style="--i:5" transform="translate(908 270)">
+              <rect width="188" height="72" rx="2" />
+              <text class="arch__name" x="14" y="29">Dataset</text>
+              <text class="arch__tech" x="14" y="51">616 sourced rows</text>
+            </g>
+              </svg>
+            </div>
+            <div class="arch__detail" aria-live="polite">
+              <p class="arch__detail-name">Console</p>
+              <p class="arch__detail-tech">Streamlit</p>
+              <p class="arch__detail-desc">Notes in; suggestion, engine and its accuracy out.</p>
+            </div>
+            <figcaption>Select a component to see what it does and what it connects to.<span class="arch__swipe"> On a narrow screen, swipe the drawing sideways to see all of it.</span></figcaption>
+            <ul class="arch__list"><li id="arch-medical-nlp-ui" data-node="ui"><strong>Console</strong> <span class="arch__tech-full">Streamlit</span> — Notes in; suggestion, engine and its accuracy out.</li><li id="arch-medical-nlp-api" data-node="api"><strong>API</strong> <span class="arch__tech-full">FastAPI · 11 endpoints</span> — Batch mode, CSV export, Markdown reports.</li><li id="arch-medical-nlp-eng" data-node="eng"><strong>Engines</strong> <span class="arch__tech-full">scikit-learn</span> — Every answer names the engine that decided.</li><li id="arch-medical-nlp-eval" data-node="eval"><strong>Evaluation</strong> <span class="arch__tech-full">held-out and cross-source</span> — 0.894 held-out, 0.524 transfer recall, per label down to 0.015.</li><li id="arch-medical-nlp-db" data-node="db"><strong>SQLite</strong> <span class="arch__tech-full">SQLAlchemy</span> — Consultations with an audit trail and filterable history.</li><li id="arch-medical-nlp-data" data-node="data"><strong>Dataset</strong> <span class="arch__tech-full">616 sourced rows</span> — Each quotes a CDC or WHO passage, verified verbatim.</li></ul>
+          </figure>
+        </section>
+        <section class="case__sec" id="engineering" aria-labelledby="engineering-h">
+          <h2 class="case__h" id="engineering-h">Engineering challenges and decisions</h2>
+          <ul class="notes"><li>Cross-source transfer recall 0.524 shown in four UI places, per-label down to 0.015</li><li>Every response names the deciding engine and carries that engine&#x27;s own measured accuracy</li><li>616 rows, each traced to a quoted CDC/WHO passage verified verbatim by the builder</li><li>SQLite consultations with audit trail, filterable history, CSV export, Markdown reports, batch mode</li></ul><div class="case-decision"><h3>Publishing 0.524</h3><dl>
+              <div><dt>The constraint</dt><dd>The triage classifier&#x27;s held-out accuracy is 0.894.</dd></div>
+              <div><dt>What I rejected</dt><dd>Shipping 0.894 alone.</dd></div>
+              <div><dt>What I did</dt><dd>Published 0.524 cross-source transfer recall beside it, in four places, because holding out an entire CDC/WHO source passage shows the classifier is largely learning one page&#x27;s phrasing.</dd></div>
+              <div><dt>What it cost</dt><dd>Cholera reads 0.015, in public.</dd></div></dl></div>
+        </section>
+        <section class="case__sec" id="stack" aria-labelledby="stack-h">
+          <h2 class="case__h" id="stack-h">Technologies</h2>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>scikit-learn</li><li>Streamlit</li><li>SQLAlchemy</li><li>SQLite</li><li>Pydantic</li><li>pytest</li></ul>
+        </section>
+        <section class="case__sec" id="contribution" aria-labelledby="contribution-h">
+          <h2 class="case__h" id="contribution-h">My contribution</h2>
+          <p>Solo developer — dataset, evaluation, FastAPI backend, Streamlit console, test suite.</p>
+        </section>
+        <section class="case__sec" id="screens" aria-labelledby="screens-h">
+          <h2 class="case__h" id="screens-h">Screens</h2>
+          <p class="case__small">Stills from the demo film.</p><ul class="shots"><li class="shot shot--still frame"><img src="../assets/img/work/medical-nlp-still-1.jpg" alt="Still from the Symptom Triage Console demo film" width="960" height="540" loading="lazy" decoding="async" /></li><li class="shot shot--still frame"><img src="../assets/img/work/medical-nlp-still-2.jpg" alt="Still from the Symptom Triage Console demo film" width="960" height="540" loading="lazy" decoding="async" /></li><li class="shot shot--still frame"><img src="../assets/img/work/medical-nlp-still-3.jpg" alt="Still from the Symptom Triage Console demo film" width="960" height="540" loading="lazy" decoding="async" /></li></ul>
+        </section>
+        <section class="case__sec" id="results" aria-labelledby="results-h">
+          <h2 class="case__h" id="results-h">Results</h2>
+          <dl class="schedule"><div><dt>0.894</dt><dd>held-out accuracy</dd></div><div><dt>0.524</dt><dd>cross-source transfer recall, shown in four places</dd></div><div><dt>616</dt><dd>rows, each traced to a quoted CDC or WHO passage</dd></div><div><dt>117</dt><dd>tests across 11 documented endpoints</dd></div></dl>
+        </section>
+        </div>
+      </div>
+      <nav class="case__pager wrap" aria-label="More projects">
+        <a href="mrayaq.html" class="pager pager--prev"><span>Previous</span><strong>MRAYAQ</strong></a>
+        <a href="../projects.html" class="pager pager--all"><span>Back to</span><strong>All projects</strong></a>
+        <a href="tachkilti.html" class="pager pager--next"><span>Next</span><strong>Tachkilti</strong></a>
+      </nav>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <dl class="titleblock" aria-label="About this site">
+          <div><dt>Drawn by</dt><dd>Yassine Sboui</dd></div>
+          <div><dt>Sheet</dt><dd>Case study: Symptom Triage Console</dd></div>
+          <div><dt>Revision</dt><dd>24 Nov 2026</dd></div>
+          <div><dt>Location</dt><dd>Tunis</dd></div>
+          <div><dt>Built with</dt><dd>HTML, CSS and plain JavaScript — no framework, no build step in the browser</dd></div>
+        </dl>
+        <ul class="footer__links">
+          <li><a href="mailto:sboui.ys7@gmail.com">Email</a></li>
+          <li><a href="https://github.com/YassineSboui" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/yassine7sboui/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="../projects.html">All projects</a></li>
+        </ul>
+        <p class="footer__copy">© <span id="year">2026</span> Yassine Sboui</p>
+      </div>
+    </footer>
+  </body>
+</html>
