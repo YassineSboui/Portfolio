@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/</loc>
+    <loc>https://yassinesboui.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/projects.html</loc>
+    <loc>https://yassinesboui.vercel.app/projects</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/tachkilti.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/tachkilti</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/elise-studio.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/elise-studio</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/neoform.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/neoform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/neolibrary.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/neolibrary</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/talent-bridge.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/talent-bridge</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/tripmate.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/tripmate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/clinic-ai.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/clinic-ai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/auto-ecole.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/auto-ecole</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/mrayaq.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/mrayaq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yassinesboui.github.io/Portfolio/work/medical-nlp.html</loc>
+    <loc>https://yassinesboui.vercel.app/work/medical-nlp</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

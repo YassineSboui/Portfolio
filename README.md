@@ -4,7 +4,7 @@ My personal portfolio: ten products, each with a demo film recorded from the run
 study per project, and an archive of everything else. Hand-written HTML, CSS and plain
 JavaScript — no framework, nothing to build in the browser.
 
-Live: <https://yassinesboui.github.io/Portfolio/>
+Live: <https://yassinesboui.vercel.app/> — also served at <https://yassinesboui.github.io/Portfolio/>
 
 ## Highlights
 
@@ -26,16 +26,16 @@ Live: <https://yassinesboui.github.io/Portfolio/>
 
 | Project | Stack | Demo | Source |
 | --- | --- | --- | --- |
-| [Tachkilti](https://yassinesboui.github.io/Portfolio/work/tachkilti.html) — Football & Padel App | Nuxt 4 · Vue 3 · TypeScript · Drizzle ORM | film | private |
-| [Elise.Studio](https://yassinesboui.github.io/Portfolio/work/elise-studio.html) — Multi-Tenant Platform | .NET 10 · Vue 3 · PostgreSQL RLS · YARP | film | private |
-| [NeoForm](https://yassinesboui.github.io/Portfolio/work/neoform.html) — Low-Code Platform | ASP.NET Core · PostgreSQL · EF Core · Vue 3 | film | private |
-| [NeoLibrary](https://yassinesboui.github.io/Portfolio/work/neolibrary.html) — Design System | Vue 3 · TypeScript · PrimeVue 4 · Tailwind CSS | film | private |
-| [Talent Bridge](https://yassinesboui.github.io/Portfolio/work/talent-bridge.html) — Matching Engine | Python · FastAPI · PyTorch · sentence-transformers | film | [GitHub](https://github.com/YassineSboui/Talent-Bridge) |
-| [TripMate](https://yassinesboui.github.io/Portfolio/work/tripmate.html) — Travel Planner PWA | Next.js 16 · React 19 · TypeScript · MongoDB | film | private |
-| [Clinic AI](https://yassinesboui.github.io/Portfolio/work/clinic-ai.html) — WhatsApp Assistant | Node.js 22 · Express · better-sqlite3 · WhatsApp Cloud API | film | private |
-| [Auto-École](https://yassinesboui.github.io/Portfolio/work/auto-ecole.html) — Driving-School Platform | Flutter · Dart · Spring Boot 4.1 · Java 17 | film | private |
-| [MRAYAQ](https://yassinesboui.github.io/Portfolio/work/mrayaq.html) — Menswear Brand Site | Vue 3 · TypeScript · .NET 8 · Minimal API | film | [GitHub](https://github.com/YassineSboui/Mrayaq-Commerce-Platform) |
-| [Symptom Triage Console](https://yassinesboui.github.io/Portfolio/work/medical-nlp.html) — Medical NLP | Python · FastAPI · scikit-learn · Streamlit | film | [GitHub](https://github.com/YassineSboui/Medical-Prescription-NLP-System) |
+| [Tachkilti](https://yassinesboui.vercel.app/work/tachkilti) — Football & Padel App | Nuxt 4 · Vue 3 · TypeScript · Drizzle ORM | film | private |
+| [Elise.Studio](https://yassinesboui.vercel.app/work/elise-studio) — Multi-Tenant Platform | .NET 10 · Vue 3 · PostgreSQL RLS · YARP | film | private |
+| [NeoForm](https://yassinesboui.vercel.app/work/neoform) — Low-Code Platform | ASP.NET Core · PostgreSQL · EF Core · Vue 3 | film | private |
+| [NeoLibrary](https://yassinesboui.vercel.app/work/neolibrary) — Design System | Vue 3 · TypeScript · PrimeVue 4 · Tailwind CSS | film | private |
+| [Talent Bridge](https://yassinesboui.vercel.app/work/talent-bridge) — Matching Engine | Python · FastAPI · PyTorch · sentence-transformers | film | [GitHub](https://github.com/YassineSboui/Talent-Bridge) |
+| [TripMate](https://yassinesboui.vercel.app/work/tripmate) — Travel Planner PWA | Next.js 16 · React 19 · TypeScript · MongoDB | film | private |
+| [Clinic AI](https://yassinesboui.vercel.app/work/clinic-ai) — WhatsApp Assistant | Node.js 22 · Express · better-sqlite3 · WhatsApp Cloud API | film | private |
+| [Auto-École](https://yassinesboui.vercel.app/work/auto-ecole) — Driving-School Platform | Flutter · Dart · Spring Boot 4.1 · Java 17 | film | private |
+| [MRAYAQ](https://yassinesboui.vercel.app/work/mrayaq) — Menswear Brand Site | Vue 3 · TypeScript · .NET 8 · Minimal API | film | [GitHub](https://github.com/YassineSboui/Mrayaq-Commerce-Platform) |
+| [Symptom Triage Console](https://yassinesboui.vercel.app/work/medical-nlp) — Medical NLP | Python · FastAPI · scikit-learn · Streamlit | film | [GitHub](https://github.com/YassineSboui/Medical-Prescription-NLP-System) |
 
 ## Structure
 

@@ -196,14 +196,14 @@
         panel.replaceChildren(
           el('p', 'cpanel__name', key),
           el('p', 'cpanel__count', projects.length === 1 ? 'Shipped in 1 project' : `Shipped in ${projects.length} projects`),
-          linkList(projects.map(([k, n]) => [`work/${k}.html`, n])));
+          linkList(projects.map(([k, n]) => [`work/${k}`, n])));
       } else {
         const p = data.project[key];
         panel.replaceChildren(
           el('p', 'cpanel__name', p.name),
           el('p', 'cpanel__count', `${p.kind}, ${p.techs.length} technologies`),
           el('p', 'cpanel__techs', p.techs.join(', ')),
-          linkList([[`work/${key}.html`, 'Read the case study']]));
+          linkList([[`work/${key}`, 'Read the case study']]));
       }
     };
     techNodes.forEach((n, t) => n.addEventListener('click', () => pick('t:' + t)));
